@@ -32,6 +32,10 @@ Territory Desk enables New Business Sales Representatives in different departmen
 11. Waiting-on-others and recent-feedback views.
 12. Actionable manager collaboration insights.
 
+## Home dashboard priority
+
+The home dashboard prioritizes a unified Action Required queue, then Waiting on Others, Recent Feedback and Outcomes, and permission-appropriate collaboration insights. New handoffs and lead-derived follow-ups are filterable categories inside Action Required rather than duplicated as separate large mobile cards.
+
 ## Explicit exclusions for the initial release
 
 1. General daily call planner.

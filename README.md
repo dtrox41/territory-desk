@@ -30,6 +30,7 @@ The project is in isolated workspace setup and requirements definition. Applicat
 - `docs/security-and-environments.md` — credential and environment safeguards
 - `docs/data-quality-report.md` — source-import validation and unresolved routing findings
 - `docs/navigation-spec.md` — approved mobile and laptop navigation behavior
+- `docs/home-dashboard-spec.md` — proposed action-first home dashboard behavior
 
 ## Repository status
 
