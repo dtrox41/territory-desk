@@ -64,6 +64,12 @@ The recipient should provide the first meaningful response by the end of the nex
 
 `Viewed` is not a meaningful response. `Accept`, `Need Information`, and `Decline` satisfy the first-response target.
 
+## Collaboration measurement
+
+The initial workflow KPIs are first-response target completion and closed-loop update completion. Qualified progression remains a gated outcome KPI until Dynamics mapping and attribution are validated.
+
+Insights must be actionable, link to accessible supporting records, display their eligible denominator and freshness, and avoid individual or raw-volume leaderboards. Missing or ambiguous evidence produces an explicit unavailable state rather than a guessed result.
+
 ## Data and integration boundary
 
 1. Prototype records are fictional.

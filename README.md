@@ -30,8 +30,9 @@ The project is in isolated workspace setup and requirements definition. Applicat
 - `docs/security-and-environments.md` — credential and environment safeguards
 - `docs/data-quality-report.md` — source-import validation and unresolved routing findings
 - `docs/navigation-spec.md` — approved mobile and laptop navigation behavior
-- `docs/home-dashboard-spec.md` — proposed action-first home dashboard behavior
+- `docs/home-dashboard-spec.md` — approved action-first home dashboard behavior
 - `docs/action-ranking-spec.md` — approved Lead Action Required ordering and response-time rules
+- `docs/collaboration-insights-spec.md` — approved cross-department KPI and insight rules
 
 ## Repository status
 

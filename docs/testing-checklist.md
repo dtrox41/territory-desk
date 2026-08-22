@@ -103,6 +103,21 @@
 ## Manager visibility
 
 - [ ] Managers can identify stalled handoffs.
+
+## Cross-department insights
+
+- [ ] First-response target completion uses only meaningful responses and the approved business-day target.
+- [ ] Closed-loop update completion requires structured completed progress, not a view, note, or reschedule alone.
+- [ ] Qualified progression remains hidden in production until Dynamics mapping and attribution are validated.
+- [ ] Every rate shows its eligible denominator, exclusions, definition, and last refresh time.
+- [ ] Every actionable insight links to records the current user is authorized to access.
+- [ ] Representatives see only their approved personal sent and received scope.
+- [ ] Managers see only their approved team scope.
+- [ ] Groups below the comparison threshold show insufficient volume rather than a rank.
+- [ ] Declined handoffs count as responded but do not count as qualified progression.
+- [ ] Routing exceptions are not attributed to recipient performance.
+- [ ] Stale, missing, and conflicting data produce explicit states.
+- [ ] No raw-volume or individual leaderboard appears.
 - [ ] Reassignment is restricted to authorized users.
 - [ ] Insights balance volume with quality and outcomes.
 - [ ] General calls and visits do not displace collaboration actions.

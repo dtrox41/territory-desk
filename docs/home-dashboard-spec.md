@@ -248,22 +248,22 @@ Newest meaningful event first. Routine notification-delivery events are excluded
 
 ### Representative view
 
-Show a compact personal collaboration pulse for the current period:
+Show at most three compact, personal, actionable insights for the current period:
 
-1. Leads accepted from other departments.
-2. Appointments produced by peer handoffs.
-3. Handoffs with a recorded outcome.
-4. Items still missing a closed-loop update.
+1. Response Target — completed on time out of eligible responses.
+2. Open Loops — accepted handoffs with an overdue update or no next action.
+3. Recent Progress — appointments or final outcomes recorded in the period.
 
 ### Manager view
 
-Show only actionable team signals:
+Show only actionable signals within the manager's approved team scope:
 
-1. Handoffs awaiting a first response.
-2. Items marked `Needs Attention`.
-3. Departments with unresolved routing gaps.
-4. Handoffs lacking a next action.
-5. Outcome completion rate, only after the definition and data quality are approved.
+1. Handoffs with a missed first-response target.
+2. Accepted handoffs with an overdue update or no next action.
+3. First-response target completion rate.
+4. Closed-loop update completion rate.
+5. Routing exceptions and measurement completeness.
+6. Qualified progression only after the outcome definition and Dynamics mapping are approved.
 
 ### Maximum visible items
 
@@ -277,6 +277,7 @@ Show only actionable team signals:
 3. No revenue or conversion claim without a verified Dynamics mapping.
 4. Every displayed insight links to the records behind it.
 5. Hide the block when the user lacks permission or when the evidence is insufficient.
+6. Follow the metric definitions, denominator rules, comparison threshold, and anti-gaming controls in `docs/collaboration-insights-spec.md`.
 
 ### States
 
