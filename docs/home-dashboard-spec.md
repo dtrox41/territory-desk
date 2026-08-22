@@ -133,13 +133,14 @@ Combine every item that requires the current user to respond or complete a lead-
 
 1. One-business-day response target missed.
 2. Overdue lead-derived follow-up.
-3. New unread handoff.
-4. Sender supplied requested information.
+3. Sender supplied requested information.
+4. New unread handoff.
 5. Viewed handoff still awaiting a response.
-6. Accepted lead missing a next action.
-7. Reassignment acknowledgment.
+6. Lead-derived follow-up due today.
+7. Accepted lead missing a next action.
+8. Reassignment acknowledgment.
 
-Within the same category, sort oldest required action first. Do not rank by customer value until an approved source and policy exist.
+Within the same category, follow the deterministic tie-breaking rules in `docs/action-ranking-spec.md`. Do not rank by customer value, department, sender seniority, or raw lead volume.
 
 ### Card content
 

@@ -31,6 +31,7 @@ The project is in isolated workspace setup and requirements definition. Applicat
 - `docs/data-quality-report.md` — source-import validation and unresolved routing findings
 - `docs/navigation-spec.md` — approved mobile and laptop navigation behavior
 - `docs/home-dashboard-spec.md` — proposed action-first home dashboard behavior
+- `docs/action-ranking-spec.md` — approved Lead Action Required ordering and response-time rules
 
 ## Repository status
 

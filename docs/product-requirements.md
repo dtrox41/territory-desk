@@ -60,7 +60,9 @@ The home dashboard prioritizes a unified Action Required queue, then Waiting on 
 
 ## Response target
 
-The recipient should provide the first meaningful response within one business day. Missing the target marks the handoff `Needs Attention`; it does not automatically penalize, decline, or reassign it.
+The recipient should provide the first meaningful response by the end of the next business day in the recipient’s approved local timezone. Missing the target marks the handoff `Needs Attention`; it does not automatically penalize, decline, or reassign it.
+
+`Viewed` is not a meaningful response. `Accept`, `Need Information`, and `Decline` satisfy the first-response target.
 
 ## Data and integration boundary
 

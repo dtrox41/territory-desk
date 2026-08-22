@@ -83,6 +83,23 @@
 - [ ] Offline or stale state shows the last successful refresh time.
 - [ ] Dashboard analytics contain fictional IDs only and no lead details.
 
+## Action Required ranking
+
+- [ ] One handoff produces at most one current action item per user.
+- [ ] Missed first-response target ranks first.
+- [ ] Overdue lead-derived follow-up ranks second.
+- [ ] Information supplied, unread, viewed-without-response, due-today, missing-next-action, and reassignment items follow the approved order.
+- [ ] Same-category ties use due time, required-action time, creation time, and stable ID.
+- [ ] Queue order remains stable across refreshes.
+- [ ] A Monday daytime handoff is due Tuesday at 5:00 PM local time.
+- [ ] A Friday daytime handoff is due Monday at 5:00 PM local time.
+- [ ] A Friday after-hours handoff is due Tuesday at 5:00 PM local time.
+- [ ] Viewed does not satisfy the first-response target.
+- [ ] Need Information satisfies the recipient target and creates a sender action.
+- [ ] Missed target does not auto-penalize, decline, or reassign.
+- [ ] Customer value, department, sender seniority, and raw volume do not affect rank.
+- [ ] Ambiguous ownership creates an exception rather than a guessed assignment.
+
 ## Manager visibility
 
 - [ ] Managers can identify stalled handoffs.
