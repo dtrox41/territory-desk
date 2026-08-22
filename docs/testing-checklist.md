@@ -51,6 +51,20 @@
 - [ ] Controls have accessible names and visible focus.
 - [ ] Status does not rely on color alone.
 
+## Global navigation
+
+- [ ] Mobile top bar and five-destination bottom navigation remain usable while scrolling.
+- [ ] Home, Territory, Send Lead, Leads, and Directory use visible labels.
+- [ ] General Visits and Calls do not appear as global destinations.
+- [ ] Nested routes preserve the correct active destination.
+- [ ] Notification count and action-required lead count have distinct meanings.
+- [ ] Back navigation restores list filters and scroll position.
+- [ ] Direct links have a safe fallback destination.
+- [ ] Changed lead forms cannot be abandoned without an explicit choice.
+- [ ] Real lead drafts are not persisted in browser local storage.
+- [ ] Desktop navigation preserves mobile wording, order, and permissions.
+- [ ] Unauthorized destinations are omitted and direct unauthorized routes fail safely.
+
 ## Manager visibility
 
 - [ ] Managers can identify stalled handoffs.

@@ -29,6 +29,7 @@ The project is in isolated workspace setup and requirements definition. Applicat
 - `docs/testing-checklist.md` — acceptance and quality checks
 - `docs/security-and-environments.md` — credential and environment safeguards
 - `docs/data-quality-report.md` — source-import validation and unresolved routing findings
+- `docs/navigation-spec.md` — approved mobile and laptop navigation behavior
 
 ## Repository status
 
