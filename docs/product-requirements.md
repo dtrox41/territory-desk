@@ -76,6 +76,12 @@ Lookup supports five-digit ZIP, ZIP+4, city, and city-state searches. City-only 
 
 The primary successful action is Send Lead, which prefills verified routing context into the structured handoff form. Direct call, email, and text actions remain contact utilities and do not count as tracked handoffs.
 
+## Representative directory
+
+The Directory supports teammate discovery by name, department, exact division, location, and state or approved region. Representatives are keyed by stable identifiers rather than display names, and contacts are permission controlled.
+
+Starting Send Lead from Directory preselects a person but does not bypass routing. The requested service and customer ZIP must validate against the current territory assignment before submission; mismatches and exceptions remain explicit.
+
 ## Data and integration boundary
 
 1. Prototype records are fictional.

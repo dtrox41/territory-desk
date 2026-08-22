@@ -137,6 +137,27 @@
 - [ ] Direct result links recheck authentication, permission, and data version.
 - [ ] Search suggestions and results meet keyboard, screen-reader, touch-target, zoom, and contrast requirements.
 - [ ] Public prototype assets contain only fictional people and assignments.
+
+## Representative directory
+
+- [ ] Representatives are joined and opened by stable ID, never display name alone.
+- [ ] Two people with the same display name remain separate and visibly distinguishable.
+- [ ] Conflicting contact records produce Needs Review instead of selecting the first value.
+- [ ] Exact, prefix, contains, department, division, location, and state matches follow the approved order.
+- [ ] Equal-tier results sort alphabetically and never by performance or raw lead volume.
+- [ ] Department, division, location, state, status, and contact-availability filters preserve state through Back.
+- [ ] Representative cards expose minimal context and do not crowd every contact action onto mobile.
+- [ ] Direct profile links recheck authentication and authorization.
+- [ ] Send Lead from Directory requires department, ZIP, and territory validation.
+- [ ] A recipient mismatch is explained and never silently replaced.
+- [ ] Ambiguous, open, inactive, and missing-data states follow approved routing rules.
+- [ ] Call, Text, and Email do not create a handoff or appear in collaboration KPIs.
+- [ ] Managers see approved routing scope but no directory leaderboard or unrestricted contacts.
+- [ ] Data-version mismatch disables new handoff routing.
+- [ ] Reports create auditable issues without immediately mutating source data.
+- [ ] Offline and stale states do not leak uncached profiles or persist contacts locally.
+- [ ] Keyboard, screen-reader, touch-target, focus-return, zoom, and contrast behavior passes.
+- [ ] Public prototype assets contain fictional identities and contacts only.
 - [ ] Reassignment is restricted to authorized users.
 - [ ] Insights balance volume with quality and outcomes.
 - [ ] General calls and visits do not displace collaboration actions.

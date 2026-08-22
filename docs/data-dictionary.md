@@ -13,6 +13,10 @@ All fields are provisional until the Dynamics 365 mapping and privacy review are
 | `managerId` | Authorized manager relationship |
 | `active` | Controls routing eligibility |
 | `notificationPreferences` | Approved in-app, email, push, or SMS behavior |
+| `sourceVersion` | Directory or identity source version used for the active record |
+| `sourceUpdatedAt` | Date the source dataset reports it was updated |
+| `lastVerifiedAt` | Optional separate authoritative or human verification timestamp |
+| `identityException` | Optional duplicate-name, conflicting-contact, or missing-identity review state |
 
 ## Lead handoff
 

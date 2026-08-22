@@ -34,6 +34,7 @@ The project is in isolated workspace setup and requirements definition. Applicat
 - `docs/action-ranking-spec.md` — approved Lead Action Required ordering and response-time rules
 - `docs/collaboration-insights-spec.md` — approved cross-department KPI and insight rules
 - `docs/territory-lookup-spec.md` — approved ZIP/city routing and lookup behavior
+- `docs/representative-directory-spec.md` — approved representative discovery and profile behavior
 
 ## Repository status
 
