@@ -118,6 +118,25 @@
 - [ ] Routing exceptions are not attributed to recipient performance.
 - [ ] Stale, missing, and conflicting data produce explicit states.
 - [ ] No raw-volume or individual leaderboard appears.
+
+## Territory lookup
+
+- [ ] Five-digit ZIP, ZIP+4, city, city-state, and full-state-name inputs follow the approved rules.
+- [ ] One-to-four-digit ZIP input produces suggestions or validation, never a padded lookup.
+- [ ] Exact city matches precede prefix and contains suggestions.
+- [ ] A city in multiple states requires a state selection.
+- [ ] Different representatives across a city's ZIP codes require the customer's exact ZIP.
+- [ ] Multiple representatives in one ZIP-and-division group create Needs Review and cannot be auto-selected.
+- [ ] Open territory displays no fabricated representative and requests routing help.
+- [ ] Send Lead carries exact routing identifiers into an unsubmitted form.
+- [ ] Direct call, email, and text actions state that they are not tracked handoffs.
+- [ ] Source updated and Last verified labels cannot be substituted for one another.
+- [ ] Report Incorrect Information creates an auditable item without editing source data immediately.
+- [ ] Stale and offline results retain their timestamp and disable unsafe writes.
+- [ ] A slow prior search cannot overwrite a later result.
+- [ ] Direct result links recheck authentication, permission, and data version.
+- [ ] Search suggestions and results meet keyboard, screen-reader, touch-target, zoom, and contrast requirements.
+- [ ] Public prototype assets contain only fictional people and assignments.
 - [ ] Reassignment is restricted to authorized users.
 - [ ] Insights balance volume with quality and outcomes.
 - [ ] General calls and visits do not displace collaboration actions.

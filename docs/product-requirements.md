@@ -70,6 +70,12 @@ The initial workflow KPIs are first-response target completion and closed-loop u
 
 Insights must be actionable, link to accessible supporting records, display their eligible denominator and freshness, and avoid individual or raw-volume leaderboards. Missing or ambiguous evidence produces an explicit unavailable state rather than a guessed result.
 
+## Territory lookup
+
+Lookup supports five-digit ZIP, ZIP+4, city, and city-state searches. City-only searches must resolve to an exact ZIP before lead submission whenever the matching ZIPs have different assignments. Ambiguous, open, missing, or conflicting assignments cannot be routed automatically.
+
+The primary successful action is Send Lead, which prefills verified routing context into the structured handoff form. Direct call, email, and text actions remain contact utilities and do not count as tracked handoffs.
+
 ## Data and integration boundary
 
 1. Prototype records are fictional.

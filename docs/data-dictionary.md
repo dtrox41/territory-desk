@@ -87,3 +87,7 @@ Initial values:
 | `effectiveFrom` | Assignment start date |
 | `effectiveTo` | Optional assignment end date |
 | `sourceVersion` | Import or source-data version |
+| `sourceUpdatedAt` | Date the source dataset reports it was updated |
+| `lastVerifiedAt` | Optional separate authoritative or human verification timestamp |
+| `status` | Assigned, open, inactive, or needs-review state |
+| `exceptionType` | Optional ambiguity, missing-data, or contact-conflict reason |

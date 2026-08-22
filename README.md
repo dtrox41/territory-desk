@@ -33,6 +33,7 @@ The project is in isolated workspace setup and requirements definition. Applicat
 - `docs/home-dashboard-spec.md` — approved action-first home dashboard behavior
 - `docs/action-ranking-spec.md` — approved Lead Action Required ordering and response-time rules
 - `docs/collaboration-insights-spec.md` — approved cross-department KPI and insight rules
+- `docs/territory-lookup-spec.md` — approved ZIP/city routing and lookup behavior
 
 ## Repository status
 
