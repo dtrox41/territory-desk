@@ -158,6 +158,31 @@
 - [ ] Offline and stale states do not leak uncached profiles or persist contacts locally.
 - [ ] Keyboard, screen-reader, touch-target, focus-return, zoom, and contrast behavior passes.
 - [ ] Public prototype assets contain fictional identities and contacts only.
+
+## Lead creation
+
+- [ ] Territory, Directory, global action, and copy-to-another-department entry paths prefill only approved fields.
+- [ ] One handoff has one requested department and one recipient.
+- [ ] Changing ZIP or service clears stale recipient confirmation.
+- [ ] Recipient identity, assignment, permissions, and data versions are revalidated at submission.
+- [ ] Route, Customer, Opportunity, and Review & Send steps preserve entered values when moving backward.
+- [ ] Required fields and conditional contact requirements match the approved specification.
+- [ ] Missing contact information requires an explanation and never encourages invented data.
+- [ ] ASAP timing requires context but cannot change Action Required ranking.
+- [ ] Customer-requested contact time does not replace the system response target.
+- [ ] Review shows recipient, routing, customer, need, timing, sender, response, and notification context.
+- [ ] Enter in an earlier field cannot bypass Review & Send.
+- [ ] Duplicate warnings do not expose unauthorized records or auto-merge leads.
+- [ ] Double activation, retry, and lost response return one handoff through the idempotency key.
+- [ ] Handoff and audit events commit before notification attempts.
+- [ ] SMS content contains no customer or opportunity details.
+- [ ] Notification failure preserves the saved handoff and does not encourage resubmission.
+- [ ] Routing changes require explicit user action and are never silently accepted.
+- [ ] Offline or pre-save failure displays Not sent and preserves only safe active-session data.
+- [ ] Real drafts never enter persistent browser local storage, URLs, analytics, or public assets.
+- [ ] Another-department action creates a separately validated and reviewed handoff.
+- [ ] Field labels, errors, step announcements, focus, keyboard types, touch targets, zoom, and screen readers pass.
+- [ ] Prototype companies, contacts, needs, and outcomes are fictional.
 - [ ] Reassignment is restricted to authorized users.
 - [ ] Insights balance volume with quality and outcomes.
 - [ ] General calls and visits do not displace collaboration actions.

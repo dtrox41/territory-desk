@@ -31,8 +31,28 @@ All fields are provisional until the Dynamics 365 mapping and privacy review are
 | `companyName` | Fictional during prototype |
 | `contactSummary` | Minimum approved contact context |
 | `opportunitySummary` | Why the handoff is relevant |
+| `streetAddress` | Optional customer street address |
+| `city` | Canonical or validated customer city |
+| `state` | Validated customer state |
+| `zipCode` | Five-digit routing ZIP |
+| `customerContactName` | Optional customer contact name |
+| `customerPhone` | Optional normalized customer phone |
+| `customerEmail` | Optional normalized customer email |
+| `contactAvailability` | Phone, email, both, or not-yet-available selection |
+| `contactUnavailableReason` | Required explanation when no contact method is available |
+| `requestedService` | Approved department or service display group |
+| `requestedDivision` | Exact source division used for routing |
+| `territoryAssignmentId` | Versioned assignment used to validate the recipient |
+| `territorySourceVersion` | Assignment data version at submission |
+| `customerTiming` | ASAP, within 7 days, within 30 days, later, or unknown |
+| `customerTimingReason` | Required explanation for ASAP timing |
+| `customerRequestedContactAt` | Optional customer-requested contact timestamp |
+| `opportunityContext` | Optional approved opportunity context |
+| `additionalNotes` | Optional internal handoff notes |
+| `idempotencyKey` | Server-enforced duplicate-submission protection key |
+| `responseTargetAt` | Calculated first meaningful response deadline |
 | `status` | Current workflow state |
-| `priority` | Approved urgency classification |
+| `priority` | Reserved for a future approved urgency classification; not used for initial queue ranking |
 | `nextAction` | Current required action |
 | `followUpAt` | Optional lead-derived follow-up timestamp |
 | `dynamicsRecordId` | Future mapped Dynamics identifier |

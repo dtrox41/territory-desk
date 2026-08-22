@@ -82,6 +82,12 @@ The Directory supports teammate discovery by name, department, exact division, l
 
 Starting Send Lead from Directory preselects a person but does not bypass routing. The requested service and customer ZIP must validate against the current territory assignment before submission; mismatches and exceptions remain explicit.
 
+## Lead creation
+
+Each submitted handoff has one requested department and one accountable recipient. The authenticated sender, validated territory context, customer need, and response target are recorded before privacy-safe in-app and simulated-SMS notification attempts begin.
+
+Lead creation uses Route, Customer, Opportunity, and Review & Send steps. It supports incomplete contact availability without fabricated data, warns about possible duplicates, and uses idempotent server submission so retries cannot create duplicate handoffs.
+
 ## Data and integration boundary
 
 1. Prototype records are fictional.
