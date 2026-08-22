@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "project": "territory-lookup",
+    "file": "index.html",
+    "commit": "151e8ecd6053fdb53eadf84f48993f3fb65c4040",
+    "commitDate": "2026-08-21T11:39:18-05:00",
+    "sourceUpdatedDate": "8/17/2026",
+    "copiedDate": "2026-08-22",
+    "sourceFileSha256": "3f725ebefd819dd010b95e1ffdaaa52fff80e1fbedc814c60b13611828bd1d81"
+  },
+  "counts": {
+    "sourceRecords": 6509,
+    "normalizedAssignments": 6509,
+    "exactDuplicateAssignmentsRemoved": 0,
+    "representatives": 72,
+    "zipCodes": 2244,
+    "cityStates": 1102,
+    "states": 5,
+    "divisions": 14,
+    "locations": 8
+  },
+  "coverage": {
+    "states": [
+      "",
+      "IL",
+      "KY",
+      "MO",
+      "NE"
+    ],
+    "divisions": [
+      "Corp Account MAM",
+      "Education MAM",
+      "FAS Account Executive",
+      "Facility Services",
+      "Fire Protection",
+      "Fire Protection Specialist",
+      "First Aid & Safety",
+      "HC Non Acute Rep",
+      "Key Account Manager",
+      "Product Specialist",
+      "SRIT Facility Services",
+      "SRIT Uniform Rental",
+      "Sanis Ambassador",
+      "Uniform Rental"
+    ],
+    "locations": [
+      "00370",
+      "00383",
+      "00396",
+      "0040R",
+      "00448",
+      "00452",
+      "00731",
+      "00D65"
+    ]
+  },
+  "validation": {
+    "missingRequiredFields": 0,
+    "invalidZipCount": 0,
+    "invalidPhoneCount": 0,
+    "invalidEmailCount": 0
+  },
+  "qualitySignals": {
+    "routingGroupsWithMultipleRepresentatives": 4,
+    "zipCodesWithMultipleCityNames": 148,
+    "representativeNamesWithMultipleContactRecords": 1,
+    "emailsSharedAcrossRepresentativeNames": 0
+  },
+  "checksums": {
+    "rawRecordsSha256": "c2a493d1060e6a9a8d8ee8de8e0d2898bc51010b876f02d7ce28ee8c5f5d4179",
+    "normalizedAssignmentsSha256": "ec4f68c54e0bbe707c1038ffaf47a8b5a0676936cc12830f303e2b93dcb46052",
+    "normalizedRepresentativesSha256": "569cad417c3d73de9994d137930e3b5419c3e68dbb73eeef134a17ee470e10e2"
+  },
+  "privacy": {
+    "sourceAndContactsAreGitIgnored": true,
+    "metadataContainsRepresentativeContactDetails": false,
+    "prototypeDataPolicy": "fictional-only"
+  }
+}
