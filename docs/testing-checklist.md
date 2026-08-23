@@ -115,6 +115,33 @@
 - [ ] No real employee name, contact, headshot, customer, opportunity, source export, or sensitive original-repository data enters prototype assets or screenshots.
 - [ ] Product name, descriptor, favicon, header, zoom, forced-color, high-contrast, smartphone, and laptop behavior pass.
 
+## Visual layout and reusable components
+
+- [ ] Compact mobile, mobile, wide-mobile/tablet, laptop, and wide-laptop thresholds produce the approved shell behavior.
+- [ ] At 200% zoom, the laptop shell safely collapses before rail plus content becomes cramped.
+- [ ] No core screen scrolls horizontally at 320 CSS pixels or with long fictional content.
+- [ ] Mobile top bar preserves menu, centered identity, bell, badges, safe area, enlarged text, and sticky contrast.
+- [ ] Detail top bar has one Back control, one title, and no duplicated navigation action.
+- [ ] Bottom navigation preserves five visible labels, distinct counts, 44-pixel targets, active semantics, safe area, and content clearance.
+- [ ] Laptop rail preserves mobile order and wording, omits unauthorized Insights, and never becomes icon-only.
+- [ ] Laptop content columns collapse before either becomes unreadable and preserve DOM, focus, and reading order.
+- [ ] Home greeting, quick actions, summary, Action Required, Waiting, Feedback, and Insights follow approved order and item limits.
+- [ ] Common mobile viewport shows urgent context near the top without an oversized logo or greeting.
+- [ ] Section headings, View All links, counts, and optional icons retain correct hierarchy and accessible context.
+- [ ] Canvas, group surface, cards, and rows use restrained borders, radii, elevation, and no decorative nested-card stacks.
+- [ ] Action cards preserve required-action reason, title, participant context, status, timing, ranking reason, and no more than two actions.
+- [ ] Compact rows preserve at least 72-pixel target height and safe wrapping.
+- [ ] Icon containers use approved sizes, consistent geometry, text support, and no false ranking meaning.
+- [ ] Primary, secondary, tertiary, destructive, loading, disabled, hover, pressed, and focus button roles remain distinct.
+- [ ] Status and count badges distinguish unread, required action, ordinary status, and non-ranked metadata.
+- [ ] Forms remain single-column on mobile and bounded on laptop without gratuitous two-column density.
+- [ ] Mobile filters avoid six cramped tabs and open in an accessible inert-background sheet.
+- [ ] Sheets, dialogs, drawers, and status messages preserve focus, keyboard, safe area, large text, and return behavior.
+- [ ] Loading skeletons match final dimensions; partial error, stale, offline, empty, and retry states remain block-local when possible.
+- [ ] `100dvh`, safe-area insets, sticky-bar scroll padding, on-screen keyboard, and landscape behavior do not cover content or controls.
+- [ ] Touch, keyboard, screen reader, browser Back, device rotation, reduced motion, forced colors, outdoor contrast, and long-content cases pass.
+- [ ] Rejected oversized logo, competing action bars, icon-only navigation, three-column CRM, floating obstruction, pulsing alarm, and fixed-height patterns do not appear.
+
 ## Territory lookup
 
 - [ ] Responsible representative can be found in under 15 seconds.

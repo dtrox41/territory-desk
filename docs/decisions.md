@@ -151,6 +151,14 @@ Last updated: 2026-08-22
 - Consequences: One shared BrandIdentity component reserves a company-endorsed variant but leaves it unavailable. Corporate-logo use requires an approved original asset, usage permissions, brand guidance, and context approval. Public Preview remains visibly fictional and contains no real employee, customer, or original-repository data.
 - Reversible: Yes. An approved corporate brand package can replace or extend the temporary identity through the centralized brand component and asset register.
 
+## D-023 — Use a field-first responsive shell and component hierarchy
+
+- Decision: Use one mobile-first responsive shell with a compact sticky mobile top bar, five labeled bottom destinations, laptop text-and-icon rail, compact laptop top bar, bounded content canvas, and page-specific one- or two-column layouts that preserve mobile DOM and action order. Translate the reference image into reusable section, card, row, icon, button, form, overlay, and system-state patterns rather than copying its screen literally.
+- Reason: Representatives need immediate lead actions, consistent smartphone/laptop behavior, outdoor readability, large targets, and predictable hierarchy. A decorative logo-first or dense CRM composition would slow field use and conflict with the approved workflow.
+- Alternatives considered: Copy the screenshot literally; keep a large corporate header; add a permanent bottom action bar above navigation; use icon-only navigation; create three-column CRM dashboards; wrap every block in nested cards; use device detection instead of responsive layout.
+- Consequences: Mobile keeps urgent lead actions near the top, laptop gains space without changing meaning or permission, and all component states share testable geometry and behavior. Exact tokens remain a separate Step 4.3 decision and may refine layout targets only when accessibility testing supplies evidence.
+- Reversible: Partially. Breakpoint and measurement tokens can be tuned, but the information hierarchy, navigation model, semantic component roles, and mobile/laptop consistency remain approved.
+
 ## Operating rule
 
 Every future material decision records its date, decision, reason, alternatives, consequences, and reversibility.
