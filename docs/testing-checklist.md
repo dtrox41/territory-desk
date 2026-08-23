@@ -259,6 +259,28 @@
 - [ ] Failed save, stale view, pagination retry, notification failure, and sync failure preserve trustworthy state.
 - [ ] Timeline, filters, expansion, correction, forms, announcements, focus, keyboard, touch, zoom, and screen readers pass.
 - [ ] Prototype activity names, summaries, contacts, and outcomes are fictional.
+
+## Leads list
+
+- [ ] `/leads` remains My Work for representatives and managers; Team Insights is separate.
+- [ ] Action Required, Waiting, Received, Sent, In Progress, and Completed inclusion definitions match the specification.
+- [ ] A handoff appears at most once within a view and counts use the same inclusion logic.
+- [ ] Leads navigation badge equals Action Required count and never unread-notification count.
+- [ ] Action Required sort and explanation use the canonical ranking.
+- [ ] Waiting, Received, Sent, In Progress, and Completed follow their approved deterministic sorts.
+- [ ] Search is permission scoped and raw company or participant text stays out of URLs, analytics, and logs.
+- [ ] Filters never broaden access and preserve approved Back state.
+- [ ] List cards exclude contact details, street address, full notes, and raw notification errors.
+- [ ] Consequential actions occur through explicit detail or review flows, not one-tap list controls.
+- [ ] No bulk accept, decline, complete, reassign, or destructive swipe action appears.
+- [ ] Back restores view, filters, active-session search, loaded range, scroll, and focus.
+- [ ] Stable cursor pagination and New updates available prevent duplicate or jumping cards.
+- [ ] Empty and filtered-empty states show the approved context-specific actions.
+- [ ] Initial, count, pagination, changed-record, unauthorized, and partial-data errors fail safely.
+- [ ] Stale and offline state disables unsafe writes and never loads unauthorized uncached records.
+- [ ] Counts, search, URLs, analytics, metadata, cache, and sign-out behavior preserve privacy.
+- [ ] View selector, cards, actions, states, times, refresh, pagination, focus, keyboard, touch, zoom, and screen readers pass.
+- [ ] Prototype lead cards use fictional companies, participants, and outcomes only.
 - [ ] Reassignment is restricted to authorized users.
 - [ ] Insights balance volume with quality and outcomes.
 - [ ] General calls and visits do not displace collaboration actions.

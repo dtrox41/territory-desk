@@ -106,6 +106,12 @@ Each handoff has an append-only shared collaboration timeline. System, notificat
 
 User-reported activity records occurred and recorded times separately. Corrections add linked superseding events, private notes and attachments are excluded, and no free-text activity silently completes a follow-up or changes status.
 
+## Leads list
+
+`/leads` is the authenticated user's My Work list with Action Required, Waiting on Others, Received, Sent, In Progress, and Completed views. Managers retain this personal scope; team-wide records remain in Manager Insights.
+
+Action Required uses the canonical deterministic ranking. Other views use documented lifecycle-specific sorts, all counts remain permission filtered, and customer or participant search text stays out of URLs, analytics, and persistent browser storage.
+
 ## Data and integration boundary
 
 1. Prototype records are fictional.

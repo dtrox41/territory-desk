@@ -40,6 +40,7 @@ The project is in isolated workspace setup and requirements definition. Applicat
 - `docs/follow-up-reminder-spec.md` — approved lead-derived follow-up and calendar-reminder behavior
 - `docs/activity-history-spec.md` — approved append-only collaboration timeline behavior
 - `docs/phase-2-exit-audit.md` — current screen-coverage audit and required gap-closure sequence
+- `docs/leads-list-spec.md` — approved personal lead-list views, cards, filters, and states
 
 ## Repository status
 
