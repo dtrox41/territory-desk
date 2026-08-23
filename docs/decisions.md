@@ -127,6 +127,14 @@ Last updated: 2026-08-22
 - Consequences: Submission snapshots remain immutable after CRM linkage. Peer and CRM statuses remain separate. Real integration is blocked until a versioned mapping passes metadata, permission, duplicate, test-record, business-owner, and security review.
 - Reversible: Yes, through a new approved mapping version and migration plan; historical evidence is not rewritten.
 
+## D-020 — Keep collaboration in-app and use privacy-safe calendar snapshots
+
+- Decision: Territory Desk in-app workflow and activity remain authoritative. New and reassigned peer handoffs retain the required in-app plus SMS path, with SMS simulated in the prototype. The first-release Outlook option is a user-initiated, privacy-safe `.ics` follow-up snapshot. Automatic workflow email is off by default, and direct Microsoft Graph or Power Automate automation is deferred.
+- Reason: This keeps cross-department feedback in one auditable workflow, preserves the required attention signal, supports Outlook without an unapproved Microsoft tenant dependency, and minimizes customer information copied to personal smartphones or external systems.
+- Alternatives considered: Direct Microsoft Graph email and calendar automation now; an assumed Power Automate flow; automatic email for every event; browser-only delivery claims; email or calendar as the workflow record.
+- Consequences: Calendar generation or download never proves import, synchronization, reminder display, or completion. Provider acceptance, delivery, notification read, lead view, and meaningful response remain distinct. A future direct connection requires approved Microsoft Entra registration, least-privilege permissions, licensing, protected hosting, credential handling, support, and company ownership.
+- Reversible: Yes. A company-approved Graph, Power Automate, or provider adapter can be added behind the committed outbox without changing the authoritative handoff workflow.
+
 ## Operating rule
 
 Every future material decision records its date, decision, reason, alternatives, consequences, and reversibility.

@@ -54,6 +54,29 @@
 - [ ] No choice number or custom logical name is guessed from a label or screenshot.
 - [ ] Unavailable Cintas mappings produce explicit Not Connected or Unavailable states.
 
+## Outlook, email, calendar, and channel delivery
+
+- [ ] In-app notification and lead activity remain the authoritative collaboration record.
+- [ ] New and reassigned handoffs create the required in-app alert and simulated SMS path exactly once.
+- [ ] Automatic email is disabled for ordinary first-release workflow events.
+- [ ] A follow-up must be committed before calendar export becomes available.
+- [ ] Calendar export is user-initiated, optional, and off by default on a personal smartphone.
+- [ ] Generated `.ics` files use RFC-compliant structure, UTC timing, stable opaque UID, and increasing sequence after reschedule.
+- [ ] Calendar summary, description, URL, location, attendee, and alarm fields contain no customer-identifying or opportunity details.
+- [ ] A generated or downloaded calendar file never displays as imported, synchronized, reminded, or completed.
+- [ ] Rescheduling warns that an external copy may be stale and offers an updated export without promising deduplication.
+- [ ] Canceling or completing the app follow-up never claims an external calendar event changed.
+- [ ] Optional email-draft launch uses an approved work address, generic text, and an authenticated opaque link only.
+- [ ] Email-draft launch never displays as sent; provider acceptance never displays as delivered.
+- [ ] SMS delivery, in-app read, authenticated lead view, and meaningful response remain independent states.
+- [ ] External failure preserves the committed handoff and retries through idempotent outbox work.
+- [ ] No customer details, message bodies, provider payloads, credentials, tokens, or signed access links enter channel logs.
+- [ ] Direct links recheck authentication, authorization, environment, record, and current version.
+- [ ] Prototype calendar, email, and SMS destinations and records are fictional and visibly simulated where applicable.
+- [ ] Direct Microsoft Graph and Power Automate paths remain disabled without approved tenant, permissions, licensing, security owner, hosting, and support.
+- [ ] No Microsoft or provider credential exists in the React bundle, browser storage, public repository, or GitHub Pages build.
+- [ ] Personal-smartphone warnings explain that exported calendar copies may persist outside Territory Desk after sign-out.
+
 ## Territory lookup
 
 - [ ] Responsible representative can be found in under 15 seconds.
