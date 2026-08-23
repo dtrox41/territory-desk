@@ -37,6 +37,23 @@
 - [ ] App-owned storage excludes attachments, private notes, message bodies, recordings, contracts, payment data, and copied Dynamics payloads.
 - [ ] Retention, backup, restore, audit, and deletion policies are approved before real data is enabled.
 
+## Field ownership and Dynamics mapping
+
+- [ ] Every implemented data field has one authority label and source version where required.
+- [ ] Candidate Dynamics mappings remain disabled until exact environment metadata is approved.
+- [ ] Territory Desk IDs never become Dynamics IDs and vice versa.
+- [ ] Environment key, entity logical name, external ID, and mapping version identify each external link.
+- [ ] Submission snapshots remain unchanged when a linked CRM record changes.
+- [ ] Current CRM values are separately labeled from handoff snapshots.
+- [ ] App handoff status never writes directly to Dynamics `statecode` or `statuscode`.
+- [ ] App activity never creates a generic `activitypointer` row.
+- [ ] Lead, opportunity, task, and appointment writes require separately approved commands and mappings.
+- [ ] Display name, phone, email, address, ZIP, and fuzzy similarity cannot auto-link a CRM record.
+- [ ] Duplicate candidate search does not disclose inaccessible CRM records.
+- [ ] Metadata export confirms table, entity-set, column, relationship, choice, key, permission, concurrency, and change-tracking behavior.
+- [ ] No choice number or custom logical name is guessed from a label or screenshot.
+- [ ] Unavailable Cintas mappings produce explicit Not Connected or Unavailable states.
+
 ## Territory lookup
 
 - [ ] Responsible representative can be found in under 15 seconds.

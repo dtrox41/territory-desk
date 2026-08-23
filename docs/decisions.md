@@ -119,6 +119,14 @@ Last updated: 2026-08-22
 - Consequences: Peer-handoff status and CRM sales stage remain separate. Direct Dataverse access requires an approved Cintas environment, schema, permissions, Microsoft identity path, licensing, and owner. No new paid Azure workload is provisioned by this decision.
 - Reversible: Partially. A later approved Dynamics extension could absorb some app-owned tables, but the authority and migration must be explicit and audited.
 
+## D-019 — Verify every Dynamics mapping from Cintas metadata
+
+- Decision: Classify fields as app-owned, CRM-owned, snapshot, derived, configured, candidate, unmapped, or excluded. Treat standard Dataverse `systemuser`, `account`, `contact`, `lead`, `opportunity`, `task`, and `appointment` mappings as candidates until exact Cintas environment metadata and permissions are approved.
+- Reason: Dataverse environments can customize tables, columns, choices, relationships, ownership, and security. Display labels or standard documentation do not prove the Cintas schema.
+- Alternatives considered: Assume standard Dynamics fields; map from screenshots; join by display name, phone, email, address, ZIP, or fuzzy similarity; automatically create a CRM lead for every peer handoff.
+- Consequences: Submission snapshots remain immutable after CRM linkage. Peer and CRM statuses remain separate. Real integration is blocked until a versioned mapping passes metadata, permission, duplicate, test-record, business-owner, and security review.
+- Reversible: Yes, through a new approved mapping version and migration plan; historical evidence is not rewritten.
+
 ## Operating rule
 
 Every future material decision records its date, decision, reason, alternatives, consequences, and reversibility.
