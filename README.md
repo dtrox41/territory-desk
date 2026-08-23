@@ -10,7 +10,7 @@ Its core workflow is:
 
 ## Project status
 
-The project is in isolated workspace setup and requirements definition. Application code, real integrations, and production data have not been added yet.
+Phase 2 product definition is complete and the project is ready for Phase 3 architecture selection. Application code, real integrations, and production data have not been added yet.
 
 ## Safety boundaries
 

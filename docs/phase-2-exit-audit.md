@@ -4,32 +4,35 @@ Initial audit date: 2026-08-22
 
 Repeat audit date: 2026-08-22
 
-Status: Final route-and-action contract closure required before Phase 3
+Final validation date: 2026-08-22
 
-## Repeat-audit decision
+Status: Passed — Phase 3 entry approved
 
-Do not enter technical architecture yet.
+## Final decision
 
-All eight screen families identified by the first audit now have approved, detailed specifications. State handling, responsive behavior, privacy, accessibility, and role boundaries meet the Phase 2 product-definition threshold.
+Phase 2 product definition is complete. Phase 3 technical architecture may begin.
 
-The repeat audit found a smaller but material consolidation gap: cross-screen navigation and action destinations are not yet represented by one complete canonical contract. Beginning architecture now would force route names, filtered-list destinations, and direct-link fallbacks to be chosen during implementation.
+All first-release screen families have approved specifications. The approved route and cross-screen action contract now supplies the one canonical registry, deterministic destinations, authorization rechecks, Back and focus behavior, privacy rules, and safe fallbacks that were missing at the repeat audit.
+
+This pass approves entry into architecture; it does not approve production deployment or imply that the documented screens have been implemented.
 
 ## Exit-criteria results
 
 | Exit criterion | Result | Evidence |
 | --- | --- | --- |
-| Every first-release screen family has an approved specification | Pass | All primary, detail, secondary, authentication, and system-state families now have approved screen specifications. |
-| Every first-release route is listed in one canonical route model | Partial | Screen documents define the routes, but `docs/navigation-spec.md` does not yet include every nested, help-request, authentication, and system route. |
-| Every primary button maps to an exact approved command or navigation result | Partial | Core workflow commands are complete; several cross-screen actions still need exact destination, filter, preserved-state, and fallback mappings. |
-| Empty, loading, partial, error, stale, offline, unauthorized, and success behavior is documented | Pass | Each applicable screen specification defines these states and corresponding safe recovery. |
+| Every first-release screen family has an approved specification | Pass | All primary, detail, secondary, authentication, and system-state families have approved screen specifications. |
+| Every first-release route is listed in one canonical route model | Pass | `docs/route-action-contract-spec.md` registers authenticated, detail, secondary, authentication, and system routes, plus fragments, filtered views, and in-place workflows. |
+| Every primary button maps to an exact approved command or navigation result | Pass | The route/action contract maps Home, Territory, Directory, Leads, Notifications, Manager Insights, Data Status, Profile, and Help actions. |
+| Static and dynamic routes have deterministic precedence | Pass | Static-before-dynamic precedence, reserved paths, and the `/leads/new` and `/help/requests/:requestId` exceptions are explicit. |
+| Empty, loading, partial, error, stale, offline, unauthorized, and success behavior is documented | Pass | Each applicable screen specification defines safe state and recovery behavior. |
 | Representative and manager permissions are explicit | Pass | Personal My Work, manager scope, team insight, record-participant access, and direct-link denial rules are approved. |
 | Lead fields, statuses, ownership, follow-ups, and activity are approved | Pass | Lead creation, status and ownership, follow-up, activity, list, and detail specifications reconcile. |
 | Action ranking and collaboration insights are approved | Pass | Deterministic action ordering, KPI definitions, denominators, guardrails, drill-downs, and small-sample rules are approved. |
 | Smartphone and laptop composition is defined | Pass | Every routed application screen preserves one mental model with device-appropriate composition. |
-| Accessibility and privacy requirements are testable | Pass | Each screen includes accessibility, data-minimization, URL, analytics, cache, and prototype-data requirements. |
-| Authentication and production-hosting boundaries are approved | Pass | GitHub Pages is fictional-prototype-only; production requires server-enforced authentication, authorization, session, and data delivery. |
+| Accessibility and privacy requirements are testable | Pass | Screen and route specifications include accessibility, data-minimization, URL, analytics, cache, focus, and prototype-data requirements. |
+| Authentication and production-hosting boundaries are approved | Pass | GitHub Pages is fictional-prototype-only; production requires server-enforced authentication, authorization, sessions, and data delivery. |
 
-## Previously identified gaps now closed
+## Closed Phase 2 gaps
 
 1. Leads List — approved in `docs/leads-list-spec.md`.
 2. Lead Detail — approved in `docs/lead-detail-spec.md`.
@@ -39,90 +42,42 @@ The repeat audit found a smaller but material consolidation gap: cross-screen na
 6. My Profile — approved in `docs/profile-screen-spec.md`.
 7. Help and Feedback — approved in `docs/help-feedback-screen-spec.md`.
 8. Authentication and System Pages — approved in `docs/authentication-system-pages-spec.md`.
+9. Canonical route registry — approved in `docs/route-action-contract-spec.md`.
+10. Cross-screen action destinations — approved in `docs/route-action-contract-spec.md`.
+11. Route privacy, direct-link, Back, focus, unavailable, and unauthorized fallback behavior — approved in `docs/route-action-contract-spec.md`.
 
-## Remaining gap 1 — Canonical route registry
+## Final route-and-action validation
 
-The route inventory is distributed across approved documents. The global route model currently omits or does not consolidate:
+1. Every routed or stateful first-release surface is registered.
+2. Every primary cross-screen action has one deterministic destination or command.
+3. Every direct link must recheck authentication, authorization, and current record or source state.
+4. Every unavailable, missing, retired, changed, or unauthorized destination has a safe fallback that does not disclose protected information.
+5. URL parameters are allowlisted and non-sensitive.
+6. Customer details, contact details, notes, message bodies, telephone numbers, email addresses, and authorization context are prohibited from URLs and navigation metadata.
+7. Browser Back and focus restoration are deterministic across smartphone and laptop layouts.
+8. In-place consequential actions cannot be executed from a URL.
+9. Static route precedence prevents dynamic identifiers from capturing reserved paths.
+10. Help Request Detail is reporter-authorized and does not disclose whether an unauthorized request exists.
 
-1. Representative Detail — `/directory/:representativeId`.
-2. Help Topic — `/help/:topicSlug`.
-3. Reporter-visible Help Request Detail — an exact canonical route is not yet named.
-4. Sign In — `/sign-in`.
-5. Authentication Return — `/auth/return`.
-6. Sign-in Help — `/sign-in/help`.
-7. Session Expired — `/session-expired`.
-8. Access Required — `/access-required`.
-9. Access Denied — `/access-denied`.
-10. Account Unavailable — `/account-unavailable`.
-11. Signed Out — `/signed-out`.
-12. Offline — `/offline` when represented as a route.
-13. Maintenance — `/maintenance`.
-14. Update Required — `/update-required`.
-15. Not Found — `/not-found`.
-16. Unexpected Error — `/error`.
+Result: Pass.
 
-The canonical registry must also distinguish full routes from fragments, in-place panels, dialogs, and filtered views so implementation does not create unnecessary pages.
+## Phase 3 inputs that remain unresolved
 
-## Remaining gap 2 — Cross-screen action destinations
+These are expected architecture, company-policy, integration, or operating-model decisions. They do not reopen Phase 2, but they must be resolved before production:
 
-Several approved controls describe the correct intent but do not yet name one exact destination contract:
-
-1. Home **View All** for Action Required.
-2. Home **View All** or equivalent for Waiting on Others.
-3. Home feedback and outcome expansion.
-4. Home representative and manager **View Insights** behavior.
-5. Data Status **View affected records** for territory, directory, workflow, notification, and Dynamics conditions.
-6. Profile **Report access problem** versus **Get sign-in help** routing.
-7. Help **My Requests** detail direct links.
-
-Each mapping needs:
-
-1. Origin.
-2. Visible action label.
-3. Destination route, fragment, dialog, or in-place view.
-4. Allowed non-sensitive parameters or filters.
-5. Authentication and authorization rule.
-6. Browser Back and focus restoration.
-7. Direct-link fallback.
-8. Offline, stale, unavailable, and unauthorized behavior.
-
-## Remaining gap 3 — Route privacy and fallback reconciliation
-
-Approved screen documents contain strong local rules, but one shared contract must confirm:
-
-1. Which filters may be represented in URLs.
-2. Which identifiers must remain opaque.
-3. Which values never appear in URLs, history, previews, metadata, analytics, or logs.
-4. Which destination handles missing, inaccessible, retired, or changed records.
-5. Whether browser Back returns to the source list, Home, My Work, or another safe route.
-6. How direct links preserve no unauthorized source-screen state.
-
-## Required closure step
-
-### Step 2.12 — Approve the Route and Cross-Screen Action Contract
-
-Create one canonical contract that:
-
-1. Registers every first-release route and non-route surface.
-2. Adds the reporter-visible Help Request Detail route.
-3. Maps every cross-screen primary and View All action.
-4. Defines allowed parameters, privacy restrictions, permission checks, active navigation, Back behavior, focus restoration, and safe fallbacks.
-5. Reconciles mobile and laptop behavior without inventing device-specific workflows.
-6. Adds route-contract acceptance tests.
-
-This is a consolidation step, not a new feature family.
+1. Production authentication provider and identity lifecycle.
+2. Production hosting, server-side application layer, database, backups, and disaster recovery.
+3. Session timeout, device trust, and concurrent-session policy.
+4. Company-approved SMS provider, funding, consent, delivery, opt-out, and retention policy.
+5. Exact Dynamics 365 entities, field mappings, ownership, deduplication, and synchronization behavior.
+6. Company-approved support contacts, escalation owners, service expectations, and data-retention periods.
+7. Authoritative territory-data owner, update process, department taxonomy, and correction workflow.
+8. Security, privacy, legal, records-management, and Cintas IT approval before real employee or customer data is used.
 
 ## Phase 3 entry rule
 
-Phase 3 begins only after Step 2.12 is approved and a final validation confirms:
-
-1. Every routed or stateful surface is registered.
-2. Every primary cross-screen action has one deterministic destination or command.
-3. Every direct link rechecks authentication, authorization, and record or source version.
-4. Every unavailable or unauthorized destination has a safe fallback.
-5. URL, history, metadata, analytics, and cache rules preserve privacy.
-6. No implementation-time product decision remains in the route and action layer.
+Satisfied. Step 3.1 may now compare and recommend a frontend and deployment architecture that respects the no-new-Azure-budget constraint, the mobile-first workflow, server-side security requirements, and future Dynamics 365 integration.
 
 ## Audit conclusion
 
-Phase 2 is close but not complete. The prior eight screen gaps are closed. One bounded Step 2.12 contract is required before technical architecture.
+Phase 2 is complete. Begin Phase 3 with an evidence-based architecture recommendation; do not publish, connect live services, use real data, or alter the original application without separate user authorization.
