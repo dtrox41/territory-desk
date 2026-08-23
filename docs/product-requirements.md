@@ -136,6 +136,12 @@ The screen is action-oriented and responsive for smartphone and laptop. It never
 
 Representatives can report incorrect information and follow their own reporter-visible issue status, while managers receive only approved aggregate context inside their authorized scope. Reports never edit source data directly, and administrative source correction remains outside the first release.
 
+## My Profile
+
+`/profile` lets the authenticated user verify source-controlled identity, department, role, location, territory context, manager scope, work timezone, and notification destination. Those values cannot be edited inside Territory Desk; incorrect information follows the auditable data-reporting process.
+
+The first release exposes only implemented user preferences, led by the default in-app reminder for newly created follow-ups. Required workflow notifications cannot be disabled, SMS remains simulated until production approval, and unsupported identity-provider, email, push, Outlook, customer-texting, and cosmetic settings remain absent.
+
 ## Data and integration boundary
 
 1. Prototype records are fictional.

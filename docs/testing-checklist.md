@@ -378,6 +378,29 @@
 - [ ] Status words, timestamps, cards, tables, dialogs, announcements, focus, keyboard, touch, contrast, zoom, and large text pass.
 - [ ] Prototype source records, assignments, locations, issues, reports, and integrations are fictional or clearly simulated.
 
+## My Profile screen
+
+- [ ] `/profile` loads only the current authenticated user and accepts no other-user identifier.
+- [ ] Source-controlled, user-preference, and system-state values are visibly and programmatically distinct.
+- [ ] Identity, role, department, division, location, territory, manager scope, timezone, contact destination, and authentication fields have no preference-write path.
+- [ ] Client manipulation cannot grant manager access, broaden scope, activate an account, or change routing identity.
+- [ ] Representatives, managers, and multiple-role users retain one identity and never impersonate another user.
+- [ ] Work and device timezone differences never silently change deadlines.
+- [ ] Directory and territory version mismatch links to Data Status and cannot be overridden from Profile.
+- [ ] Required workflow in-app notifications cannot be disabled.
+- [ ] Assignment SMS is simulation-only in prototype, uses a masked fictional destination, and contains no customer information.
+- [ ] The default follow-up reminder affects only newly created follow-ups and remains overridable per follow-up.
+- [ ] Email, push, Outlook sync, customer texting, corporate Dynamics preferences, and nonfunctional settings are absent.
+- [ ] Preference edit, cancel, save, idempotent retry, version conflict, unsaved-change, and committed-result behavior pass.
+- [ ] Preference writes never include source-controlled fields and never silently overwrite another session.
+- [ ] Profile corrections create data-quality reports without editing identity or access directly.
+- [ ] Current-session information avoids invasive fingerprinting and unsupported identity-provider controls.
+- [ ] Sign Out clears session-held business data without deleting server records or exposing secrets.
+- [ ] Role removal, source refresh, inactive account, missing field, partial, stale, offline, unauthorized, save-failure, and unknown-result states fail safely.
+- [ ] Production builds cannot expose the fictional Demo persona switcher.
+- [ ] URLs, metadata, analytics, logs, caches, errors, masks, and sign-out preserve profile and authentication privacy.
+- [ ] Headings, read-only labels, forms, roles, masks, statuses, dialogs, announcements, focus, keyboard, touch, zoom, and large text pass.
+
 ## Acceptance
 
 - [ ] At least 90% of test users complete the core handoff without assistance.

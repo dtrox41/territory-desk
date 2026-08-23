@@ -237,3 +237,18 @@ An insight result is a versioned, permission-scoped read model. It does not repl
 | `visibilityScope` | Server-enforced issue and aggregate visibility |
 | `idempotencyReference` | Safe duplicate-report retry protection |
 | `relatedIssueId` | Optional existing issue linked after confirmed duplicate review |
+
+## User profile preference
+
+Source-controlled identity and access fields remain on the authoritative representative, directory, and authentication records. This entity stores only approved user-editable defaults.
+
+| Field | Purpose |
+| --- | --- |
+| `userId` | Authenticated owner of the preference record |
+| `defaultReminderLeadTime` | At due time, 15 minutes, one hour, one day, or no extra reminder |
+| `laptopLeadCardDensity` | Optional expanded or compact mode only when both are implemented |
+| `recordVersion` | Concurrency token preventing silent cross-session overwrite |
+| `idempotencyReference` | Safe retry protection for the latest preference command |
+| `updatedAt` | Latest committed preference update time |
+
+Role, scope, department, location, territory, work timezone, email, phone, SMS eligibility, and authentication method are explicitly excluded from this entity.

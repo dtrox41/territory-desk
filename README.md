@@ -45,6 +45,7 @@ The project is in isolated workspace setup and requirements definition. Applicat
 - `docs/notification-center-spec.md` — approved in-app alert history, unread, and navigation behavior
 - `docs/manager-insights-screen-spec.md` — approved manager operational dashboard composition and safeguards
 - `docs/data-status-screen-spec.md` — approved data trust, action-safety, and issue-reporting behavior
+- `docs/profile-screen-spec.md` — approved current-user identity, access, preference, and session behavior
 
 ## Repository status
 
