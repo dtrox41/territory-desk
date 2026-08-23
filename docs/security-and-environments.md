@@ -1,5 +1,7 @@
 # Security and Environment Rules
 
+Status: Approved safety baseline consolidated with the Step 3.5 contract in `docs/environment-architecture.md`
+
 ## Non-negotiable credential rules
 
 1. Never commit passwords, verification codes, API keys, access tokens, refresh tokens, client secrets, private keys, database connection strings, or production configuration values.
@@ -17,7 +19,7 @@ Territory Desk uses three distinct runtime environments:
 | Environment | Purpose | Allowed data | External actions |
 | --- | --- | --- | --- |
 | Development | Local construction and automated tests | Fictional only | Simulated only |
-| Preview | Stakeholder review and user testing | Fictional or specifically approved test data | Simulated by default |
+| Preview | Stakeholder review and user testing | Fictional only on public GitHub Pages; protected test data requires a separately approved protected Preview | Simulated by default |
 | Production | Authorized employee use | Approved business data | Only approved integrations |
 
 Rules:
@@ -27,6 +29,9 @@ Rules:
 3. Preview must not silently send real email, SMS, push, or Dynamics writes.
 4. Production integrations remain disabled until identity, authorization, audit, privacy, and rollback controls pass review.
 5. Environment names and modes are validated at startup without printing their values.
+6. Development and the public Preview use in-memory fictional adapters initially and need no database.
+7. Any future protected Preview and Production use separate hosts, APIs, identities, databases, credentials, backups, logs, and integration checkpoints.
+8. Code may move forward from an approved commit; data, credentials, sessions, and checkpoints never move with it.
 
 ## Approved initial modes
 
@@ -34,9 +39,18 @@ During prototype development, use:
 
 ```text
 APP_ENV=development
+RELEASE_GATE=safe-start
 DATA_MODE=fictional
-NOTIFICATION_MODE=simulation
+AUTH_MODE=demo
+SMS_MODE=simulation
+EMAIL_MODE=disabled
+CALENDAR_MODE=ics
 DYNAMICS_INTEGRATION_MODE=disabled
+DEMO_PERSONAS_ENABLED=true
+PERSISTENCE_MODE=memory
+VITE_PUBLIC_APP_ENV=development
+VITE_PUBLIC_BASE_PATH=/
+VITE_FICTIONAL_PROTOTYPE=true
 ```
 
 These are non-secret mode values. Real secret variables remain unset.
@@ -50,6 +64,8 @@ These are non-secret mode values. Real secret variables remain unset.
 5. Prefer an approved server-managed session with HTTPS and a secure, HTTP-only cookie or an equivalently reviewed architecture.
 6. Authentication provider, production hosting, session timeout values, and company identity contacts remain unselected until the architecture and company approvals are complete.
 7. Production builds and servers reject demo persona creation and environment changes from user-controlled inputs.
+8. The public Preview uses the `/territory-desk/` repository base path and a tested fictional-only direct-link fallback.
+9. GitHub Pages contains no protected data, database connection, live provider, or production API capability.
 
 ## Logging rules
 

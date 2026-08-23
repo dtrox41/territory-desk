@@ -77,6 +77,28 @@
 - [ ] No Microsoft or provider credential exists in the React bundle, browser storage, public repository, or GitHub Pages build.
 - [ ] Personal-smartphone warnings explain that exported calendar copies may persist outside Territory Desk after sign-out.
 
+## Environment separation and deployment
+
+- [ ] Development, Preview, and Production use the approved exact configuration matrix.
+- [ ] Local Development and public Preview contain fictional records and simulated external actions only.
+- [ ] Public GitHub Pages assets, source maps, URLs, logs, screenshots, and network activity contain no real employee or customer data.
+- [ ] Public Preview has no database, protected API, real identity, provider credential, or dormant live-integration switch.
+- [ ] Preview displays a persistent fictional-prototype warning and Production cannot display or disable itself through that control.
+- [ ] The GitHub Pages Vite base path is `/territory-desk/` for the proposed repository URL.
+- [ ] GitHub Pages Home, canonical routes, refresh, Back, direct link, asset, and not-found behavior pass under the repository subpath.
+- [ ] Preview publishing runs safety validation, format, lint, type-check, unit, component, build, artifact scan, and applicable end-to-end checks first.
+- [ ] The deployed Preview records its exact source commit and public build identifier.
+- [ ] A future protected Preview uses a separate host, API, identity, database, credentials, and synthetic or approved test data.
+- [ ] Production fails closed with demo authentication, demo personas, memory persistence, browser-only authorization, or fictional route fixtures.
+- [ ] Nonproduction fails closed with Production data mode, API/database origin, live SMS, Graph, or Dynamics write access.
+- [ ] Client-visible `VITE_` values contain only approved non-secret public metadata and never enforce access.
+- [ ] Production and Preview use separate URLs, databases, credentials, identity registrations, provider configuration, checkpoints, backups, and logs.
+- [ ] Production data is never copied into Development or public Preview.
+- [ ] Promotion moves an approved source commit and configuration contract, never data, credentials, sessions, or checkpoints.
+- [ ] Production go-live checks identity, authorization, data scope, hosting, database, secrets, SMS, retention, audit, backup, restore, incident, support, and rollback approval.
+- [ ] Failed Preview and Production deployments roll back independently without crossing environment data or URLs.
+- [ ] Original repository remains clean and has no new remote, commit, branch, workflow, or Pages setting.
+
 ## Territory lookup
 
 - [ ] Responsible representative can be found in under 15 seconds.

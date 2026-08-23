@@ -135,6 +135,14 @@ Last updated: 2026-08-22
 - Consequences: Calendar generation or download never proves import, synchronization, reminder display, or completion. Provider acceptance, delivery, notification read, lead view, and meaningful response remain distinct. A future direct connection requires approved Microsoft Entra registration, least-privilege permissions, licensing, protected hosting, credential handling, support, and company ownership.
 - Reversible: Yes. A company-approved Graph, Power Automate, or provider adapter can be added behind the committed outbox without changing the authoritative handoff workflow.
 
+## D-021 — Isolate Development, Preview, and Production
+
+- Decision: Use local fictional Development, public fictional GitHub Pages Preview, and future protected Production as three isolated environment classes. Development and public Preview use in-memory fictional adapters without a database or live integrations. Production requires a protected host, server identity and authorization, API, isolated PostgreSQL-compatible database, approved SMS, audit, backup, recovery, and company approval.
+- Reason: A public static preview cannot protect employee or customer information, while selecting a production vendor before identity, security, retention, ownership, and support requirements are known would create unnecessary cost and lock-in.
+- Alternatives considered: One environment for all stages; a shared database with separate schemas; real test data on GitHub Pages; selecting a free-tier production vendor immediately; copying the Preview artifact directly into Production.
+- Consequences: The proposed public preview is a separate `dtrox41/territory-desk` deployment containing fictional data only. A future protected Preview receives isolated nonproduction services before nonpublic test data. Code moves between stages from approved commits, but data, credentials, sessions, and integration checkpoints never do. Exact compatibility validation rejects unsafe mode combinations.
+- Reversible: Partially. Providers and URLs can change, but environment and data isolation remain mandatory.
+
 ## Operating rule
 
 Every future material decision records its date, decision, reason, alternatives, consequences, and reversibility.
