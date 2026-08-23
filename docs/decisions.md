@@ -177,6 +177,15 @@ Last updated: 2026-08-22
 - Consequences: Duplicate activation locks immediately, definite failure and unknown outcome remain distinct, unknown commands reconcile before retry, user input survives errors, permissions are enforced beyond presentation, focus remains visible across semantic states, and every new reusable component must declare its state owner before acceptance.
 - Reversible: Partially. Individual visual treatments and component boundaries can be refined through testing, but truthful command outcomes, state independence, native semantics, permission enforcement, focus precedence, and safe reconciliation remain mandatory.
 
+## D-026 — Treat WCAG 2.2 AA and field safety as release gates
+
+- Date: 2026-08-22
+- Decision: Target WCAG 2.2 Level AA across every Territory Desk route, role, responsive composition, component state, overlay, authentication/system surface, and recovery path. Exceed the minimum with 44-pixel targets, strong/unobscured focus, preserved/reusable input, truthful weak-connection recovery, physical-device and assistive-technology testing, independent review, and an explicit prohibition against using the app while driving. Do not claim conformance before implementation evidence exists.
+- Reason: The app serves field representatives on personal smartphones and managers on company laptops, including variable connectivity and potentially diverse vision, motor, hearing, and cognitive needs. Automated scans or attractive designs cannot establish end-to-end accessibility or safe use.
+- Alternatives considered: Target WCAG 2.1; test only the primary screen; rely on automated scanning; treat accessibility defects as post-pilot backlog; use the AA 24-pixel target floor; exclude third-party identity; omit weak-connection and driving safety from accessibility scope.
+- Consequences: All 55 WCAG 2.2 A/AA criteria have required or conditional evidence; all 27 canonical route classes and 42 component entries remain in scope; blocker, major, and known A/AA defects block release; supported device/assistive-technology coverage is documented; company-approved human testing is required before a protected employee pilot.
+- Reversible: Partially. Supported technology details and evidence tooling may change as devices and company policy are verified, but the AA floor, truthful claim language, end-to-end scope, release-blocking defect policy, and field-safety guardrails remain mandatory.
+
 ## Operating rule
 
 Every future material decision records its date, decision, reason, alternatives, consequences, and reversibility.

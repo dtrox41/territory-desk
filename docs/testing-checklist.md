@@ -194,6 +194,41 @@
 - [ ] Startup, session expiration, scope loss, sign-out, and browser Back never flash or restore unauthorized content.
 - [ ] Focused-error, focused-selected, pending-disconnect, unknown-send, partial-error, stale-permission, mobile-keyboard, forced-color, reduced-motion, and touch-only combinations pass.
 
+## Cross-product accessibility conformance
+
+- [ ] Accessibility language states the current target and evidence status without a premature WCAG conformance claim.
+- [ ] Every canonical route, role variation, overlay, component state, and system state appears in the accessibility scope ledger.
+- [ ] Every WCAG 2.2 Level A and AA criterion is marked required or conditional with testable application evidence.
+- [ ] Conditional media, audio, chart, document, identity, and third-party criteria become active when the content/provider is introduced.
+- [ ] Every route has a unique document title, one descriptive `h1`, one main landmark, declared language, logical headings, and consistent navigation/help.
+- [ ] Skip Link bypasses repeated content and remains visible, operable, and unobscured when focused.
+- [ ] Forward SPA navigation, browser Back, direct links, dialogs, sheets, menus, form errors, and removed openers place/restore focus predictably.
+- [ ] DOM, reading, focus, and responsive visual order preserve meaning without positive `tabindex`.
+- [ ] All core workflows complete with keyboard alone and with VoiceOver, TalkBack, and NVDA in the approved matrix.
+- [ ] Names, roles, values, descriptions, groups, status, counts, errors, tables, timelines, and charts remain programmatically determinable.
+- [ ] Route, loading, connection, success, error, and unknown-result announcements occur once without unnecessary focus changes.
+- [ ] No protected content remains in the visible page or accessibility tree after sign-out or scope removal.
+- [ ] Exact token contrast, color-independent meaning, 200% text, 320-CSS-pixel reflow, text spacing, forced colors, and outdoor readability pass.
+- [ ] No sticky bar, banner, toast, sheet, keyboard, or browser chrome fully obscures a focused component.
+- [ ] Portrait, landscape, safe areas, mobile keyboard, long fictional content, and localization-length expansion preserve content and operation.
+- [ ] Every target is at least 44 × 44 CSS pixels, activation occurs on release, and no task requires hover, drag, multipoint gesture, motion, or precise timing.
+- [ ] Visible control labels occur in accessible names and support speech input.
+- [ ] Send Lead preserves valid information across steps, avoids redundant entry, identifies/suggests corrections, and provides Review & Send.
+- [ ] Definite failure, unknown outcome, destructive action, correction, and reversal behavior satisfy error-prevention requirements.
+- [ ] Authentication supports password managers, autofill, copy/paste, and a path without an unsupported cognitive-function test.
+- [ ] Session-warning, extension where allowed, expiration, reauthentication, and safe input restoration are keyboard/screen-reader accessible.
+- [ ] Reduced-motion removes nonessential transitions/shimmer/scroll; no flash, pulse, autoplay audio, or pressure animation exists.
+- [ ] In-app and external notification states remain privacy-safe, truthful, non-duplicative, and independent of authenticated viewing.
+- [ ] Help/onboarding states that the app must not be used while driving; SMS attention copy says to open when safe where policy permits.
+- [ ] No initial workflow requests camera, microphone, location, contacts, motion, or calendar permission.
+- [ ] Current iOS/Safari/VoiceOver, Android/Chrome/TalkBack, assumed Windows/Edge/NVDA, keyboard, zoom, and physical-device results are recorded.
+- [ ] All thirteen core workflow scripts pass with fictional data across applicable role and failure states.
+- [ ] Static lint, role/name assertions, route/state scans, exact contrast, Playwright keyboard/focus/viewport, and build validation pass.
+- [ ] Automated scans have zero serious/critical findings, while manual testing independently verifies areas automation cannot prove.
+- [ ] Evidence records build, tester, device/AT, workflow, expected/observed result, defect, severity, retest, and approval without real protected data.
+- [ ] No blocker, major, or known Level A/AA defect remains before Preview or Production release.
+- [ ] A second knowledgeable reviewer checks Preview; company-approved assistive-technology user testing occurs before a protected employee pilot.
+
 ## Territory lookup
 
 - [ ] Responsible representative can be found in under 15 seconds.

@@ -10,7 +10,7 @@ Its core workflow is:
 
 ## Project status
 
-Phase 2 product definition and Phase 3 architecture definition are complete. Phase 4 visual-system definition is in progress: Steps 4.1 through 4.4 are approved. Application code, real integrations, and production data have not been added yet.
+Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/accessibility-system definition are complete. Step 5.1 application scaffolding is next. Application code, real integrations, and production data have not been added yet.
 
 ## Safety boundaries
 
@@ -58,6 +58,7 @@ Phase 2 product definition and Phase 3 architecture definition are complete. Pha
 - `docs/visual-layout-component-rules.md` — approved Step 4.2 responsive shell, page hierarchy, component anatomy, and field-use layout rules
 - `docs/design-tokens.md` — approved Step 4.3 color, typography, spacing, sizing, focus, motion, and validation tokens
 - `docs/component-state-contracts.md` — approved Step 4.4 interaction, validation, operation, loading, failure, recovery, and accessibility states
+- `docs/accessibility-conformance-plan.md` — approved Step 4.5 WCAG scope, interaction rules, test matrix, evidence, severity, and release gates
 
 ## Repository status
 
