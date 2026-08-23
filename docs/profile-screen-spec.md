@@ -10,6 +10,8 @@ My Profile lets an authenticated employee verify which identity, department, loc
 
 It is not an employee-directory editor, territory editor, role-administration screen, password manager, or place to impersonate another user.
 
+Exact Directory, Territory Coverage, Notification, Data Status, manager, correction, access-help, sign-in-help, Back, and fallback destinations are approved in `docs/route-action-contract-spec.md` for Step 2.12.
+
 ## Primary user question
 
 The default screen must answer:

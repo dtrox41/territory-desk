@@ -48,6 +48,7 @@ The project is in isolated workspace setup and requirements definition. Applicat
 - `docs/profile-screen-spec.md` — approved current-user identity, access, preference, and session behavior
 - `docs/help-feedback-screen-spec.md` — approved task guidance, request routing, support, and product-feedback behavior
 - `docs/authentication-system-pages-spec.md` — approved sign-in, session, access, outage, and error behavior
+- `docs/route-action-contract-spec.md` — approved canonical route, cross-screen action, Back, and fallback contract
 
 ## Repository status
 

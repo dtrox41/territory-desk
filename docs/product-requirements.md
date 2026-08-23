@@ -154,6 +154,10 @@ Production authentication and authorization are server enforced and remain disti
 
 GitHub Pages may host only the fictional public prototype. It cannot secure embedded employee or customer data through a browser-only password gate. Production identity, hosting, backend session, timeout values, and company support contacts remain architecture or company decisions.
 
+## Route and cross-screen action contract
+
+Every primary, detail, secondary, and system route is registered with its allowed filters, authorization, active navigation, Back behavior, focus restoration, direct-link fallback, and privacy boundary. View All, affected-record, drill-down, correction, access-help, and request-detail controls map to deterministic destinations; no URL or fragment executes a business command.
+
 ## Data and integration boundary
 
 1. Prototype records are fictional.

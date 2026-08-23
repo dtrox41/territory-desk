@@ -12,6 +12,8 @@ The home dashboard answers one question first:
 
 It then shows what the representative is waiting on, what changed recently, and whether collaboration is producing useful outcomes. It is not a general call list, visit planner, CRM summary, or leaderboard.
 
+Exact View All, drill-down, filtered-list, Back, and fallback destinations are approved in `docs/route-action-contract-spec.md` for Step 2.12.
+
 ## Recommended information hierarchy
 
 Mobile order:

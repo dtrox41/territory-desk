@@ -56,6 +56,8 @@ Settings that are not yet functional must not appear as dead menu items.
 
 ## Route model
 
+The primary route summary below remains the navigation model. The complete nested, secondary, authentication, system, fragment, filter, action, Back, focus, and fallback registry is approved in `docs/route-action-contract-spec.md` for Step 2.12.
+
 | Destination | Route | Purpose |
 | --- | --- | --- |
 | Home | `/` | Current actions and collaboration summary |
@@ -64,11 +66,16 @@ Settings that are not yet functional must not appear as dead menu items.
 | Leads | `/leads` | Received, sent, and status-filtered handoffs |
 | Lead Detail | `/leads/:leadId` | Ownership, response, progress, activity, and outcome |
 | Directory | `/directory` | Representative discovery |
+| Representative Detail | `/directory/:representativeId` | Authorized representative context and territory coverage |
 | Notifications | `/notifications` | Complete notification history |
 | Manager Insights | `/insights` | Authorized cross-department oversight |
 | Data Status | `/data-status` | Territory version, refresh date, and known exceptions |
 | Help | `/help` | Guidance and feedback entry point |
+| Help Topic | `/help/:topicSlug` | Approved versioned task guidance |
+| Help Request Detail | `/help/requests/:requestId` | Current reporter's authorized support or suggestion detail |
 | Profile | `/profile` | Identity and approved notification preferences |
+
+Authentication and system routes remain outside the authenticated navigation destinations but are registered in `docs/authentication-system-pages-spec.md` and the Step 2.12 contract.
 
 ## Active-state rules
 

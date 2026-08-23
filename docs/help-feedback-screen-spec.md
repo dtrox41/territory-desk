@@ -6,6 +6,8 @@ Primary route: `/help`
 
 Topic route: `/help/:topicSlug`
 
+Reporter-visible request route: `/help/requests/:requestId`
+
 ## Purpose
 
 Help and Feedback gives representatives and managers concise instructions for completing Territory Desk workflows, routes problems to the correct process, and lets users submit privacy-safe application problems or product suggestions.
@@ -13,6 +15,8 @@ Help and Feedback gives representatives and managers concise instructions for co
 It is not a general IT help desk, emergency service, customer-service channel, employee discussion forum, or substitute for reporting incorrect territory and directory information through Data Status.
 
 The first release uses approved, versioned help articles. It does not include an AI help chatbot, public forum, peer-to-peer support feed, or unrestricted support chat; those surfaces could invent workflow guidance or expose employee and customer information without the required governance.
+
+Exact topic, request-detail, Data Status, authenticated access-help, sign-in-help, Back, and fallback destinations are approved in `docs/route-action-contract-spec.md` for Step 2.12.
 
 ## Primary user question
 

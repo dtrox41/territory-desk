@@ -454,6 +454,28 @@
 - [ ] Sign-in, session, access, offline, maintenance, update, not-found, error, loading, focus, keyboard, touch, zoom, motion, and screen-reader states pass.
 - [ ] Every prototype identity, role, scope, reference, record, and system message is fictional and visibly labeled.
 
+## Route and cross-screen action contract
+
+- [ ] Every router entry reconciles to the canonical authenticated, detail, secondary, or system route registry.
+- [ ] Static route precedence prevents `/leads/new`, `/help/requests/:requestId`, and reserved paths from being parsed as dynamic identifiers.
+- [ ] Every fragment opens only its approved panel and never changes business state.
+- [ ] Territory, Leads, Directory, Notification, Insight, Data Status, and Help accept only approved enumerated URL parameters.
+- [ ] URL filters can narrow but never broaden server-authorized scope.
+- [ ] Customer, employee, contact, search, notes, credentials, tokens, sessions, provider payloads, and free text never enter URLs or browser history.
+- [ ] Home View All and card actions open the exact Action Required, Waiting, Feedback and Outcomes, personal Leads, or manager Insights destination.
+- [ ] Territory and Directory Send Lead transfer only protected in-memory prefill and revalidate before submission.
+- [ ] Notification-linked records open only after core authorization and successful load.
+- [ ] Manager Insight drill-downs retain approved metric context and never broaden manager scope.
+- [ ] Data Status affected-record actions use the approved source-specific destination and expose no raw operational data.
+- [ ] Profile routes corrections, authenticated access problems, and sign-in recovery to distinct approved workflows.
+- [ ] Help Request Detail uses `/help/requests/:requestId`, reporter authorization, and non-disclosing missing or denied behavior.
+- [ ] No URL, fragment, filter, return path, or Back action can accept, decline, close, reassign, correct, submit, or otherwise execute a command.
+- [ ] Back restores authorized view, filters, active-session search, pagination, scroll, and focus when a safe origin exists.
+- [ ] Direct links use approved safe fallbacks without revealing source-screen or protected-record context.
+- [ ] Offline and stale navigation cannot load or mutate uncached production data and never auto-submits after reconnect.
+- [ ] Mobile sheets and laptop panels preserve the same canonical routes, permissions, history, and actions.
+- [ ] Analytics, metadata, referrers, logs, errors, cache, service worker, and sign-out use route templates and preserve privacy.
+
 ## Acceptance
 
 - [ ] At least 90% of test users complete the core handoff without assistance.

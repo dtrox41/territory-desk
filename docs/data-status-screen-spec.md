@@ -10,6 +10,8 @@ Data Status tells an authenticated user whether Territory Desk information is de
 
 It is a plain-language trust and routing-safety screen. It is not an engineering health console, source-data editor, incident-management system, or replacement for the actual workflow screens.
 
+Exact source-specific **View affected records**, report, Back, and fallback destinations are approved in `docs/route-action-contract-spec.md` for Step 2.12.
+
 ## Primary user question
 
 The default screen must answer:
