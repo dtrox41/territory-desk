@@ -41,6 +41,16 @@ DYNAMICS_INTEGRATION_MODE=disabled
 
 These are non-secret mode values. Real secret variables remain unset.
 
+## Authentication and hosting boundary
+
+1. GitHub Pages is allowed only for the fictional public prototype.
+2. A browser-only password or role check cannot protect embedded employee, customer, lead, or manager data.
+3. Production requires server-side authentication, authorization, session management, protected data delivery, and audit controls.
+4. Do not store passwords, session identifiers, access tokens, refresh tokens, or provider credentials in `localStorage` or `sessionStorage`.
+5. Prefer an approved server-managed session with HTTPS and a secure, HTTP-only cookie or an equivalently reviewed architecture.
+6. Authentication provider, production hosting, session timeout values, and company identity contacts remain unselected until the architecture and company approvals are complete.
+7. Production builds and servers reject demo persona creation and environment changes from user-controlled inputs.
+
 ## Logging rules
 
 1. Logs may identify a fictional record ID and event type.

@@ -291,3 +291,24 @@ Role, scope, department, location, territory, work timezone, email, phone, SMS e
 | `updatedAt` | Latest reporter-visible update time |
 
 Support requests are separate from lead Activity events and Data-quality issues.
+
+## Application session
+
+The server-side session store owns protected session state. The browser receives only the approved meaningless session reference through the selected secure mechanism.
+
+| Field | Purpose |
+| --- | --- |
+| `id` | Cryptographically unpredictable, meaningless session reference |
+| `userId` | Authenticated stable user identifier stored server-side |
+| `environment` | Development, preview, or production boundary |
+| `authenticationMethod` | Approved provider or fictional-demo category |
+| `authorizationVersion` | Current role and scope evaluation version |
+| `issuedAt` | Session establishment time |
+| `lastActivityAt` | Server-observed activity used by approved idle policy |
+| `idleExpiresAt` | Server-enforced idle expiration time |
+| `absoluteExpiresAt` | Server-enforced maximum session lifetime |
+| `reauthenticatedAt` | Most recent approved reauthentication time |
+| `revokedAt` | Optional server-side revocation time |
+| `revocationReason` | Safe internal reason category |
+
+Session tokens, provider credentials, authorization codes, refresh tokens, and authentication claims are excluded from user-facing payloads, documentation, analytics, URLs, and browser storage.

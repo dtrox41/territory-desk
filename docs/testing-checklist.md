@@ -426,6 +426,34 @@
 - [ ] Search, routing choices, articles, forms, statuses, accordions, errors, announcements, focus, keyboard, touch, zoom, and large text pass.
 - [ ] Prototype help requests, identities, summaries, diagnostics, and histories are fictional and visibly simulated.
 
+## Authentication and system pages
+
+- [ ] No production credential, real identity, token, session, or protected data exists in source, fixtures, bundles, documentation, screenshots, logs, or repository history.
+- [ ] GitHub Pages build is fictional and public-safe and contains no browser-only protection claim.
+- [ ] Production protected reads and writes enforce server-side authentication and authorization.
+- [ ] Client route, role, scope, environment, and demo-persona manipulation cannot broaden access.
+- [ ] Development, preview, and production identity and data modes cannot cross-connect.
+- [ ] Production build and server reject demo-session creation and persona switching.
+- [ ] Sign-in, authentication return, safe return, and deep links reject open redirects, unsafe paths, replay, wrong environment, and unauthorized destinations.
+- [ ] Passwords, codes, tokens, claims, sessions, and provider errors never appear in URLs, client storage, analytics, logs, metadata, or errors.
+- [ ] Session handling uses HTTPS and the approved secure server-managed mechanism.
+- [ ] Idle and absolute expiration, renewal, reauthentication, rotation, and revocation are enforced server-side.
+- [ ] Session expiration blocks writes and never silently queues or duplicates a command.
+- [ ] Unsaved input restores only for the same identity with current authorization, compatible versions, and explicit review.
+- [ ] A different returning identity sees none of the prior user's profile, navigation, cache, counts, data, or input.
+- [ ] Access Required, Access Denied, Account Unavailable, Not Found, and generic sign-in errors reveal no protected record or employee existence.
+- [ ] Role and scope removal clears unauthorized content and navigation across open tabs.
+- [ ] Sign Out invalidates the current server session, clears client state, and prevents browser Back from restoring protected content.
+- [ ] Offline and reconnecting states recheck session, role, scope, record, and source versions before enabling reads or writes.
+- [ ] Maintenance and update-required modes cannot be bypassed through client flags or URLs.
+- [ ] Unexpected errors distinguish definitely failed, definitely succeeded, and unknown write results.
+- [ ] Startup never flashes a previous user's protected content while authentication is unresolved.
+- [ ] No unnecessary notification, location, camera, microphone, contacts, or calendar permission is requested at sign-in.
+- [ ] Protected responses, caches, service workers, persistent storage, and sign-out behavior are safe for a personal smartphone.
+- [ ] Security headers, CSRF, XSS, clickjacking, cross-origin, cache, rate-limit, and audit controls enter the architecture verification plan.
+- [ ] Sign-in, session, access, offline, maintenance, update, not-found, error, loading, focus, keyboard, touch, zoom, motion, and screen-reader states pass.
+- [ ] Every prototype identity, role, scope, reference, record, and system message is fictional and visibly labeled.
+
 ## Acceptance
 
 - [ ] At least 90% of test users complete the core handoff without assistance.

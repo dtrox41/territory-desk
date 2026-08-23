@@ -95,6 +95,14 @@ Last updated: 2026-08-22
 - Reason: Real data requires approved security, identity, integration, and governance.
 - Reversible: Yes, after safeguards and approvals are complete.
 
+## D-016 — Separate public prototype hosting from protected production hosting
+
+- Decision: GitHub Pages may host only the fictional public prototype. Production employee and customer data requires server-enforced authentication, authorization, protected sessions, and protected data delivery on an approved architecture.
+- Reason: A static client bundle and browser-only password cannot keep embedded business data private or enforce record-level permissions.
+- Alternatives considered: Reuse the original client-side login; embed employee data in a private-source Pages repository; select Azure immediately.
+- Consequences: The prototype uses fictional personas and simulated access. Phase 3 must select a no-new-Azure backend, identity, session, database, and hosting architecture before real data or employee access is possible.
+- Reversible: Partially. GitHub Pages can remain a prototype surface, but production cannot use it as the only security boundary.
+
 ## Operating rule
 
 Every future material decision records its date, decision, reason, alternatives, consequences, and reversibility.

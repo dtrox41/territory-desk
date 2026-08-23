@@ -47,6 +47,7 @@ The project is in isolated workspace setup and requirements definition. Applicat
 - `docs/data-status-screen-spec.md` — approved data trust, action-safety, and issue-reporting behavior
 - `docs/profile-screen-spec.md` — approved current-user identity, access, preference, and session behavior
 - `docs/help-feedback-screen-spec.md` — approved task guidance, request routing, support, and product-feedback behavior
+- `docs/authentication-system-pages-spec.md` — approved sign-in, session, access, outage, and error behavior
 
 ## Repository status
 

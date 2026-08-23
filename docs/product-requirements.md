@@ -148,6 +148,12 @@ The first release exposes only implemented user preferences, led by the default 
 
 Prototype submissions are fictional and simulated. Production never presents a working-looking form that discards requests, and Help does not accept emergencies, customer records, credentials, screenshots, unrestricted attachments, or confidential security reports.
 
+## Authentication and system pages
+
+Production authentication and authorization are server enforced and remain distinct. The provider-neutral sign-in flow, protected session, role and record checks, session expiration, access-required, access-denied, account-unavailable, signed-out, offline, maintenance, update-required, not-found, and unexpected-error states never expose credentials or protected record existence.
+
+GitHub Pages may host only the fictional public prototype. It cannot secure embedded employee or customer data through a browser-only password gate. Production identity, hosting, backend session, timeout values, and company support contacts remain architecture or company decisions.
+
 ## Data and integration boundary
 
 1. Prototype records are fictional.
