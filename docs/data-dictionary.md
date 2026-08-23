@@ -96,6 +96,31 @@ Initial values:
 | `occurredAt` | Event timestamp |
 | `metadata` | Approved structured event details |
 
+## Lead follow-up
+
+| Field | Purpose |
+| --- | --- |
+| `id` | Unique follow-up identifier |
+| `handoffId` | Required related peer-handoff identifier |
+| `ownerId` | Current accountable follow-up owner |
+| `createdById` | Authenticated creator |
+| `actionType` | Call, email, appointment, proposal, research, coordination, information, review, or other |
+| `summary` | Concise next-action commitment |
+| `dueAt` | Exact due timestamp after date-only defaulting when needed |
+| `timezone` | IANA or approved full timezone identifier used to interpret due time |
+| `reminderLeadTime` | Optional in-app reminder offset |
+| `status` | Open, completed, or canceled lifecycle state |
+| `timingState` | Derived upcoming, due-today, or overdue state |
+| `completionResult` | Approved structured result when completed |
+| `completedAt` | Completion timestamp |
+| `canceledAt` | Cancellation timestamp |
+| `cancelReason` | Approved cancellation reason |
+| `recordVersion` | Concurrency token for safe commands |
+| `calendarUid` | Opaque stable UID used for optional calendar export |
+| `calendarSequence` | Version of the latest exported snapshot |
+| `createdAt` | Creation timestamp |
+| `updatedAt` | Latest material-change timestamp |
+
 ## Notification delivery
 
 | Field | Purpose |

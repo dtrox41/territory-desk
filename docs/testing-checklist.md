@@ -209,6 +209,32 @@
 - [ ] Transition retries are idempotent and audit events are append-only.
 - [ ] Final outcome correction or reopening adds history instead of replacing it.
 - [ ] Future Dynamics conflict displays Needs reconciliation and does not choose silently.
+
+## Follow-ups and reminders
+
+- [ ] An accepted handoff has at most one active primary follow-up.
+- [ ] Sender cannot assign a recipient-owned follow-up directly.
+- [ ] Action type, owner, summary, due date, timezone, and conditional fields validate correctly.
+- [ ] Date-only follow-up is due at 5:00 PM owner-local time.
+- [ ] Weekend or holiday dates warn and are never silently moved.
+- [ ] Daylight-saving boundaries use the stored timezone rules.
+- [ ] Upcoming, due-today, and overdue are derived from an open follow-up rather than manually selected.
+- [ ] Overdue and due-today appear at approved queue ranks without duplicating the handoff.
+- [ ] Completing requires a structured result and may create the next follow-up or Next action missing.
+- [ ] Customer not interested prompts an outcome and does not silently close the handoff.
+- [ ] Reschedule preserves every prior due timestamp and requires a reason.
+- [ ] Repeated rescheduling does not count as completed progress.
+- [ ] Cancel preserves history and requires replacement or creates Next action missing when the handoff stays open.
+- [ ] No control can hide an overdue item through an unrecorded snooze.
+- [ ] In-app reminder does not change due state or claim closed-app push delivery.
+- [ ] Follow-up SMS is off by default.
+- [ ] Calendar export contains no customer, contact, address, opportunity, employee-contact, credential, or token data.
+- [ ] Calendar import is labeled a snapshot and reschedule offers an updated-export warning.
+- [ ] No Graph or calendar credential request exists in the first release.
+- [ ] Reassignment preserves prior owner, due history, and pre-assignment lateness attribution.
+- [ ] Complete, reschedule, cancel, and reminder commands are concurrent-safe and idempotent.
+- [ ] Offline, stale, unauthorized, inactive-owner, and export-failure states fail safely.
+- [ ] Labels, errors, shortcut announcements, due state, timezone, touch targets, focus, keyboard, zoom, and screen readers pass.
 - [ ] Reassignment is restricted to authorized users.
 - [ ] Insights balance volume with quality and outcomes.
 - [ ] General calls and visits do not displace collaboration actions.

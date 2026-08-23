@@ -94,6 +94,12 @@ Handoff status, current owner, required-action owner, attention state, response 
 
 Only approved state transitions are allowed. Need Information, Decline, withdrawal, manager reassignment, progress, appointments, outcomes, corrections, and future Dynamics reconciliation preserve immutable history and use explicit permissions and reasons.
 
+## Follow-ups and reminders
+
+Each accepted handoff has at most one active primary follow-up in the initial release. Follow-ups use a single owner, explicit action type, timezone-aware due timestamp, structured result, immutable reschedule history, and derived due-today or overdue state.
+
+Territory Desk remains the follow-up source of truth. The first release may export an optional privacy-safe `.ics` snapshot, but it does not use Microsoft Graph, require Azure/Entra integration, or claim live Outlook synchronization.
+
 ## Data and integration boundary
 
 1. Prototype records are fictional.
