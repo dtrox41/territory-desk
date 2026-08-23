@@ -10,7 +10,7 @@ Its core workflow is:
 
 ## Project status
 
-Phase 2 product definition and Phase 3 architecture definition are complete. Steps 3.1 through 3.5 are approved. Application code, real integrations, and production data have not been added yet.
+Phase 2 product definition and Phase 3 architecture definition are complete. Phase 4 visual-system definition is in progress, with Step 4.1 approved. Application code, real integrations, and production data have not been added yet.
 
 ## Safety boundaries
 
@@ -54,6 +54,7 @@ Phase 2 product definition and Phase 3 architecture definition are complete. Ste
 - `docs/field-ownership-mapping.md` — approved Step 3.3 field authority, app schema, and Cintas Dynamics verification contract
 - `docs/outlook-email-calendar-architecture.md` — approved Step 3.4 Outlook, email, calendar, SMS-boundary, and delivery-state architecture
 - `docs/environment-architecture.md` — approved Step 3.5 Development, Preview, Production, deployment, and environment-isolation architecture
+- `docs/brand-assets-spec.md` — approved Step 4.1 brand-asset inventory, temporary identity, permissions, and replacement policy
 
 ## Repository status
 

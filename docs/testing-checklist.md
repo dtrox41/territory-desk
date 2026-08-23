@@ -99,6 +99,22 @@
 - [ ] Failed Preview and Production deployments roll back independently without crossing environment data or URLs.
 - [ ] Original repository remains clean and has no new remote, commit, branch, workflow, or Pages setting.
 
+## Brand assets and prototype identity
+
+- [ ] Public Preview uses the approved Territory Desk product-first identity and fictional-prototype disclosure.
+- [ ] No screenshot-extracted, traced, copied, or placeholder Cintas logo exists in source or build output.
+- [ ] A company-endorsed brand variant remains unavailable until an approved original asset and usage policy exist.
+- [ ] BrandIdentity variants are centralized and no route duplicates logo markup or files.
+- [ ] Territory Desk wordmark remains real readable text and does not imitate Cintas letterforms.
+- [ ] Any TD monogram is original, code-native, legible at required sizes, and distinguishable from corporate marks.
+- [ ] Provisional colors are not labeled as official corporate colors.
+- [ ] Every status pairs color or icon with visible and programmatic text.
+- [ ] One icon family has documented source and license, consistent geometry, accessible naming, and decorative hiding.
+- [ ] No unregistered external visual asset enters the public or production build.
+- [ ] Asset register captures source, permission, public-preview status, production status, accessibility, limitations, version, and owner.
+- [ ] No real employee name, contact, headshot, customer, opportunity, source export, or sensitive original-repository data enters prototype assets or screenshots.
+- [ ] Product name, descriptor, favicon, header, zoom, forced-color, high-contrast, smartphone, and laptop behavior pass.
+
 ## Territory lookup
 
 - [ ] Responsible representative can be found in under 15 seconds.

@@ -143,6 +143,14 @@ Last updated: 2026-08-22
 - Consequences: The proposed public preview is a separate `dtrox41/territory-desk` deployment containing fictional data only. A future protected Preview receives isolated nonproduction services before nonpublic test data. Code moves between stages from approved commits, but data, credentials, sessions, and integration checkpoints never do. Exact compatibility validation rejects unsafe mode combinations.
 - Reversible: Partially. Providers and URLs can change, but environment and data isolation remain mandatory.
 
+## D-022 — Use a product-first prototype identity
+
+- Decision: Use Territory Desk as a real-text wordmark, Cross-Division Sales Command Center as a supporting descriptor, and a provisional professional blue, white-card, high-contrast direction. A later original TD monogram may be created. Do not copy, trace, crop, redraw, or embed the Cintas logo from the supplied screenshot, and do not create a placeholder corporate-logo file.
+- Reason: The fictional prototype can develop a coherent, accessible visual identity without falsely implying corporate approval or publishing a degraded trademark asset from a screenshot.
+- Alternatives considered: Extract the screenshot logo; reuse original embedded images and inline icons; block visual work until a corporate brand package arrives; make the prototype appear like an already approved Cintas application.
+- Consequences: One shared BrandIdentity component reserves a company-endorsed variant but leaves it unavailable. Corporate-logo use requires an approved original asset, usage permissions, brand guidance, and context approval. Public Preview remains visibly fictional and contains no real employee, customer, or original-repository data.
+- Reversible: Yes. An approved corporate brand package can replace or extend the temporary identity through the centralized brand component and asset register.
+
 ## Operating rule
 
 Every future material decision records its date, decision, reason, alternatives, consequences, and reversibility.
