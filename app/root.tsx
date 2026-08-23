@@ -1,6 +1,5 @@
 import {
   isRouteErrorResponse,
-  Link,
   Links,
   Meta,
   Outlet,
@@ -8,6 +7,7 @@ import {
   ScrollRestoration,
 } from "react-router";
 
+import { SystemPage } from "./components/layout/SystemPage";
 import type { Route } from "./+types/root";
 import "./app.css";
 
@@ -34,11 +34,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export function HydrateFallback() {
   return (
-    <main className="system-page" id="main-content">
-      <p className="eyebrow">Fictional prototype</p>
-      <h1>Territory Desk</h1>
-      <p role="status">Loading the application foundation…</p>
-    </main>
+    <SystemPage
+      description="Preparing the fictional cross-division collaboration workspace."
+      eyebrow="Fictional prototype"
+      title="Loading Territory Desk"
+    >
+      <p className="system-page__status" role="status">
+        Loading application shell…
+      </p>
+    </SystemPage>
   );
 }
 
@@ -50,15 +54,16 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   const notFound = isRouteErrorResponse(error) && error.status === 404;
 
   return (
-    <main className="system-page" id="main-content">
-      <p className="eyebrow">Territory Desk</p>
-      <h1>{notFound ? "Page not found" : "Territory Desk is unavailable"}</h1>
-      <p>
-        {notFound
-          ? "This fictional prototype page does not exist."
-          : "The application could not load this page. No business action was completed."}
-      </p>
-      <Link to="/">Return to the prototype home</Link>
-    </main>
+    <SystemPage
+      actionLabel="Return to Home"
+      actionTo="/"
+      description={
+        notFound
+          ? "The requested fictional prototype page does not exist."
+          : "The application could not load this page. No business action was completed."
+      }
+      eyebrow="Territory Desk"
+      title={notFound ? "Page not found" : "Territory Desk is unavailable"}
+    />
   );
 }

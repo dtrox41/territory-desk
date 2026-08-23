@@ -195,6 +195,15 @@ Last updated: 2026-08-22
 - Consequences: Preview remains a fictional static application; navigation is typed and can later move to a protected server architecture; all versions are reproducible; ESLint remains on the latest compatible 9.x line until the JSX accessibility plugin supports ESLint 10; browser-route refreshes use the GitHub Pages 404 fallback; the original repository and GitHub remain unchanged.
 - Reversible: Partially. Individual development tools and libraries can be upgraded or added with evidence, but the separate repository, typed route boundary, fictional public Preview, exact environment safety, accessibility checks, and no-unjustified-dependency policy remain mandatory.
 
+## D-028 — Implement one representative-first responsive application shell
+
+- Date: 2026-08-23
+- Decision: Implement one persistent responsive `AppShell` with an approved real-text Territory Desk identity, an original code-native outline icon family, five primary destinations, a native-dialog mobile drawer, a persistent laptop rail, typed canonical placeholder routes, route-title and forward-focus management, fictional notification counts, manager-navigation omission by default, and shared loading, error, and not-found system pages. A tested manager-view variation may reveal Manager Insights only after future authorization resolves; the visual flag never grants access.
+- Reason: Field representatives need the same predictable workflow on personal smartphones and company laptops, while managers need a future role-specific entry without duplicating the application. Central ownership prevents route label, icon, focus, active-state, and access-presentation drift.
+- Alternatives considered: Separate mobile and laptop applications; icon-only navigation; a third-party component or icon library; duplicating headers per route; showing manager navigation to every user; treating a URL or client-side presentation flag as authorization; populating product screens before the shell was pressure-tested.
+- Consequences: Every current product route has a typed fictional placeholder inside a shared shell; unknown paths recover outside the shell; static paths precede dynamic identifiers; representatives do not see manager navigation; direct `/insights` entry does not expose manager content; initial load preserves Skip Link behavior; forward navigation focuses the destination heading; and Step 5.3 can build product screens without reimplementing the frame. Real authorization remains a server-enforced production requirement.
+- Reversible: Partially. Labels, icons, breakpoints, and rail measurements can be refined through testing, but one shared responsive shell, representative-first access presentation, centralized route metadata, real-link navigation, truthful system states, and server-enforced authorization remain mandatory.
+
 ## Operating rule
 
 Every future material decision records its date, decision, reason, alternatives, consequences, and reversibility.

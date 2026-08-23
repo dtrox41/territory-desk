@@ -1,20 +1,25 @@
 import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router";
 
 import Home from "./home";
 
-describe("Home scaffold", () => {
-  it("labels the foundation as fictional and exposes one page heading", () => {
-    render(<Home />);
+describe("Home shell preview", () => {
+  it("exposes one descriptive heading and the fictional safety boundary", () => {
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>,
+    );
 
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: "The application foundation is ready.",
+        name: "Home",
       }),
     ).toBeInTheDocument();
-    expect(screen.getByText("Fictional prototype")).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: "Skip to main content" }),
-    ).toHaveAttribute("href", "#main-content");
+      screen.getByRole("heading", { name: "Current safety boundary" }),
+    ).toBeInTheDocument();
+    expect(screen.getByText("No employee or customer records")).toBeVisible();
   });
 });

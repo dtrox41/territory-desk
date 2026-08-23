@@ -1,47 +1,43 @@
+import { PageFrame } from "../components/layout/PageFrame";
+import { pageMeta } from "../components/layout/page-meta";
 import styles from "./home.module.css";
 
 export function meta() {
-  return [
-    { title: "Territory Desk — Fictional Prototype" },
-    {
-      name: "description",
-      content:
-        "A fictional prototype foundation for cross-division sales collaboration.",
-    },
-  ];
+  return pageMeta(
+    "Home",
+    "Fictional Territory Desk application-shell preview for cross-division sales collaboration.",
+  );
 }
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <a className={styles.skipLink} href="#main-content">
-        Skip to main content
-      </a>
-      <header className={styles.header}>
-        <span className={styles.wordmark}>Territory Desk</span>
-        <span className={styles.prototypeBadge}>Fictional prototype</span>
-      </header>
-      <main className={styles.main} id="main-content" tabIndex={-1}>
-        <p className={styles.eyebrow}>Cross-Division Sales Command Center</p>
-        <h1>The application foundation is ready.</h1>
-        <p className={styles.summary}>
-          This separate prototype contains no real employee, customer, lead, or
-          Dynamics data. The approved application shell is the next build step.
-        </p>
-        <section aria-labelledby="foundation-status" className={styles.card}>
-          <h2 id="foundation-status">Foundation status</h2>
-          <ul>
-            <li>React Router Framework Mode with SPA rendering</li>
-            <li>Strict TypeScript and centralized design tokens</li>
-            <li>
-              Automated formatting, lint, unit, accessibility, and build checks
-            </li>
-            <li>
-              Smartphone-first and laptop-responsive implementation boundary
-            </li>
-          </ul>
+    <PageFrame
+      description="The responsive navigation foundation is ready for the fictional cross-division lead workflow."
+      eyebrow="Cross-Division Sales Command Center"
+      title="Home"
+    >
+      <div className={styles.grid}>
+        <section aria-labelledby="shell-status" className={styles.card}>
+          <p className={styles.status}>Step 5.2 shell preview</p>
+          <h2 id="shell-status">Consistent access on phone and laptop</h2>
+          <p>
+            Use the primary navigation to verify Home, Territory, Send Lead,
+            Leads, and Directory without entering any real information.
+          </p>
         </section>
-      </main>
-    </div>
+        <aside
+          aria-labelledby="current-boundary"
+          className={styles.boundaryCard}
+        >
+          <h2 id="current-boundary">Current safety boundary</h2>
+          <ul>
+            <li>Fictional route placeholders only</li>
+            <li>No employee or customer records</li>
+            <li>No live messages or integrations</li>
+            <li>No browser data persistence</li>
+          </ul>
+        </aside>
+      </div>
+    </PageFrame>
   );
 }

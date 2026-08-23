@@ -1,6 +1,6 @@
 # Step 5.1 — Application Scaffold Implementation
 
-Status: Implementation complete locally; awaiting user approval
+Status: Accepted and complete locally
 
 Date: 2026-08-22
 
@@ -126,11 +126,11 @@ The three-project Playwright suite is defined and discoverable. This Codex macOS
 - [x] Local root build and `/territory-desk/` Preview build succeed.
 - [x] GitHub Pages asset and 404 fallback artifacts are generated correctly.
 - [x] Original repository and GitHub remain unchanged.
-- [x] Step 5.2 has not started.
+- [x] User accepted Step 5.1 before Step 5.2 implementation began.
 
 ## Next decision
 
-Approve Step 5.1 before implementation proceeds to Step 5.2, the responsive application shell.
+Step 5.1 was accepted. Step 5.2 now implements the responsive application shell in `docs/application-shell-implementation.md`.
 
 ## Primary references
 
