@@ -235,6 +235,30 @@
 - [ ] Complete, reschedule, cancel, and reminder commands are concurrent-safe and idempotent.
 - [ ] Offline, stale, unauthorized, inactive-owner, and export-failure states fail safely.
 - [ ] Labels, errors, shortcut announcements, due state, timezone, touch targets, focus, keyboard, zoom, and screen readers pass.
+
+## Activity history
+
+- [ ] Timeline is append-only and every event belongs to one authorized handoff.
+- [ ] System, notification, follow-up, progress, appointment, and outcome families remain distinct.
+- [ ] Users cannot manually create or backdate system, notification, ownership, response, or outcome events.
+- [ ] First-release user activities are shared with handoff participants; no private-note mode appears.
+- [ ] Add Activity supports approved types, occurred time, timezone, result, summary, detail, and next-action option.
+- [ ] Future occurred times are rejected and late entries preserve recorded server time.
+- [ ] General notes and user activities do not silently change status or complete follow-ups.
+- [ ] Explicit follow-up completion atomically records result, progress, status, and next-action effects.
+- [ ] Timeline defaults newest meaningful event first and paginates older history by stable cursor.
+- [ ] Filters change visibility only and never remove events.
+- [ ] Only same-correlation command events group together.
+- [ ] User progress corrections require a reason, preserve original, and show the superseding version.
+- [ ] Consequential system events require their approved correction or manager workflow.
+- [ ] Sender, owner, manager, and unauthorized visibility rules are enforced server-side.
+- [ ] Technical notification data never exposes contact details, payloads, provider secrets, or tokens.
+- [ ] Material progress creates sender feedback; routine delivery events do not create feedback noise.
+- [ ] Future Dynamics records deduplicate by approved identifier and conflicts show Needs reconciliation.
+- [ ] Add, correct, complete, reschedule, and outcome commands are idempotent and concurrency safe.
+- [ ] Failed save, stale view, pagination retry, notification failure, and sync failure preserve trustworthy state.
+- [ ] Timeline, filters, expansion, correction, forms, announcements, focus, keyboard, touch, zoom, and screen readers pass.
+- [ ] Prototype activity names, summaries, contacts, and outcomes are fictional.
 - [ ] Reassignment is restricted to authorized users.
 - [ ] Insights balance volume with quality and outcomes.
 - [ ] General calls and visits do not displace collaboration actions.

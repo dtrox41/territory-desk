@@ -100,6 +100,12 @@ Each accepted handoff has at most one active primary follow-up in the initial re
 
 Territory Desk remains the follow-up source of truth. The first release may export an optional privacy-safe `.ics` snapshot, but it does not use Microsoft Graph, require Azure/Entra integration, or claim live Outlook synchronization.
 
+## Activity history
+
+Each handoff has an append-only shared collaboration timeline. System, notification, follow-up, user-progress, appointment, and outcome events remain distinct; structured workflow commands create consequential events automatically.
+
+User-reported activity records occurred and recorded times separately. Corrections add linked superseding events, private notes and attachments are excluded, and no free-text activity silently completes a follow-up or changes status.
+
 ## Data and integration boundary
 
 1. Prototype records are fictional.

@@ -91,9 +91,17 @@ Initial values:
 | `id` | Unique immutable event identifier |
 | `handoffId` | Related lead handoff |
 | `actorId` | User or service that created the event |
-| `type` | Sent, delivered, viewed, response, status, follow-up, note, or outcome |
+| `family` | System, notification, follow-up, progress, appointment, or outcome |
+| `type` | Approved event type within its family |
 | `summary` | Human-readable event description |
 | `occurredAt` | Event timestamp |
+| `recordedAt` | Immutable server timestamp when the event was stored |
+| `sourceTimezone` | Timezone used for a user-reported occurred time |
+| `source` | User, system, manager, notification service, or future Dynamics |
+| `correlationId` | Groups records created by one atomic command |
+| `idempotencyReference` | Safe duplicate-command protection reference |
+| `supersedesEventId` | Prior event corrected by this event |
+| `visibilityScope` | Permission-derived event visibility |
 | `metadata` | Approved structured event details |
 
 ## Lead follow-up

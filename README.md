@@ -38,6 +38,7 @@ The project is in isolated workspace setup and requirements definition. Applicat
 - `docs/lead-creation-spec.md` — approved structured peer-lead creation and submission behavior
 - `docs/lead-status-ownership-spec.md` — approved handoff lifecycle, ownership, and transition rules
 - `docs/follow-up-reminder-spec.md` — approved lead-derived follow-up and calendar-reminder behavior
+- `docs/activity-history-spec.md` — approved append-only collaboration timeline behavior
 
 ## Repository status
 
