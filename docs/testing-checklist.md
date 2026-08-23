@@ -142,6 +142,28 @@
 - [ ] Touch, keyboard, screen reader, browser Back, device rotation, reduced motion, forced colors, outdoor contrast, and long-content cases pass.
 - [ ] Rejected oversized logo, competing action bars, icon-only navigation, three-column CRM, floating obstruction, pulsing alarm, and fixed-height patterns do not appear.
 
+## Exact design tokens
+
+- [ ] Components consume centralized semantic tokens and do not repeat arbitrary raw color, spacing, radius, shadow, size, z-index, or duration values.
+- [ ] Provisional Territory Desk colors are never represented as official Cintas brand colors.
+- [ ] Normal text reaches at least 4.5:1 contrast and qualifying large text reaches at least 3:1.
+- [ ] Meaningful control boundaries, icons, graphical cues, and focus indicators reach at least 3:1 against adjacent colors.
+- [ ] Automated contrast calculations use unrounded source values and reject any value below its threshold.
+- [ ] Status pairs visible and programmatic text with color and an icon or equivalent non-color cue.
+- [ ] Unread-notification and lead-action counts remain visually and semantically distinct.
+- [ ] Every interactive target is at least 44 × 44 CSS pixels and every default button/input is at least 48 pixels tall.
+- [ ] A white inner separation plus blue outer focus ring remains visible on filled blue and danger controls.
+- [ ] Forced-color mode preserves system focus colors and does not suppress native outlines.
+- [ ] Body, form, and ordinary control text defaults to 16 pixels; no user-facing text is below 12 pixels.
+- [ ] System fonts load without an external font request or layout shift.
+- [ ] Zoomed and wrapped text can expand controls vertically without clipping.
+- [ ] Four-pixel spacing, approved width, control, icon, radius, border, shadow, motion, and layer scales remain consistent.
+- [ ] Borders and spacing establish structure; shadow never carries status, focus, selected, or validation meaning.
+- [ ] Disabled controls use explicit surface, text, border, and semantics rather than whole-control opacity alone.
+- [ ] Reduced-motion mode removes nonessential transforms, shimmer, smooth scrolling, and delays.
+- [ ] No pulsing alarm, parallax, animated gradient, arbitrary high z-index, or untested dark theme enters the first prototype.
+- [ ] Outdoor-light, 320-pixel width, 200% zoom, large-text, keyboard, reduced-motion, forced-color, and long-fictional-content checks pass.
+
 ## Territory lookup
 
 - [ ] Responsible representative can be found in under 15 seconds.

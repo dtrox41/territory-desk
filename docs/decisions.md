@@ -159,6 +159,15 @@ Last updated: 2026-08-22
 - Consequences: Mobile keeps urgent lead actions near the top, laptop gains space without changing meaning or permission, and all component states share testable geometry and behavior. Exact tokens remain a separate Step 4.3 decision and may refine layout targets only when accessibility testing supplies evidence.
 - Reversible: Partially. Breakpoint and measurement tokens can be tuned, but the information hierarchy, navigation model, semantic component roles, and mobile/laptop consistency remain approved.
 
+## D-024 — Use a centralized high-contrast field-work token system
+
+- Date: 2026-08-22
+- Decision: Use a centralized three-layer token system with provisional Territory Desk blue, cool neutral surfaces, exact semantic status sets, system typography, a four-pixel spacing scale, 44-pixel minimum targets, 48-pixel default controls, restrained borders/radii/shadows, a dual-separation focus treatment, reduced-motion behavior, and fixed layering. Treat these colors as product-prototype colors rather than official Cintas colors, and defer dark mode.
+- Reason: Representatives use personal smartphones in changing field conditions and company laptops, so the interface needs measured contrast, large targets, predictable density, low network dependency, and stable focus/motion behavior. Central tokens prevent inconsistent one-off styling as screens are built.
+- Alternatives considered: Approximate the screenshot colors; use official-brand claims without an approved source package; load a custom web font; allow component-local values; use 24-pixel minimum targets; add dark mode immediately; rely on shadows, color, or animation to communicate state.
+- Consequences: Approved ordinary text and non-text pairings have measurable thresholds; components must use semantic aliases; every interactive target remains at least 44 × 44 CSS pixels; status requires text and a non-color cue; filled controls use a white separation and blue outer focus ring; reduced-motion users receive immediate nonessential transitions; implementation adds automated contrast and token-use validation.
+- Reversible: Partially. Exact values can be revised after measured field/accessibility testing or an approved brand package, but semantic roles, accessibility floors, centralized ownership, and non-color status meaning remain mandatory.
+
 ## Operating rule
 
 Every future material decision records its date, decision, reason, alternatives, consequences, and reversibility.
