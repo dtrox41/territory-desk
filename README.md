@@ -43,6 +43,7 @@ The project is in isolated workspace setup and requirements definition. Applicat
 - `docs/leads-list-spec.md` — approved personal lead-list views, cards, filters, and states
 - `docs/lead-detail-spec.md` — approved role-aware lead workspace composition and states
 - `docs/notification-center-spec.md` — approved in-app alert history, unread, and navigation behavior
+- `docs/manager-insights-screen-spec.md` — approved manager operational dashboard composition and safeguards
 
 ## Repository status
 

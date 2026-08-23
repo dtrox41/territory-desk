@@ -8,6 +8,8 @@ Insights help representatives and managers close cross-department handoff loops,
 
 The mobile dashboard shows only immediate, actionable signals. Deeper trends and definitions belong in the permission-controlled Insights view on a company laptop or responsive browser.
 
+The complete responsive manager-screen composition is proposed in `docs/manager-insights-screen-spec.md`; this document remains the controlling source for metric formulas and measurement rules.
+
 ## Measurement boundary
 
 ### Facts available inside Territory Desk

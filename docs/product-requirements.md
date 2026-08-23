@@ -124,6 +124,12 @@ The Notification Center is permission-safe event history for lead alerts, feedba
 
 The bell counts only authorized unread in-app notifications. Read state, linked-record view, SMS delivery, response, ownership, and Action Required state remain separate; opening the center never marks all notifications read.
 
+## Manager Insights screen
+
+`/insights` is a role-controlled Team Insights workspace that remains separate from each manager's personal My Work. It opens with authorized scope and data freshness, then presents Needs Attention exceptions, the two approved workflow KPIs, diagnostic drivers, routing and measurement guardrails, and permission-safe supporting records.
+
+The screen is action-oriented and responsive for smartphone and laptop. It never ranks individual representatives, treats raw lead volume as success, guesses missing values, or exposes Dynamics-dependent outcomes before source mapping and reconciliation are approved.
+
 ## Data and integration boundary
 
 1. Prototype records are fictional.

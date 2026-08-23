@@ -332,6 +332,29 @@
 - [ ] Insights balance volume with quality and outcomes.
 - [ ] General calls and visits do not displace collaboration actions.
 
+## Manager Insights screen
+
+- [ ] `/insights` is server-authorized Team Insights and remains separate from a manager's personal My Work.
+- [ ] Effective scope is limited to authorized locations, departments, and representatives; filters only narrow it.
+- [ ] Representative direct-route access, manager-with-no-scope, and mid-session scope-removal states expose no team data.
+- [ ] Overview and Exceptions preserve the same information and permissions on smartphone and laptop.
+- [ ] Period, sending department, receiving department, direction, and workflow status filters update every compatible result.
+- [ ] The first-response and closed-loop cards reconcile to their approved numerator, denominator, exclusions, period, and definition.
+- [ ] Needs Attention uses a unique handoff count and does not sum duplicate exception-category membership.
+- [ ] Missed response, overdue update, missing next action, and routing exceptions open the exact authorized records.
+- [ ] Diagnostic drivers, guardrails, and department-pair results retain their approved definitions and context.
+- [ ] Fewer than 10 eligible handoffs suppresses comparative rates and ranks but preserves safe action counts.
+- [ ] No individual comparison, raw-volume leaderboard, unsupported target, or percentage-only judgment renders.
+- [ ] Dynamics-dependent outcomes remain hidden or unmistakably fictional and demo-only until source approval.
+- [ ] Every metric and count has a permission-safe drill-down that re-runs authorization and explains later changes.
+- [ ] No consequential or bulk lead action occurs directly from an insight card, row, or chart.
+- [ ] Data freshness, source version, completeness, exclusions, and definition changes are visible where relevant.
+- [ ] Initial load, refresh, new-update, no-action, no-data, partial, stale, offline, unavailable, mismatch, and error states do not guess values.
+- [ ] Incompatible scope, filter, definition, or source versions never render together.
+- [ ] URLs, metadata, analytics, logs, caches, errors, and sign-out preserve customer and employee privacy.
+- [ ] Headings, rates, tables, filters, charts, focus, announcements, keyboard, touch targets, contrast, zoom, and large text pass.
+- [ ] Every prototype company, representative, activity, department-to-person mapping, and outcome is fictional.
+
 ## Acceptance
 
 - [ ] At least 90% of test users complete the core handoff without assistance.

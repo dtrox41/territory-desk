@@ -178,3 +178,23 @@ Initial values:
 | `lastVerifiedAt` | Optional separate authoritative or human verification timestamp |
 | `status` | Assigned, open, inactive, or needs-review state |
 | `exceptionType` | Optional ambiguity, missing-data, or contact-conflict reason |
+
+## Insight result
+
+An insight result is a versioned, permission-scoped read model. It does not replace source handoff, follow-up, activity, territory, or future Dynamics records.
+
+| Field | Purpose |
+| --- | --- |
+| `id` | Opaque generated result identifier |
+| `scopeKey` | Server-resolved authorized manager scope |
+| `filterDefinition` | Approved non-sensitive period, department, direction, and status filters |
+| `metricKey` | Approved KPI, driver, guardrail, or exception definition |
+| `definitionVersion` | Metric definition used to calculate the result |
+| `numerator` | Eligible qualifying-record count when applicable |
+| `denominator` | Eligible population count when applicable |
+| `excludedCount` | Records excluded by the approved definition |
+| `comparisonEligible` | Whether volume, routing, completeness, and definition checks permit comparison |
+| `sourceVersions` | Territory Desk and future Dynamics source versions used |
+| `sourceRefreshedAt` | Last successful refresh for each contributing source |
+| `generatedAt` | Time the compatible result set was produced |
+| `staleState` | Current, stale, partial, unavailable, or mismatched display state |
