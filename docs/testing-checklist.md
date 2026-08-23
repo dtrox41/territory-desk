@@ -281,6 +281,31 @@
 - [ ] Counts, search, URLs, analytics, metadata, cache, and sign-out behavior preserve privacy.
 - [ ] View selector, cards, actions, states, times, refresh, pagination, focus, keyboard, touch, zoom, and screen readers pass.
 - [ ] Prototype lead cards use fictional companies, participants, and outcomes only.
+
+## Lead detail
+
+- [ ] Required-action or waiting banner appears before general details and uses the canonical highest action.
+- [ ] Status, current owner, required-action owner, requested recipient, sender, response, follow-up, and outcome source remain distinct.
+- [ ] Overview and Activity selection supports fragment links, browser Back, and focus restoration.
+- [ ] Mobile and laptop section order preserves the same reading and action priority.
+- [ ] Customer, contact, routing, participants, next action, feedback, related handoffs, and source sections expose only authorized minimum detail.
+- [ ] Role-and-state matrix produces one correct primary action and no unauthorized command.
+- [ ] Accept, Need Information, Decline, Withdraw, Reassign, correct, reopen, appointment, and outcome use explicit review and confirmation.
+- [ ] External contact utilities do not auto-log, complete, respond, or change status.
+- [ ] Customer Text remains absent until consent and device policy are approved.
+- [ ] Non-routing detail correction requires a reason, preserves prior values, and does not reset timing.
+- [ ] ZIP, service, recipient, ownership, and routing changes cannot use ordinary field correction.
+- [ ] First view records only after authentication, authorization, and successful core load.
+- [ ] Notification read, SMS delivery, refresh, and failed loads do not create false view or response events.
+- [ ] Core and independent block loading preserve stable layout and action access.
+- [ ] Empty sections use approved messages or remain omitted without fake content.
+- [ ] Core, block, changed-record, unauthorized, not-found, data-version, and Dynamics-conflict errors fail safely.
+- [ ] Successful commands use committed results, append correlated history, preserve focus, and separate notification failure.
+- [ ] Stale and offline detail disables every unsafe write and never loads uncached real contacts.
+- [ ] Unsaved subflows preserve active input without persistent browser storage.
+- [ ] Direct links, URLs, metadata, analytics, caches, sign-out, and client bundles preserve privacy.
+- [ ] Headings, action order, panels, dialogs, timestamps, announcements, contact labels, touch targets, keyboard, zoom, and screen readers pass.
+- [ ] All prototype customer, participant, activity, routing, and outcome content is fictional.
 - [ ] Reassignment is restricted to authorized users.
 - [ ] Insights balance volume with quality and outcomes.
 - [ ] General calls and visits do not displace collaboration actions.

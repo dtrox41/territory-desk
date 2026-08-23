@@ -112,6 +112,12 @@ User-reported activity records occurred and recorded times separately. Correctio
 
 Action Required uses the canonical deterministic ranking. Other views use documented lifecycle-specific sorts, all counts remain permission filtered, and customer or participant search text stays out of URLs, analytics, and persistent browser storage.
 
+## Lead detail
+
+Lead Detail presents the current user's exact required action first, followed by separate status and ownership dimensions, Overview and Activity panels, customer need, routing, primary follow-up, feedback, related handoffs, and source status.
+
+Primary action changes by role and state. Consequential responses, corrections, manager actions, appointments, and outcomes use explicit review flows; opening, viewing, external contact, free text, or notification delivery never changes business state implicitly.
+
 ## Data and integration boundary
 
 1. Prototype records are fictional.
