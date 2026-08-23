@@ -142,6 +142,12 @@ Representatives can report incorrect information and follow their own reporter-v
 
 The first release exposes only implemented user preferences, led by the default in-app reminder for newly created follow-ups. Required workflow notifications cannot be disabled, SMS remains simulated until production approval, and unsupported identity-provider, email, push, Outlook, customer-texting, and cosmetic settings remain absent.
 
+## Help and Feedback
+
+`/help` provides approved task instructions and routes learning, data correction, access help, application problems, and product suggestions to distinct processes. Data corrections use Data Status; identity and scope problems use access help; general submissions require a configured support or product owner and approved destination.
+
+Prototype submissions are fictional and simulated. Production never presents a working-looking form that discards requests, and Help does not accept emergencies, customer records, credentials, screenshots, unrestricted attachments, or confidential security reports.
+
 ## Data and integration boundary
 
 1. Prototype records are fictional.

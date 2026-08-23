@@ -401,6 +401,31 @@
 - [ ] URLs, metadata, analytics, logs, caches, errors, masks, and sign-out preserve profile and authentication privacy.
 - [ ] Headings, read-only labels, forms, roles, masks, statuses, dialogs, announcements, focus, keyboard, touch, zoom, and large text pass.
 
+## Help and Feedback screen
+
+- [ ] `/help` clearly separates learning, data correction, access help, application problems, and product suggestions.
+- [ ] Emergency, urgent customer, safety, compliance, and security guidance never implies that Help is a monitored escalation channel.
+- [ ] Production submission stays disabled until approved owners, destinations, permissions, retention, and routing exist.
+- [ ] Help search uses only approved topic content and keeps raw search text out of URLs, analytics, logs, and persistent storage.
+- [ ] Initial representative and manager topics use current labels, version applicability, ownership, and review dates.
+- [ ] Contextual help uses safe topic slugs and route templates and preserves active-session unsaved work.
+- [ ] Data problems open the Data Status report flow rather than generic support.
+- [ ] Sign-in, role, and scope problems open the approved access-help path and never collect credentials.
+- [ ] Application-problem forms collect approved category, impact, workflow, summary, details, contact permission, and safe diagnostics only.
+- [ ] Product suggestions collect problem, optional idea, frequency, and impact without promising approval or delivery.
+- [ ] Customer records, employee contacts, credentials, full URLs, raw logs, screenshots, recordings, and attachments are rejected or excluded.
+- [ ] Safe diagnostic preview contains only app version, environment class, route template, time, device class, connectivity, safe error class, and demo state.
+- [ ] Double tap, retry, and unknown-result recovery produce one committed request.
+- [ ] External-routing delay preserves the committed request and never asks the reporter to submit again.
+- [ ] My Requests exposes only the authenticated reporter's approved status, summary, and visible updates.
+- [ ] Manager role never grants access to another employee's requests.
+- [ ] Withdrawal, linked clarification when implemented, resolution, closed, and reopen behavior preserve history.
+- [ ] Bundled approved help remains available offline while new submissions and request history remain unavailable.
+- [ ] Loading, no-result, no-request, unavailable, offline, save-failure, unknown-result, delayed-routing, unauthorized, updated, and retired-topic states fail safely.
+- [ ] URLs, metadata, analytics, logs, caches, notifications, errors, and sign-out preserve request and identity privacy.
+- [ ] Search, routing choices, articles, forms, statuses, accordions, errors, announcements, focus, keyboard, touch, zoom, and large text pass.
+- [ ] Prototype help requests, identities, summaries, diagnostics, and histories are fictional and visibly simulated.
+
 ## Acceptance
 
 - [ ] At least 90% of test users complete the core handoff without assistance.

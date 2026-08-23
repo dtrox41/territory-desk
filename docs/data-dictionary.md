@@ -252,3 +252,42 @@ Source-controlled identity and access fields remain on the authoritative represe
 | `updatedAt` | Latest committed preference update time |
 
 Role, scope, department, location, territory, work timezone, email, phone, SMS eligibility, and authentication method are explicitly excluded from this entity.
+
+## Help topic
+
+| Field | Purpose |
+| --- | --- |
+| `id` | Stable approved topic identifier |
+| `slug` | Non-sensitive URL path segment |
+| `title` | Task-oriented topic title |
+| `summary` | Concise approved description |
+| `audience` | Representative, manager, or all authenticated users |
+| `keywords` | Approved search terms without customer or employee data |
+| `contentVersion` | Published instruction version |
+| `appVersionRange` | Product versions for which the topic is valid |
+| `ownerId` | Approved content-owner identifier |
+| `status` | Draft, approved, retired, or replaced |
+| `lastReviewedAt` | Most recent approved content review time |
+| `replacementTopicId` | Optional approved successor for a retired topic |
+
+## Support or product-feedback request
+
+| Field | Purpose |
+| --- | --- |
+| `id` | Opaque reporter tracking reference |
+| `reporterId` | Authenticated request owner |
+| `type` | Application problem or product suggestion |
+| `category` | Approved problem or product-area category |
+| `impact` | Blocked, limited, confusing, minor, or approved suggestion impact |
+| `summary` | Short privacy-reviewed request summary |
+| `description` | Optional bounded problem details or improvement idea |
+| `contactPermission` | Whether the approved owner may contact the reporter |
+| `safeDiagnosticContext` | Previewed app version, environment class, route template, time, device class, connectivity, and safe error class |
+| `status` | Reporter-visible lifecycle status appropriate to the request type |
+| `routingState` | Not configured, simulated, queued, routed, delayed, or failed |
+| `idempotencyReference` | Safe duplicate-submission protection |
+| `relatedRequestId` | Optional clarification, withdrawal, duplicate, or reopen relationship |
+| `createdAt` | Committed submission timestamp |
+| `updatedAt` | Latest reporter-visible update time |
+
+Support requests are separate from lead Activity events and Data-quality issues.
