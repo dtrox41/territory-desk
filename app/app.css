@@ -1,0 +1,77 @@
+@import "./styles/tokens.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-canvas);
+  color: var(--color-text);
+  font-family: var(--font-family-sans);
+  font-size: 100%;
+  line-height: var(--line-md);
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-block-size: 100dvh;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+:focus-visible {
+  outline: var(--focus-width) solid var(--color-focus);
+  outline-offset: var(--focus-offset-light);
+}
+
+.system-page {
+  inline-size: min(100% - (2 * var(--space-4)), var(--width-form-max));
+  margin-inline: auto;
+  min-block-size: 100dvh;
+  padding-block: var(--space-16);
+}
+
+.system-page h1 {
+  color: var(--color-text-strong);
+  font-size: var(--text-3xl);
+  line-height: var(--line-3xl);
+}
+
+.eyebrow {
+  color: var(--color-action-primary);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  line-height: var(--line-sm);
+}
+
+@media (forced-colors: active) {
+  :focus-visible {
+    outline-color: Highlight;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}

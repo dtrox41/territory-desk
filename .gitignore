@@ -3,8 +3,13 @@ node_modules/
 
 # Build and test output
 dist/
+build/
 coverage/
 .vite/
+.react-router/
+playwright-report/
+test-results/
+.pnpm-store/
 
 # Environment variables and secrets
 .env

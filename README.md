@@ -10,7 +10,7 @@ Its core workflow is:
 
 ## Project status
 
-Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/accessibility-system definition are complete. Step 5.1 application scaffolding is next. Application code, real integrations, and production data have not been added yet.
+Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/accessibility-system definition are complete. Step 5.1 application scaffolding is implemented locally and awaiting user approval. Step 5.2 has not started. No real integrations or production data have been added.
 
 ## Safety boundaries
 
@@ -59,6 +59,20 @@ Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/
 - `docs/design-tokens.md` — approved Step 4.3 color, typography, spacing, sizing, focus, motion, and validation tokens
 - `docs/component-state-contracts.md` — approved Step 4.4 interaction, validation, operation, loading, failure, recovery, and accessibility states
 - `docs/accessibility-conformance-plan.md` — approved Step 4.5 WCAG scope, interaction rules, test matrix, evidence, severity, and release gates
+- `docs/scaffold-implementation.md` — implemented Step 5.1 toolchain, structure, safety boundaries, verification, and known test-environment limitation
+
+## Local development
+
+Required versions are Node.js `^20.19.0 || >=22.12.0` and pnpm `11.19.0`.
+
+```bash
+pnpm install --frozen-lockfile
+pnpm dev
+pnpm check
+pnpm test:e2e
+```
+
+The public fictional Preview build uses `VITE_PUBLIC_BASE_PATH=/territory-desk/`. Exact environment combinations are enforced by `scripts/check-environment.mjs`.
 
 ## Repository status
 

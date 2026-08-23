@@ -1,0 +1,10 @@
+.react-router/
+build/
+coverage/
+docs/
+node_modules/
+playwright-report/
+pnpm-lock.yaml
+scripts/
+src/data/
+test-results/

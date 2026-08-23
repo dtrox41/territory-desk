@@ -186,6 +186,15 @@ Last updated: 2026-08-22
 - Consequences: All 55 WCAG 2.2 A/AA criteria have required or conditional evidence; all 27 canonical route classes and 42 component entries remain in scope; blocker, major, and known A/AA defects block release; supported device/assistive-technology coverage is documented; company-approved human testing is required before a protected employee pilot.
 - Reversible: Partially. Supported technology details and evidence tooling may change as devices and company policy are verified, but the AA floor, truthful claim language, end-to-end scope, release-blocking defect policy, and field-safety guardrails remain mandatory.
 
+## D-027 — Start with a minimal typed SPA scaffold
+
+- Date: 2026-08-22
+- Decision: Implement the separate prototype with React 19.2.8, React Router 8.3.0 Framework Mode, SPA rendering, Vite 8.2.2, strict TypeScript 5.9.3, pnpm exact-version locking, Vitest/Testing Library, Playwright/Axe, ESLint/JSX accessibility rules, Prettier, centralized approved CSS tokens, an exact Preview base path, and a generated GitHub Pages 404 fallback. Add no UI framework, state library, icon package, analytics SDK, web font, service worker, or integration client until an implemented requirement justifies it.
+- Reason: The approved product needs a maintainable mobile/laptop foundation and strong test boundaries, but premature packages and integrations would increase bundle, security, accessibility, and upgrade risk before the shell and workflows exist.
+- Alternatives considered: Copy the original application's implementation; use a basic non-framework Vite SPA; add Tailwind and a component kit immediately; use hash routing; add production authentication and data adapters to the public prototype; use current ESLint 10 with an accessibility plugin that does not declare it compatible.
+- Consequences: Preview remains a fictional static application; navigation is typed and can later move to a protected server architecture; all versions are reproducible; ESLint remains on the latest compatible 9.x line until the JSX accessibility plugin supports ESLint 10; browser-route refreshes use the GitHub Pages 404 fallback; the original repository and GitHub remain unchanged.
+- Reversible: Partially. Individual development tools and libraries can be upgraded or added with evidence, but the separate repository, typed route boundary, fictional public Preview, exact environment safety, accessibility checks, and no-unjustified-dependency policy remain mandatory.
+
 ## Operating rule
 
 Every future material decision records its date, decision, reason, alternatives, consequences, and reversibility.

@@ -5,7 +5,6 @@ import { join, resolve } from "node:path";
 const projectRoot = resolve(process.argv[2] ?? ".");
 const readText = (relativePath) =>
   readFileSync(join(projectRoot, relativePath), "utf8");
-const readJson = (relativePath) => JSON.parse(readText(relativePath));
 const hash = (value) => createHash("sha256").update(value).digest("hex");
 
 const metadataText = readText("src/data/import-metadata.json");

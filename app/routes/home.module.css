@@ -1,0 +1,120 @@
+.page {
+  min-block-size: 100dvh;
+}
+
+.skipLink {
+  background: var(--color-surface);
+  border: var(--border-2) solid var(--color-action-primary);
+  border-radius: var(--radius-md);
+  color: var(--color-action-primary);
+  inset-block-start: var(--space-2);
+  inset-inline-start: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  position: fixed;
+  transform: translateY(calc(-100% - var(--space-4)));
+  z-index: var(--z-toast);
+}
+
+.skipLink:focus-visible {
+  transform: translateY(0);
+}
+
+.header {
+  align-items: center;
+  background: var(--color-surface);
+  border-block-end: var(--border-1) solid var(--color-border-subtle);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: space-between;
+  min-block-size: var(--topbar-mobile-min);
+  padding: var(--space-3) var(--space-4);
+}
+
+.wordmark {
+  color: var(--color-blue-900);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+}
+
+.prototypeBadge {
+  background: var(--color-warning-background);
+  border: var(--border-1) solid var(--color-warning-boundary);
+  border-radius: var(--radius-round);
+  color: var(--color-warning-foreground);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  line-height: var(--line-sm);
+  padding: var(--space-1) var(--space-3);
+}
+
+.main {
+  inline-size: min(100% - (2 * var(--space-4)), 48rem);
+  margin-inline: auto;
+  padding-block: var(--space-10);
+}
+
+.main:focus {
+  outline: none;
+}
+
+.eyebrow {
+  color: var(--color-action-primary);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  line-height: var(--line-sm);
+  margin-block: 0 var(--space-2);
+}
+
+.main h1 {
+  color: var(--color-text-strong);
+  font-size: clamp(var(--text-2xl), 1.25rem + 1vw, var(--text-4xl));
+  line-height: var(--line-4xl);
+  margin-block: 0 var(--space-4);
+}
+
+.summary {
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  line-height: var(--line-lg);
+  margin-block: 0 var(--space-8);
+  max-inline-size: var(--width-reading);
+}
+
+.card {
+  background: var(--color-surface);
+  border: var(--border-1) solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-5);
+}
+
+.card h2 {
+  font-size: var(--text-xl);
+  line-height: var(--line-xl);
+  margin-block: 0 var(--space-3);
+}
+
+.card ul {
+  margin-block: 0;
+  padding-inline-start: var(--space-6);
+}
+
+.card li + li {
+  margin-block-start: var(--space-2);
+}
+
+@media (min-width: 48rem) {
+  .header {
+    padding-inline: var(--space-6);
+  }
+
+  .main {
+    inline-size: min(100% - (2 * var(--space-6)), 48rem);
+    padding-block: var(--space-16);
+  }
+
+  .card {
+    padding: var(--space-6);
+  }
+}
