@@ -7,6 +7,19 @@
 - [ ] Secrets and environment files are ignored.
 - [ ] Only fictional business data is present.
 
+## Frontend architecture
+
+- [ ] React, strict TypeScript, React Router Framework Mode, and Vite scaffold without warnings.
+- [ ] Every approved canonical route has a typed route module or tested system-state mapping.
+- [ ] Static paths take precedence over dynamic identifiers.
+- [ ] Route modules use the typed service boundary instead of importing mock arrays directly.
+- [ ] Fictional and future HTTP adapters satisfy the same frontend interface contract.
+- [ ] Normal canonical paths work through refresh and direct links on the selected preview host.
+- [ ] No customer data, employee contacts, lead drafts, credentials, sessions, roles, or permissions persist in browser storage.
+- [ ] No protected API response is added to a service-worker cache.
+- [ ] Mobile WebKit, mobile Chromium, and laptop browser smoke workflows pass.
+- [ ] Format, lint, type-check, unit, component, production-build, and end-to-end checks pass.
+
 ## Territory lookup
 
 - [ ] Responsible representative can be found in under 15 seconds.

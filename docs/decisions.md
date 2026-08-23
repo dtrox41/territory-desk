@@ -103,6 +103,14 @@ Last updated: 2026-08-22
 - Consequences: The prototype uses fictional personas and simulated access. Phase 3 must select a no-new-Azure backend, identity, session, database, and hosting architecture before real data or employee access is possible.
 - Reversible: Partially. GitHub Pages can remain a prototype surface, but production cannot use it as the only security boundary.
 
+## D-017 — Use React Router Framework Mode for one responsive frontend
+
+- Decision: Build one smartphone-first and laptop-responsive web application using React, strict TypeScript, React Router Framework Mode, its Vite pipeline, semantic HTML, CSS Modules, typed service adapters, Vitest, React Testing Library, and Playwright. Run the fictional prototype in SPA Mode and defer PWA behavior until the routed UI is stable.
+- Reason: The approved product has a large canonical route model, detailed state handling, cross-screen workflows, two device compositions, and a future protected API. Framework Mode makes those routes and boundaries explicit without selecting a production backend vendor.
+- Alternatives considered: Plain HTML and JavaScript; manually assembled React and Vite; Next.js; React Native or Expo; no-code or Power Apps; immediate PWA implementation.
+- Consequences: Normal paths require a host with SPA fallback behavior. The frontend uses typed fictional and future HTTP adapters, avoids general global state initially, and never treats client state as authorization.
+- Reversible: Partially. React and route modules are the approved base; supporting libraries can change when implementation evidence justifies it.
+
 ## Operating rule
 
 Every future material decision records its date, decision, reason, alternatives, consequences, and reversibility.

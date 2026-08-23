@@ -49,6 +49,7 @@ Phase 2 product definition is complete and the project is ready for Phase 3 arch
 - `docs/help-feedback-screen-spec.md` — approved task guidance, request routing, support, and product-feedback behavior
 - `docs/authentication-system-pages-spec.md` — approved sign-in, session, access, outage, and error behavior
 - `docs/route-action-contract-spec.md` — approved canonical route, cross-screen action, Back, and fallback contract
+- `docs/frontend-architecture.md` — approved Step 3.1 frontend stack, boundaries, structure, and test architecture
 
 ## Repository status
 
