@@ -164,6 +164,36 @@
 - [ ] No pulsing alarm, parallax, animated gradient, arbitrary high z-index, or untested dark theme enters the first prototype.
 - [ ] Outdoor-light, 320-pixel width, 200% zoom, large-text, keyboard, reduced-motion, forced-color, and long-fictional-content checks pass.
 
+## Reusable component states
+
+- [ ] Every approved Step 4.2 component appears in the Step 4.4 coverage ledger and every new reusable component adds a state owner before acceptance.
+- [ ] Interaction, selection, availability, operation, data-block, and semantic state axes do not overwrite one another.
+- [ ] Focus-visible remains distinct when a component is selected, invalid, destructive, warning, or pending.
+- [ ] Hover behavior runs only on genuine hover-capable pointers and no content/action depends on hover.
+- [ ] Pressed feedback never scales, shifts, or reorders the target.
+- [ ] Unauthorized actions are omitted and enforced outside the visual layer; disabled controls do not conceal permission decisions.
+- [ ] Native disabled and read-only behavior remain semantically and visually distinct.
+- [ ] Every consequential command follows idle, validation, pending, success, definite-failure, unknown-outcome, and reconciliation rules.
+- [ ] Pending state locks duplicate activation immediately and retains a specific progress verb.
+- [ ] Unknown outcomes reconcile with the original idempotency identity before retry is offered.
+- [ ] Primary, secondary, tertiary, destructive, icon, link, and toggle controls use the approved role and state contract.
+- [ ] Form labels, help, validation, error summary, first-error focus, corrected state, server failure, and input preservation pass.
+- [ ] Checkboxes, radios, switches, search, Clear, filters, and chips preserve target size, semantics, and keyboard behavior.
+- [ ] Route links, tabs, list views, menu buttons, menus, selects, and navigation drawers use the correct distinct pattern.
+- [ ] Tabs preserve separate focus and selection, correct arrow/Home/End behavior, and manual activation when loading is not immediate.
+- [ ] Navigation current state, manager-route omission, count loading/failure, and mobile/laptop consistency pass.
+- [ ] Cards and rows preserve individual control focus, 72-pixel target height, stable layout, wrapping, and block-local states.
+- [ ] Status badges and unread, action-required, ordinary, zero, loading, failure, and `99+` count variants remain distinct.
+- [ ] Menus, drawers, sheets, dialogs, and alert dialogs manage initial focus, containment, inert background, Escape, close, and return focus.
+- [ ] Consequential success, errors, required actions, and unknown outcomes persist outside auto-dismissing toasts.
+- [ ] Alert and status live regions announce each event once without stealing focus or creating an alert storm.
+- [ ] Skeletons preserve dimensions, hide decorative pieces, expose busy context, and stop shimmer under reduced motion.
+- [ ] Empty, no-result, filtered-zero, unauthorized, unavailable, stale, offline, and failed-load states remain distinguishable.
+- [ ] Background refresh retains readable authorized content and never replaces it with a skeleton.
+- [ ] Connection loss, reconnect, reauthentication, source-version refresh, and write re-enable behavior pass.
+- [ ] Startup, session expiration, scope loss, sign-out, and browser Back never flash or restore unauthorized content.
+- [ ] Focused-error, focused-selected, pending-disconnect, unknown-send, partial-error, stale-permission, mobile-keyboard, forced-color, reduced-motion, and touch-only combinations pass.
+
 ## Territory lookup
 
 - [ ] Responsible representative can be found in under 15 seconds.

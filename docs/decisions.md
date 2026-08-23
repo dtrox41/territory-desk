@@ -168,6 +168,15 @@ Last updated: 2026-08-22
 - Consequences: Approved ordinary text and non-text pairings have measurable thresholds; components must use semantic aliases; every interactive target remains at least 44 × 44 CSS pixels; status requires text and a non-color cue; filled controls use a white separation and blue outer focus ring; reduced-motion users receive immediate nonessential transitions; implementation adds automated contrast and token-use validation.
 - Reversible: Partially. Exact values can be revised after measured field/accessibility testing or an approved brand package, but semantic roles, accessibility floors, centralized ownership, and non-color status meaning remain mandatory.
 
+## D-025 — Model component state as independent, recoverable axes
+
+- Date: 2026-08-22
+- Decision: Define reusable component state through independent interaction, selection, availability, operation, data-block, and semantic-message axes. Use explicit state precedence, native controls and matching WAI-ARIA patterns, a consequential-command state machine, idempotent unknown-outcome reconciliation, block-local loading/error/empty behavior, persistent consequential results, and a coverage ledger for every approved component.
+- Reason: Field connectivity can fail during a command, while focus, selection, validation, permission, and business state may coexist. A single visual-state flag would produce ambiguous failures, duplicate sends, inaccessible focus, or false success.
+- Alternatives considered: Define only default/hover/disabled CSS; optimistically mark every command successful; treat lost responses as definite failures; use disabled styling for unauthorized actions; use generic clickable cards and custom widgets; rely on toast-only results; leave states to individual screen implementation.
+- Consequences: Duplicate activation locks immediately, definite failure and unknown outcome remain distinct, unknown commands reconcile before retry, user input survives errors, permissions are enforced beyond presentation, focus remains visible across semantic states, and every new reusable component must declare its state owner before acceptance.
+- Reversible: Partially. Individual visual treatments and component boundaries can be refined through testing, but truthful command outcomes, state independence, native semantics, permission enforcement, focus precedence, and safe reconciliation remain mandatory.
+
 ## Operating rule
 
 Every future material decision records its date, decision, reason, alternatives, consequences, and reversibility.
