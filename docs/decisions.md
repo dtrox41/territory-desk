@@ -111,6 +111,14 @@ Last updated: 2026-08-22
 - Consequences: Normal paths require a host with SPA fallback behavior. The frontend uses typed fictional and future HTTP adapters, avoids general global state initially, and never treats client state as authorization.
 - Reversible: Partially. React and route modules are the approved base; supporting libraries can change when implementation evidence justifies it.
 
+## D-018 — Separate peer-handoff authority from CRM authority
+
+- Decision: Territory Desk is authoritative for the cross-department peer-handoff and collaboration lifecycle. Dynamics remains authoritative for CRM records that exist there. Production app-owned workflow data uses a minimal PostgreSQL-compatible relational store behind a protected API and transactional outbox; a server-side Dynamics adapter begins disabled.
+- Reason: The peer-handoff workflow must operate independently because it is separate from corporate Dynamics leads, while storing all customer and sales work in Territory Desk would create a shadow CRM.
+- Alternatives considered: Dynamics-only storage; app-only CRM storage; browser storage; email, text, or spreadsheets as the record; direct no-code database access.
+- Consequences: Peer-handoff status and CRM sales stage remain separate. Direct Dataverse access requires an approved Cintas environment, schema, permissions, Microsoft identity path, licensing, and owner. No new paid Azure workload is provisioned by this decision.
+- Reversible: Partially. A later approved Dynamics extension could absorb some app-owned tables, but the authority and migration must be explicit and audited.
+
 ## Operating rule
 
 Every future material decision records its date, decision, reason, alternatives, consequences, and reversibility.

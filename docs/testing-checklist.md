@@ -20,6 +20,23 @@
 - [ ] Mobile WebKit, mobile Chromium, and laptop browser smoke workflows pass.
 - [ ] Format, lint, type-check, unit, component, production-build, and end-to-end checks pass.
 
+## Data and Dynamics architecture
+
+- [ ] Peer-handoff status and Dynamics CRM stage remain separate fields and labels.
+- [ ] Browser code contains no database connection string, Dataverse credential, client secret, certificate, or provider token.
+- [ ] One handoff command commits its current state, immutable activity, and outbox work atomically.
+- [ ] Duplicate command retries return the original result through a stable idempotency key.
+- [ ] Stale record versions produce an explicit conflict instead of a silent overwrite.
+- [ ] Activity corrections append a linked event and never replace the original.
+- [ ] App-owned rows use Territory Desk IDs; external IDs remain in versioned link records.
+- [ ] Dynamics integration is disabled when environment, mapping, identity, or permission configuration is incomplete.
+- [ ] Dynamics failure preserves the Territory Desk handoff and shows a truthful integration state.
+- [ ] Dataverse throttling respects the server-provided retry guidance.
+- [ ] Integration retries cannot create duplicate CRM records.
+- [ ] Fictional, preview, and production databases and checkpoints remain isolated.
+- [ ] App-owned storage excludes attachments, private notes, message bodies, recordings, contracts, payment data, and copied Dynamics payloads.
+- [ ] Retention, backup, restore, audit, and deletion policies are approved before real data is enabled.
+
 ## Territory lookup
 
 - [ ] Responsible representative can be found in under 15 seconds.
