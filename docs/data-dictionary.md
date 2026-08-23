@@ -25,9 +25,11 @@ All fields are provisional until the Dynamics 365 mapping and privacy review are
 | `id` | Unique handoff identifier |
 | `senderId` | Representative who submitted the handoff |
 | `senderDepartment` | Sending department at submission time |
-| `recipientId` | Requested receiving representative |
+| `requestedRecipientId` | Representative currently requested to respond before acceptance |
 | `recipientDepartment` | Receiving department at submission time |
 | `currentOwnerId` | Current accountable representative |
+| `requiredActionOwnerId` | User who currently owes the next required action |
+| `recordVersion` | Concurrency token for safe status and ownership commands |
 | `companyName` | Fictional during prototype |
 | `contactSummary` | Minimum approved contact context |
 | `opportunitySummary` | Why the handoff is relevant |
@@ -51,6 +53,14 @@ All fields are provisional until the Dynamics 365 mapping and privacy review are
 | `additionalNotes` | Optional internal handoff notes |
 | `idempotencyKey` | Server-enforced duplicate-submission protection key |
 | `responseTargetAt` | Calculated first meaningful response deadline |
+| `responseTargetState` | Pending, completed-on-time, completed-late, or missed |
+| `informationReviewTargetAt` | Separate deadline after requested information is supplied |
+| `attentionState` | Derived action-required, waiting, needs-attention, up-to-date, or closed state |
+| `viewedAt` | First authenticated recipient detail-view timestamp |
+| `acceptedAt` | Ownership-acceptance timestamp |
+| `closedAt` | Final outcome, decline, or withdrawal timestamp |
+| `closureReason` | Approved reason for decline, withdrawal, loss, or non-qualified closure |
+| `outcomeSource` | Territory Desk demo or future verified Dynamics source |
 | `status` | Current workflow state |
 | `priority` | Reserved for a future approved urgency classification; not used for initial queue ranking |
 | `nextAction` | Current required action |
@@ -72,6 +82,7 @@ Initial values:
 7. `won`
 8. `lost`
 9. `closed_not_qualified`
+10. `withdrawn`
 
 ## Activity event
 

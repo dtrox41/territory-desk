@@ -183,6 +183,32 @@
 - [ ] Another-department action creates a separately validated and reviewed handoff.
 - [ ] Field labels, errors, step announcements, focus, keyboard types, touch targets, zoom, and screen readers pass.
 - [ ] Prototype companies, contacts, needs, and outcomes are fictional.
+
+## Lead status and ownership
+
+- [ ] Handoff status, current owner, required-action owner, attention, response, view, notification, and outcome-source states change independently.
+- [ ] Creation leaves the sender as current owner and makes the requested recipient the response-action owner.
+- [ ] Accept transfers ownership atomically and records on-time or late response.
+- [ ] Need Information requires a specific question, returns action to the sender, and satisfies first response.
+- [ ] Supplied information creates a separate recipient review target without resetting the first-response result.
+- [ ] Decline requires an approved reason, clears the required action, and never counts as qualified progression.
+- [ ] Withdrawal is allowed before acceptance, blocked afterward, and preserves history.
+- [ ] Add Later after acceptance creates Next action missing.
+- [ ] General notes alone do not change accepted to in progress.
+- [ ] Appointment set requires structured appointment details and remains non-terminal.
+- [ ] Won, lost, and closed-not-qualified require structured outcome details and source labels.
+- [ ] Unlisted transitions are rejected server-side.
+- [ ] Revised declined handoff creates a linked new record rather than rewriting the decline.
+- [ ] Reassignment before acceptance creates a recipient-specific target without measuring pre-assignment time.
+- [ ] Reassignment after acceptance immediately transfers ownership, preserves status, and creates acknowledgment.
+- [ ] Reassignment preserves due-date history and never attributes pre-assignment lateness to the new owner.
+- [ ] Role permissions are enforced server-side and manager scope is limited.
+- [ ] Attention state is derived and can differ by viewing user.
+- [ ] New assignments use in-app and simulated SMS; later feedback defaults to in-app.
+- [ ] Stale concurrent commands produce a reviewable conflict, never a silent overwrite.
+- [ ] Transition retries are idempotent and audit events are append-only.
+- [ ] Final outcome correction or reopening adds history instead of replacing it.
+- [ ] Future Dynamics conflict displays Needs reconciliation and does not choose silently.
 - [ ] Reassignment is restricted to authorized users.
 - [ ] Insights balance volume with quality and outcomes.
 - [ ] General calls and visits do not displace collaboration actions.

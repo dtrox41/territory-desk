@@ -36,6 +36,7 @@ The project is in isolated workspace setup and requirements definition. Applicat
 - `docs/territory-lookup-spec.md` — approved ZIP/city routing and lookup behavior
 - `docs/representative-directory-spec.md` — approved representative discovery and profile behavior
 - `docs/lead-creation-spec.md` — approved structured peer-lead creation and submission behavior
+- `docs/lead-status-ownership-spec.md` — approved handoff lifecycle, ownership, and transition rules
 
 ## Repository status
 

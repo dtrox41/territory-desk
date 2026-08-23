@@ -88,6 +88,12 @@ Each submitted handoff has one requested department and one accountable recipien
 
 Lead creation uses Route, Customer, Opportunity, and Review & Send steps. It supports incomplete contact availability without fabricated data, warns about possible duplicates, and uses idempotent server submission so retries cannot create duplicate handoffs.
 
+## Lead status and ownership
+
+Handoff status, current owner, required-action owner, attention state, response target, view state, notification state, and outcome source are separate. Before acceptance the sender owns the record while the requested recipient owes the response; acceptance atomically transfers ownership to the recipient.
+
+Only approved state transitions are allowed. Need Information, Decline, withdrawal, manager reassignment, progress, appointments, outcomes, corrections, and future Dynamics reconciliation preserve immutable history and use explicit permissions and reasons.
+
 ## Data and integration boundary
 
 1. Prototype records are fictional.

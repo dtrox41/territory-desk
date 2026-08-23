@@ -102,10 +102,12 @@ Examples:
 
 1. Selecting any meaningful response satisfies the first-response target.
 2. `Need Information` creates a new action for the sender but does not keep the recipient’s first-response timer open.
-3. Missing the target changes the visible action reason to `Response target missed` and the lead attention state to `Needs Attention`.
-4. Missing the target does not automatically penalize, decline, or reassign the lead.
-5. A later response remains valid and records the elapsed time.
-6. Management may configure the schedule later; changes must be versioned and must not silently rewrite historical results.
+3. When the sender supplies the requested information, create a separate information-review target due at the end of the next business day. It does not rewrite the completed first-response result.
+4. A missed information-review target remains in the `Information received` ranking category with the visible reason `Information review overdue` and sorts ahead of non-overdue items in that category.
+5. Missing the first-response target changes the visible action reason to `Response target missed` and the lead attention state to `Needs Attention`.
+6. Missing a target does not automatically penalize, decline, or reassign the lead.
+7. A later response remains valid and records the elapsed time.
+8. Management may configure the schedule later; changes must be versioned and must not silently rewrite historical results.
 
 ## Follow-up timing
 
