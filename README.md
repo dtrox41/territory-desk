@@ -39,6 +39,7 @@ The project is in isolated workspace setup and requirements definition. Applicat
 - `docs/lead-status-ownership-spec.md` — approved handoff lifecycle, ownership, and transition rules
 - `docs/follow-up-reminder-spec.md` — approved lead-derived follow-up and calendar-reminder behavior
 - `docs/activity-history-spec.md` — approved append-only collaboration timeline behavior
+- `docs/phase-2-exit-audit.md` — current screen-coverage audit and required gap-closure sequence
 
 ## Repository status
 
