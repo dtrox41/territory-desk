@@ -130,6 +130,12 @@ The bell counts only authorized unread in-app notifications. Read state, linked-
 
 The screen is action-oriented and responsive for smartphone and laptop. It never ranks individual representatives, treats raw lead volume as success, guesses missing values, or exposes Dynamics-dependent outcomes before source mapping and reconciliation are approved.
 
+## Data Status
+
+`/data-status` explains whether territory, directory, workflow, notification, and future Dynamics information is safe enough for each dependent action. Source freshness, validation, verification, version compatibility, known exceptions, and channel availability remain separate rather than collapsing into one misleading health indicator.
+
+Representatives can report incorrect information and follow their own reporter-visible issue status, while managers receive only approved aggregate context inside their authorized scope. Reports never edit source data directly, and administrative source correction remains outside the first release.
+
 ## Data and integration boundary
 
 1. Prototype records are fictional.

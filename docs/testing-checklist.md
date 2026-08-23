@@ -355,6 +355,29 @@
 - [ ] Headings, rates, tables, filters, charts, focus, announcements, keyboard, touch targets, contrast, zoom, and large text pass.
 - [ ] Every prototype company, representative, activity, department-to-person mapping, and outcome is fictional.
 
+## Data Status screen
+
+- [ ] `/data-status` explains action safety and does not expose administrative or engineering controls.
+- [ ] Overall Available, Attention needed, Stale, Unavailable, and Version mismatch reconcile to source and capability states.
+- [ ] A partial source failure can never produce a false Available summary.
+- [ ] Territory, representative, lead submission, lead update, in-app, SMS, and Dynamics capabilities remain separate.
+- [ ] Territory, directory, workflow, notifications, SMS, and Dynamics cards use approved source-specific status rules.
+- [ ] Source updated, Imported, Validated, Last verified, Last refreshed, and Status checked never substitute for one another.
+- [ ] Missing freshness policy shows Not configured and does not silently qualify a source as current.
+- [ ] Territory and directory version mismatch blocks new lead routing but never rewrites historical snapshots.
+- [ ] SMS simulation or failure remains separate from committed lead creation and in-app notification state.
+- [ ] Dynamics Not connected does not block the independent Territory Desk peer-handoff workflow.
+- [ ] Known issues show affected capability, scope-safe context, workaround, and approved impact ordering.
+- [ ] Incorrect-information reports are idempotent, auditable, and never edit source data directly.
+- [ ] Duplicate issue linking preserves the current user's reporter-visible tracking.
+- [ ] My Submitted Reports exposes only the current user's reporter-visible status and approved resolution summary.
+- [ ] Representatives, managers, unauthenticated users, and future data owners follow approved permission boundaries.
+- [ ] Source and issue aggregates cannot reveal unauthorized employees, customers, locations, or departments.
+- [ ] Initial, no-issue, no-report, partial, stale, offline, unauthorized, mismatch, new-status, and retry states fail safely.
+- [ ] URLs, metadata, analytics, logs, caches, errors, and sign-out preserve source, employee, and issue privacy.
+- [ ] Status words, timestamps, cards, tables, dialogs, announcements, focus, keyboard, touch, contrast, zoom, and large text pass.
+- [ ] Prototype source records, assignments, locations, issues, reports, and integrations are fictional or clearly simulated.
+
 ## Acceptance
 
 - [ ] At least 90% of test users complete the core handoff without assistance.

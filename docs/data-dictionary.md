@@ -198,3 +198,42 @@ An insight result is a versioned, permission-scoped read model. It does not repl
 | `sourceRefreshedAt` | Last successful refresh for each contributing source |
 | `generatedAt` | Time the compatible result set was produced |
 | `staleState` | Current, stale, partial, unavailable, or mismatched display state |
+
+## Data source snapshot
+
+| Field | Purpose |
+| --- | --- |
+| `id` | Opaque compatible status-snapshot identifier |
+| `sourceType` | Territory, directory, workflow, notification, SMS, or future Dynamics category |
+| `sourceVersion` | Stable version supplied by or assigned to the source |
+| `status` | Available, attention-needed, stale, unavailable, or version-mismatch state |
+| `affectedCapabilities` | Approved action categories affected by the current state |
+| `sourceUpdatedAt` | Timestamp reported by the source, when provided |
+| `importedAt` | Time Territory Desk loaded the source version |
+| `validatedAt` | Time approved checks completed for the version |
+| `lastVerifiedAt` | Time an authorized person or authoritative process explicitly verified it |
+| `lastRefreshedAt` | Time the application last successfully retrieved it |
+| `statusCheckedAt` | Time the displayed status checks were evaluated |
+| `freshnessRuleVersion` | Configured source-specific freshness policy, when approved |
+| `scopeKey` | Server-resolved visibility scope for the snapshot |
+
+## Data-quality issue
+
+| Field | Purpose |
+| --- | --- |
+| `id` | Opaque issue identifier and user tracking reference |
+| `category` | Approved routing, identity, location, freshness, mismatch, processing, notification, or reconciliation category |
+| `sourceType` | Source area affected by the report or detected condition |
+| `sourceRecordId` | Optional opaque referenced source identifier |
+| `sourceVersion` | Source version visible when the issue was reported or detected |
+| `reporterId` | Authenticated reporting user, protected by permission rules |
+| `detectedAt` | First system or user detection time |
+| `lastConfirmedAt` | Most recent approved confirmation time |
+| `description` | Minimum factual reporter description; no customer data |
+| `affectedCapability` | Lookup, routing, directory, workflow, insight, notification, or Dynamics action affected |
+| `status` | Submitted, acknowledged, under-review, resolved, or closed-no-change |
+| `resolutionSummary` | Reporter-visible approved outcome summary |
+| `resolvedAt` | Optional resolution or closure timestamp |
+| `visibilityScope` | Server-enforced issue and aggregate visibility |
+| `idempotencyReference` | Safe duplicate-report retry protection |
+| `relatedIssueId` | Optional existing issue linked after confirmed duplicate review |
