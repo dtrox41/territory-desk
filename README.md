@@ -42,6 +42,7 @@ The project is in isolated workspace setup and requirements definition. Applicat
 - `docs/phase-2-exit-audit.md` — current screen-coverage audit and required gap-closure sequence
 - `docs/leads-list-spec.md` — approved personal lead-list views, cards, filters, and states
 - `docs/lead-detail-spec.md` — approved role-aware lead workspace composition and states
+- `docs/notification-center-spec.md` — approved in-app alert history, unread, and navigation behavior
 
 ## Repository status
 

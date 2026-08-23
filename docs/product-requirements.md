@@ -118,6 +118,12 @@ Lead Detail presents the current user's exact required action first, followed by
 
 Primary action changes by role and state. Consequential responses, corrections, manager actions, appointments, and outcomes use explicit review flows; opening, viewing, external contact, free text, or notification delivery never changes business state implicitly.
 
+## Notification Center
+
+The Notification Center is permission-safe event history for lead alerts, feedback and outcomes, reminders, and actionable system notices. Leads remains the authoritative current-action list.
+
+The bell counts only authorized unread in-app notifications. Read state, linked-record view, SMS delivery, response, ownership, and Action Required state remain separate; opening the center never marks all notifications read.
+
 ## Data and integration boundary
 
 1. Prototype records are fictional.

@@ -142,6 +142,25 @@ Initial values:
 | `providerReference` | Future non-sensitive provider identifier |
 | `failureReason` | Safe operational failure summary |
 
+## In-app notification
+
+| Field | Purpose |
+| --- | --- |
+| `id` | Unique user-facing notification identifier |
+| `recipientId` | Authenticated user to whom the notification is addressed |
+| `handoffId` | Optional related peer-handoff identifier |
+| `sourceEventId` | Event or reminder that caused the notification |
+| `correlationId` | Atomic command correlation used for deduplication |
+| `category` | Lead alert, feedback-outcome, or reminder-system category |
+| `type` | Approved user-facing notification type |
+| `safeMessage` | Privacy-minimized in-app display message |
+| `destinationType` | Lead, follow-up, data-status, or other approved route type |
+| `destinationId` | Opaque identifier resolved after authorization |
+| `createdAt` | Server creation timestamp |
+| `readAt` | Optional personal read timestamp |
+| `linkedActionState` | Optional derived action-needed, resolved, waiting, or unavailable state |
+| `idempotencyReference` | Safe duplicate-notification protection reference |
+
 ## Territory assignment
 
 | Field | Purpose |

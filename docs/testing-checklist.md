@@ -306,6 +306,28 @@
 - [ ] Direct links, URLs, metadata, analytics, caches, sign-out, and client bundles preserve privacy.
 - [ ] Headings, action order, panels, dialogs, timestamps, announcements, contact labels, touch targets, keyboard, zoom, and screen readers pass.
 - [ ] All prototype customer, participant, activity, routing, and outcome content is fictional.
+
+## Notification Center
+
+- [ ] Notification Center remains event history and never replaces the Leads Action Required queue.
+- [ ] All, Lead Alerts, Feedback & Outcomes, Reminders & System, and Unread Only follow approved inclusion rules.
+- [ ] New assignment, information, reassignment, routing, feedback, outcome, reminder, overdue, and actionable-system notifications use approved recipients and messages.
+- [ ] Internal retries, raw provider responses, diagnostics, analytics, routine refresh, and ordinary self-confirmations never create user-facing noise.
+- [ ] One correlated command creates at most one notification per recipient and purpose.
+- [ ] Idempotent retries and missed-target versions create no duplicate alerts.
+- [ ] Bell counts only current user's authorized unread in-app notification records.
+- [ ] SMS attempts, technical logs, and Action Required items never change the bell count directly.
+- [ ] Opening the center, scrolling, SMS, previews, failed loads, and another user's actions never mark a notification read.
+- [ ] Explicit Mark Read, successful authorized linked open, and confirmed Mark All Read follow approved rules.
+- [ ] Read state never marks a lead viewed, responds, completes, acknowledges, or changes the Leads badge.
+- [ ] Cards expose minimum safe context and no consequential one-tap workflow commands.
+- [ ] Chronological ordering, date groups, stable cursor pagination, and New Notifications Available prevent list jumps and duplicates.
+- [ ] Delete, Clear, Archive, and permanent Mark Unread are absent from the first release.
+- [ ] Empty, loading, count, pagination, read, linked-record, partial, stale, offline, unauthorized, and unavailable states fail safely.
+- [ ] Managers receive only personal and addressed scope notifications, never another user's inbox.
+- [ ] Notification URLs, metadata, analytics, logs, SMS, calendar exports, caches, and client bundles preserve privacy.
+- [ ] Bell, filters, cards, unread text, times, confirmation, announcements, pagination, focus, touch, keyboard, zoom, and screen readers pass.
+- [ ] Prototype notification messages, actors, companies, and outcomes are fictional.
 - [ ] Reassignment is restricted to authorized users.
 - [ ] Insights balance volume with quality and outcomes.
 - [ ] General calls and visits do not displace collaboration actions.
