@@ -17,27 +17,51 @@ import {
   type NormalizedTerritorySearch,
 } from "../../domain/territory-search";
 import type {
+  TerritoryAssignmentStatus,
+  TerritoryDepartmentCode,
+  TerritoryResultFilters,
+  TerritorySearchResult,
+} from "../../domain/territory-result";
+import type {
   TerritoryCityMatch,
   TerritoryLookupService,
   TerritorySuggestion,
 } from "../../services/territory-lookup-service";
 import styles from "./TerritoryLookup.module.css";
+import { TerritoryResults } from "./TerritoryResults";
 
 type TerritoryLookupProps = {
+  initialState?: TerritoryLookupState;
   lookupService: TerritoryLookupService;
 };
 
-type LookupState =
+export type TerritoryLookupState =
   | { type: "idle" }
   | {
       matches: TerritoryCityMatch[];
       search: NormalizedTerritorySearch;
       type: "choose-state";
     }
+  | { search: NormalizedTerritorySearch; type: "error" }
+  | { search: NormalizedTerritorySearch; type: "loading" }
   | { search: NormalizedTerritorySearch; type: "no-result" }
-  | { search: NormalizedTerritorySearch; type: "ready" };
+  | {
+      result: TerritorySearchResult;
+      search: NormalizedTerritorySearch;
+      type: "ready";
+    };
 
-const departmentOptions = [
+type LookupFilters = {
+  assignmentFilter: TerritoryAssignmentStatus | "all";
+  department: TerritoryDepartmentCode | "all";
+  locationFilter: string;
+  stateFilter: string;
+};
+
+const departmentOptions: Array<{
+  label: string;
+  value: TerritoryDepartmentCode | "all";
+}> = [
   { label: "All departments", value: "all" },
   { label: "Uniform", value: "uniform" },
   { label: "Facility Services", value: "facility-services" },
@@ -47,6 +71,21 @@ const departmentOptions = [
 ];
 
 const exampleSearches = ["63101", "Columbia, MO", "Springfield"];
+const validStates = new Set(["GA", "IL", "MA", "MO", "NY"]);
+const validLocations = new Set([
+  "demo-101",
+  "demo-202",
+  "demo-303",
+  "demo-404",
+  "demo-505",
+  "demo-606",
+  "demo-707",
+]);
+const validAssignmentStatuses = new Set<TerritoryAssignmentStatus>([
+  "assigned",
+  "needs-review",
+  "open",
+]);
 
 function getInitialQuery(searchParams: URLSearchParams) {
   const zip = searchParams.get("zip");
@@ -59,7 +98,32 @@ function getInitialQuery(searchParams: URLSearchParams) {
   return "";
 }
 
-export function TerritoryLookup({ lookupService }: TerritoryLookupProps) {
+function getInitialDepartment(searchParams: URLSearchParams) {
+  const value = searchParams.get("department");
+  return departmentOptions.some((option) => option.value === value)
+    ? (value as TerritoryDepartmentCode | "all")
+    : "all";
+}
+
+function getInitialStateFilter(searchParams: URLSearchParams) {
+  const value = searchParams.get("state");
+  return value && validStates.has(value) ? value : "all";
+}
+
+function getInitialLocationFilter(searchParams: URLSearchParams) {
+  const value = searchParams.get("location");
+  return value && validLocations.has(value) ? value : "all";
+}
+
+function getInitialAssignmentFilter(searchParams: URLSearchParams) {
+  const value = searchParams.get("status") as TerritoryAssignmentStatus | null;
+  return value && validAssignmentStatuses.has(value) ? value : "all";
+}
+
+export function TerritoryLookup({
+  initialState,
+  lookupService,
+}: TerritoryLookupProps) {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const fieldId = useId();
@@ -68,18 +132,18 @@ export function TerritoryLookup({ lookupService }: TerritoryLookupProps) {
   const errorId = `${fieldId}-error`;
   const listboxId = `${fieldId}-suggestions`;
   const [query, setQuery] = useState(() => getInitialQuery(searchParams));
-  const [department, setDepartment] = useState(
-    () => searchParams.get("department") ?? "all",
+  const [department, setDepartment] = useState<TerritoryDepartmentCode | "all">(
+    () => getInitialDepartment(searchParams),
   );
-  const [stateFilter, setStateFilter] = useState(
-    () => searchParams.get("filterState") ?? "all",
+  const [stateFilter, setStateFilter] = useState(() =>
+    getInitialStateFilter(searchParams),
   );
-  const [locationFilter, setLocationFilter] = useState(
-    () => searchParams.get("location") ?? "all",
+  const [locationFilter, setLocationFilter] = useState(() =>
+    getInitialLocationFilter(searchParams),
   );
-  const [assignmentFilter, setAssignmentFilter] = useState(
-    () => searchParams.get("assignment") ?? "all",
-  );
+  const [assignmentFilter, setAssignmentFilter] = useState<
+    TerritoryAssignmentStatus | "all"
+  >(() => getInitialAssignmentFilter(searchParams));
   const [suggestions, setSuggestions] = useState<TerritorySuggestion[]>([]);
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
   const [isSuggestionListOpen, setIsSuggestionListOpen] = useState(false);
@@ -87,7 +151,10 @@ export function TerritoryLookup({ lookupService }: TerritoryLookupProps) {
   const [dismissedSuggestionValue, setDismissedSuggestionValue] = useState("");
   const [validationError, setValidationError] = useState("");
   const [announcement, setAnnouncement] = useState("");
-  const [lookupState, setLookupState] = useState<LookupState>({ type: "idle" });
+  const [lookupState, setLookupState] = useState<TerritoryLookupState>(
+    initialState ?? { type: "idle" },
+  );
+  const lookupRequestIdRef = useRef(0);
   const deferredQuery = useDeferredValue(query);
   const describedBy = useMemo(
     () => [helperId, validationError ? errorId : ""].filter(Boolean).join(" "),
@@ -118,7 +185,17 @@ export function TerritoryLookup({ lookupService }: TerritoryLookupProps) {
     };
   }, [deferredQuery, dismissedSuggestionValue, lookupService]);
 
-  const updateUrl = (search: NormalizedTerritorySearch) => {
+  const currentFilters: LookupFilters = {
+    assignmentFilter,
+    department,
+    locationFilter,
+    stateFilter,
+  };
+
+  const updateUrl = (
+    search: NormalizedTerritorySearch,
+    filters: LookupFilters = currentFilters,
+  ) => {
     const nextParams = new URLSearchParams();
 
     if (search.kind === "zip") {
@@ -128,55 +205,89 @@ export function TerritoryLookup({ lookupService }: TerritoryLookupProps) {
       if (search.state) nextParams.set("state", search.state);
     }
 
-    if (department !== "all") nextParams.set("department", department);
-    if (stateFilter !== "all") nextParams.set("filterState", stateFilter);
-    if (locationFilter !== "all") nextParams.set("location", locationFilter);
-    if (assignmentFilter !== "all") {
-      nextParams.set("assignment", assignmentFilter);
+    if (filters.department !== "all") {
+      nextParams.set("department", filters.department);
+    }
+    if (search.kind === "zip" && filters.stateFilter !== "all") {
+      nextParams.set("state", filters.stateFilter);
+    }
+    if (filters.locationFilter !== "all") {
+      nextParams.set("location", filters.locationFilter);
+    }
+    if (filters.assignmentFilter !== "all") {
+      nextParams.set("status", filters.assignmentFilter);
     }
 
     void navigate(`/territory?${nextParams.toString()}`);
   };
 
   const completeSearch = async (search: NormalizedTerritorySearch) => {
-    updateUrl(search);
+    const requestedSearch: NormalizedTerritorySearch =
+      search.kind === "city" && !search.state && stateFilter !== "all"
+        ? {
+            ...search,
+            displayValue: `${search.city}, ${stateFilter}`,
+            state: stateFilter,
+          }
+        : search;
+    const requestId = lookupRequestIdRef.current + 1;
+    lookupRequestIdRef.current = requestId;
+    updateUrl(requestedSearch);
     setIsSuggestionListOpen(false);
 
-    if (search.kind === "zip") {
-      const isKnownZip = await lookupService.hasKnownZip(search.zip);
+    try {
+      if (requestedSearch.kind === "city") {
+        const cityMatches = await lookupService.getCityMatches(
+          requestedSearch.city,
+        );
+        const stateMatches = requestedSearch.state
+          ? cityMatches.filter((match) => match.state === requestedSearch.state)
+          : cityMatches;
 
-      if (!isKnownZip) {
-        setLookupState({ search, type: "no-result" });
-        setAnnouncement("No fictional territory location matched this ZIP.");
+        if (requestId !== lookupRequestIdRef.current) return;
+
+        if (stateMatches.length === 0) {
+          setLookupState({ search: requestedSearch, type: "no-result" });
+          setAnnouncement("No fictional territory location matched this city.");
+          return;
+        }
+
+        if (!requestedSearch.state && stateMatches.length > 1) {
+          setLookupState({
+            matches: stateMatches,
+            search: requestedSearch,
+            type: "choose-state",
+          });
+          setAnnouncement(
+            `${stateMatches.length} states match ${requestedSearch.city}. Choose a state.`,
+          );
+          return;
+        }
+      }
+
+      setLookupState({ search: requestedSearch, type: "loading" });
+      setAnnouncement("Finding fictional territory assignments.");
+      const result = await lookupService.getResults(requestedSearch);
+
+      if (requestId !== lookupRequestIdRef.current) return;
+
+      if (!result) {
+        setLookupState({ search: requestedSearch, type: "no-result" });
+        setAnnouncement(
+          "No fictional territory assignment matched this search.",
+        );
         return;
       }
 
-      setLookupState({ search, type: "ready" });
-      setAnnouncement(`Search criteria accepted for ZIP ${search.zip}.`);
-      return;
-    }
-
-    const cityMatches = await lookupService.getCityMatches(search.city);
-    const stateMatches = search.state
-      ? cityMatches.filter((match) => match.state === search.state)
-      : cityMatches;
-
-    if (stateMatches.length === 0) {
-      setLookupState({ search, type: "no-result" });
-      setAnnouncement("No fictional territory location matched this city.");
-      return;
-    }
-
-    if (!search.state && stateMatches.length > 1) {
-      setLookupState({ matches: stateMatches, search, type: "choose-state" });
+      setLookupState({ result, search: requestedSearch, type: "ready" });
       setAnnouncement(
-        `${stateMatches.length} states match ${search.city}. Choose a state.`,
+        `${result.assignments.length} fictional service assignments found for ${result.search.displayValue}.`,
       );
-      return;
+    } catch {
+      if (requestId !== lookupRequestIdRef.current) return;
+      setLookupState({ search: requestedSearch, type: "error" });
+      setAnnouncement("Territory results could not be loaded.");
     }
-
-    setLookupState({ search, type: "ready" });
-    setAnnouncement(`Search criteria accepted for ${search.displayValue}.`);
   };
 
   const submitSearch = (event: FormEvent<HTMLFormElement>) => {
@@ -245,7 +356,28 @@ export function TerritoryLookup({ lookupService }: TerritoryLookupProps) {
     void completeSearch(search);
   };
 
+  const chooseResultZip = (zip: string) => {
+    const search: NormalizedTerritorySearch = {
+      displayValue: zip,
+      kind: "zip",
+      zip,
+    };
+    setDismissedSuggestionValue(zip);
+    setQuery(zip);
+    setValidationError("");
+    void completeSearch(search);
+  };
+
+  const updateFilters = (nextFilters: Partial<LookupFilters>) => {
+    const mergedFilters = { ...currentFilters, ...nextFilters };
+
+    if (lookupState.type === "ready") {
+      updateUrl(lookupState.search, mergedFilters);
+    }
+  };
+
   const clearSearch = () => {
+    lookupRequestIdRef.current += 1;
     setQuery("");
     setDismissedSuggestionValue("");
     setSuggestions([]);
@@ -385,7 +517,12 @@ export function TerritoryLookup({ lookupService }: TerritoryLookupProps) {
                 <label htmlFor="department-filter">Department or service</label>
                 <select
                   id="department-filter"
-                  onChange={(event) => setDepartment(event.target.value)}
+                  onChange={(event) => {
+                    const nextDepartment = event.target.value as
+                      TerritoryDepartmentCode | "all";
+                    setDepartment(nextDepartment);
+                    updateFilters({ department: nextDepartment });
+                  }}
                   value={department}
                 >
                   {departmentOptions.map((option) => (
@@ -408,7 +545,11 @@ export function TerritoryLookup({ lookupService }: TerritoryLookupProps) {
                 <label>
                   State
                   <select
-                    onChange={(event) => setStateFilter(event.target.value)}
+                    onChange={(event) => {
+                      const nextState = event.target.value;
+                      setStateFilter(nextState);
+                      updateFilters({ stateFilter: nextState });
+                    }}
                     value={stateFilter}
                   >
                     <option value="all">All states</option>
@@ -422,21 +563,32 @@ export function TerritoryLookup({ lookupService }: TerritoryLookupProps) {
                 <label>
                   Location
                   <select
-                    onChange={(event) => setLocationFilter(event.target.value)}
+                    onChange={(event) => {
+                      const nextLocation = event.target.value;
+                      setLocationFilter(nextLocation);
+                      updateFilters({ locationFilter: nextLocation });
+                    }}
                     value={locationFilter}
                   >
                     <option value="all">All demo locations</option>
                     <option value="demo-101">Demo Location 101</option>
                     <option value="demo-202">Demo Location 202</option>
                     <option value="demo-303">Demo Location 303</option>
+                    <option value="demo-404">Demo Location 404</option>
+                    <option value="demo-505">Demo Location 505</option>
+                    <option value="demo-606">Demo Location 606</option>
+                    <option value="demo-707">Demo Location 707</option>
                   </select>
                 </label>
                 <label>
                   Assignment status
                   <select
-                    onChange={(event) =>
-                      setAssignmentFilter(event.target.value)
-                    }
+                    onChange={(event) => {
+                      const nextStatus = event.target.value as
+                        TerritoryAssignmentStatus | "all";
+                      setAssignmentFilter(nextStatus);
+                      updateFilters({ assignmentFilter: nextStatus });
+                    }}
                     value={assignmentFilter}
                   >
                     <option value="all">All statuses</option>
@@ -524,28 +676,58 @@ export function TerritoryLookup({ lookupService }: TerritoryLookupProps) {
           </section>
         ) : null}
 
-        {lookupState.type === "ready" ? (
+        {lookupState.type === "loading" ? (
           <section
-            aria-labelledby="criteria-ready"
+            aria-labelledby="territory-loading"
             className={`${styles.resultState} ${styles.readyState}`}
+            role="status"
           >
-            <p className={styles.stateLabel}>Location recognized</p>
-            <h2 id="criteria-ready">Search criteria accepted</h2>
-            <p>
-              Territory Desk is ready to check department assignments for
-              <strong> {lookupState.search.displayValue}</strong>.
-            </p>
-            {lookupState.search.kind === "zip" &&
-            lookupState.search.normalizationMessage ? (
-              <p className={styles.normalizationNote}>
-                {lookupState.search.normalizationMessage}
-              </p>
-            ) : null}
-            <p className={styles.nextStateNote}>
-              Matching fictional assignment cards will appear in this area after
-              the Territory Results screen is completed.
-            </p>
+            <p className={styles.stateLabel}>Searching demo data</p>
+            <h2 id="territory-loading">Finding territory assignments</h2>
+            <p>Checking fictional service groups without changing ownership.</p>
           </section>
+        ) : null}
+
+        {lookupState.type === "error" ? (
+          <section
+            aria-labelledby="territory-error"
+            className={`${styles.resultState} ${styles.warningState}`}
+          >
+            <p className={styles.stateLabel}>Results unavailable</p>
+            <h2 id="territory-error">Territory results could not be loaded</h2>
+            <p>Your search is preserved. Try the same safe lookup again.</p>
+            <div className={styles.resultActions}>
+              <button
+                onClick={() => void completeSearch(lookupState.search)}
+                type="button"
+              >
+                Try Again
+              </button>
+              <Link to="/data-status?source=territory#sources">
+                View Data Status
+              </Link>
+            </div>
+          </section>
+        ) : null}
+
+        {lookupState.type === "ready" ? (
+          <TerritoryResults
+            filters={
+              {
+                assignmentStatus: assignmentFilter,
+                department,
+                location: locationFilter,
+                state: stateFilter,
+              } satisfies TerritoryResultFilters
+            }
+            onChooseZip={chooseResultZip}
+            onDemoContact={(channel, representativeName) =>
+              setAnnouncement(
+                `${channel} for ${representativeName} is a fictional demonstration. No device action or tracked handoff occurred.`,
+              )
+            }
+            result={lookupState.result}
+          />
         ) : null}
 
         {lookupState.type === "no-result" ? (

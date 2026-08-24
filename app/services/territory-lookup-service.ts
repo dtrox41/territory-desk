@@ -15,6 +15,11 @@ export type TerritoryCityMatch = {
 
 export interface TerritoryLookupService {
   getCityMatches(city: string): Promise<TerritoryCityMatch[]>;
+  getResults(
+    search: NormalizedTerritorySearch,
+  ): Promise<TerritorySearchResult | null>;
   getSuggestions(query: string): Promise<TerritorySuggestion[]>;
   hasKnownZip(zip: string): Promise<boolean>;
 }
+import type { TerritorySearchResult } from "../domain/territory-result";
+import type { NormalizedTerritorySearch } from "../domain/territory-search";

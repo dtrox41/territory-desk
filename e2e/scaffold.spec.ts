@@ -74,6 +74,13 @@ test("validates and accepts fictional territory search criteria", async ({
   await page.getByRole("button", { name: "Find Territory" }).click();
   await expect(page).toHaveURL(/zip=63101/);
   await expect(
-    page.getByRole("heading", { name: "Search criteria accepted" }),
+    page.getByRole("heading", { level: 2, name: "St. Louis, MO" }),
+  ).toBeVisible();
+  await expect(page.getByText(/5 matching service assignments/)).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Routing assignment conflict" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Open Territory" }),
   ).toBeVisible();
 });
