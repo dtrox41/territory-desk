@@ -10,6 +10,7 @@ import {
   secondaryNavigation,
   type NavigationItem,
 } from "../foundation/navigation";
+import { PwaInstallGuide } from "../pwa/PwaInstallGuide";
 import styles from "./AppShell.module.css";
 
 type AppShellProps = {
@@ -225,6 +226,8 @@ export function AppShell({ children, managerView = false }: AppShellProps) {
             </div>
           </header>
         </div>
+
+        <PwaInstallGuide />
 
         <main className={styles.main} id="main-content" tabIndex={-1}>
           <div className={styles.contentCanvas}>{children ?? <Outlet />}</div>

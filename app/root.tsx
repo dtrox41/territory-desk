@@ -11,7 +11,24 @@ import { SystemPage } from "./components/layout/SystemPage";
 import type { Route } from "./+types/root";
 import "./app.css";
 
-export const links: Route.LinksFunction = () => [];
+const publicBasePath = import.meta.env.BASE_URL;
+
+export const links: Route.LinksFunction = () => [
+  {
+    href: `${publicBasePath}manifest.webmanifest`,
+    rel: "manifest",
+  },
+  {
+    href: `${publicBasePath}icons/territory-desk-180.png`,
+    rel: "apple-touch-icon",
+    sizes: "180x180",
+  },
+  {
+    href: `${publicBasePath}icons/territory-desk-icon.svg`,
+    rel: "icon",
+    type: "image/svg+xml",
+  },
+];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -20,6 +37,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta charSet="utf-8" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="#0B4B91" name="theme-color" />
+        <meta content="Territory Desk" name="application-name" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta
+          content="black-translucent"
+          name="apple-mobile-web-app-status-bar-style"
+        />
+        <meta content="Territory Desk" name="apple-mobile-web-app-title" />
+        <meta content="telephone=no" name="format-detection" />
         <Meta />
         <Links />
       </head>

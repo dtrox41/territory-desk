@@ -13,6 +13,7 @@
     "preview": "vite preview",
     "format": "prettier --write --ignore-unknown .",
     "format:check": "prettier --check --ignore-unknown .",
+    "generate:pwa-icons": "node scripts/generate-pwa-icons.mjs",
     "lint": "eslint .",
     "typecheck": "react-router typegen && tsc --noEmit",
     "test": "pnpm test:environment && pnpm test:unit",

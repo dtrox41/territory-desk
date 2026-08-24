@@ -7,6 +7,7 @@ export type IconName =
   | "close"
   | "database"
   | "directory"
+  | "download"
   | "help"
   | "home"
   | "leads"
@@ -51,6 +52,12 @@ const paths: Record<IconName, ReactNode> = {
       <path d="M4 4h13a2 2 0 0 1 2 2v14H4zM7 2v4M16 2v4" />
       <circle cx="11.5" cy="10.5" r="2.2" />
       <path d="M7.5 17c.6-2 2-3 4-3s3.4 1 4 3" />
+    </>
+  ),
+  download: (
+    <>
+      <path d="M12 3v12M7.5 10.5 12 15l4.5-4.5" />
+      <path d="M4 17.5V21h16v-3.5" />
     </>
   ),
   help: (
