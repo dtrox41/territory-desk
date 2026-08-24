@@ -1,0 +1,309 @@
+.detailLayout {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.profileCard,
+.panel,
+.notFound {
+  background: var(--color-surface);
+  border: var(--border-1) solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  min-inline-size: 0;
+  padding: var(--space-5);
+}
+
+.profileCard,
+.panel {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.profileTopline,
+.panelHeader {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: space-between;
+}
+
+.profileTopline > span:last-child {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.status {
+  border: var(--border-1) solid;
+  border-radius: var(--radius-round);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  padding: var(--space-1) var(--space-2);
+  text-transform: uppercase;
+}
+
+.activeStatus {
+  background: var(--color-success-background);
+  border-color: var(--color-success-boundary);
+  color: var(--color-success-foreground);
+}
+
+.reviewStatus {
+  background: var(--color-danger-background);
+  border-color: var(--color-danger-boundary);
+  color: var(--color-danger-foreground);
+}
+
+.profileCard h2,
+.panel h2,
+.notFound h2,
+.coverageGrid h3 {
+  color: var(--color-text-strong);
+  margin: 0;
+}
+
+.profileCard h2,
+.panel h2 {
+  font-size: var(--text-xl);
+  line-height: var(--line-xl);
+}
+
+.eyebrow {
+  color: var(--color-action-primary);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  margin: 0 0 var(--space-1);
+  text-transform: uppercase;
+}
+
+.panelHeader > a {
+  align-items: center;
+  display: inline-flex;
+  font-weight: var(--font-semibold);
+  min-block-size: var(--target-min);
+}
+
+.profileFacts,
+.sourceFacts,
+.coverageGrid dl {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.profileFacts div,
+.sourceFacts div,
+.coverageGrid dl div {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.profileFacts dt,
+.sourceFacts dt,
+.coverageGrid dt {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+}
+
+.profileFacts dd,
+.sourceFacts dd,
+.coverageGrid dd {
+  color: var(--color-text-strong);
+  font-weight: var(--font-semibold);
+  margin: 0;
+}
+
+.warning,
+.blockedAction,
+.guidance,
+.routingReminder,
+.utilityStatus {
+  border-radius: var(--radius-md);
+  margin: 0;
+  padding: var(--space-3);
+}
+
+.warning {
+  background: var(--color-warning-background);
+  color: var(--color-warning-foreground);
+}
+
+.blockedAction {
+  background: var(--color-surface-subdued);
+  color: var(--color-text-muted);
+}
+
+.guidance,
+.routingReminder {
+  background: var(--color-blue-050);
+  color: var(--color-text-muted);
+}
+
+.utilityStatus {
+  background: var(--color-success-background);
+  color: var(--color-success-foreground);
+}
+
+.primaryActions {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.sendLead,
+.backLink,
+.notFound a {
+  align-items: center;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  font-weight: var(--font-semibold);
+  justify-content: center;
+  min-block-size: var(--target-min);
+  padding: var(--space-2) var(--space-4);
+  text-align: center;
+  text-decoration: none;
+}
+
+.sendLead {
+  background: var(--color-action-primary);
+  border: var(--border-2) solid var(--color-action-primary);
+  color: var(--color-text-inverse);
+}
+
+.sendLead:hover {
+  background: var(--color-action-primary-hover);
+  border-color: var(--color-action-primary-hover);
+  color: var(--color-text-inverse);
+}
+
+.backLink,
+.notFound a {
+  background: var(--color-surface);
+  border: var(--border-1) solid var(--color-action-primary);
+  color: var(--color-action-primary);
+}
+
+.contactList {
+  display: grid;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contactList li {
+  align-items: center;
+  background: var(--color-surface-subdued);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: space-between;
+  min-block-size: var(--row-compact-min);
+  padding: var(--space-3);
+}
+
+.contactList li > div {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.contactList li span {
+  color: var(--color-text-muted);
+  overflow-wrap: anywhere;
+}
+
+.contactList button {
+  background: var(--color-surface);
+  border: var(--border-1) solid var(--color-action-primary);
+  border-radius: var(--radius-md);
+  color: var(--color-action-primary);
+  cursor: pointer;
+  font-weight: var(--font-semibold);
+  min-block-size: var(--target-min);
+  min-inline-size: 5rem;
+  padding: var(--space-2) var(--space-3);
+}
+
+.contactList button:disabled {
+  background: var(--color-disabled-surface);
+  border-color: var(--color-border-default);
+  color: var(--color-disabled-text);
+  cursor: not-allowed;
+}
+
+.coverageDetails {
+  border-block-start: var(--border-1) solid var(--color-divider);
+  padding-block-start: var(--space-2);
+}
+
+.coverageDetails summary {
+  align-items: center;
+  color: var(--color-link);
+  cursor: pointer;
+  display: flex;
+  font-weight: var(--font-semibold);
+  min-block-size: var(--target-min);
+}
+
+.coverageGrid {
+  display: grid;
+  gap: var(--space-3);
+  padding-block-start: var(--space-3);
+}
+
+.coverageGrid article {
+  border: var(--border-1) solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+
+.coverageGrid h3 {
+  margin-block-end: var(--space-3);
+}
+
+.reportLink {
+  align-items: center;
+  display: inline-flex;
+  font-weight: var(--font-semibold);
+  justify-self: start;
+  min-block-size: var(--target-min);
+}
+
+.notFound {
+  max-inline-size: var(--width-form-max);
+}
+
+.notFound p {
+  color: var(--color-text-muted);
+}
+
+.notFound > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+@media (min-width: 48rem) {
+  .profileFacts,
+  .sourceFacts,
+  .coverageGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .primaryActions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 75rem) {
+  .detailLayout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .profileCard {
+    grid-row: span 2;
+  }
+}

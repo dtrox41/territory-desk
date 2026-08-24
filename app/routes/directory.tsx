@@ -1,18 +1,23 @@
-import { PlaceholderPage } from "../components/layout/PageFrame";
+import { useLocation } from "react-router";
+
 import { pageMeta } from "../components/layout/page-meta";
+import { RepresentativeDirectory } from "../features/directory/RepresentativeDirectory";
+import { fictionalRepresentativeDirectoryService } from "../services/fictional/representative-directory";
 
 export function meta() {
   return pageMeta(
-    "Directory",
-    "Fictional Territory Desk representative-directory route.",
+    "Representative Directory",
+    "Find fictional cross-department representatives without using customer information or bypassing territory validation.",
   );
 }
 
 export default function Directory() {
+  const location = useLocation();
+
   return (
-    <PlaceholderPage
-      description="Find representatives by department, division, territory, or approved availability."
-      title="Directory"
+    <RepresentativeDirectory
+      directoryService={fictionalRepresentativeDirectoryService}
+      key={location.search}
     />
   );
 }

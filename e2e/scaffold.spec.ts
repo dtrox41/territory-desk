@@ -84,3 +84,40 @@ test("validates and accepts fictional territory search criteria", async ({
     page.getByRole("heading", { name: "Open Territory" }),
   ).toBeVisible();
 });
+
+test("distinguishes duplicate directory identities and opens canonical detail", async ({
+  page,
+}) => {
+  await page.goto("/directory");
+
+  await expect(
+    page.getByRole("heading", {
+      level: 1,
+      name: "Representative Directory",
+    }),
+  ).toBeVisible();
+  await expect(page.getByText(/Showing 6 of 13 representatives/)).toBeVisible();
+
+  await page
+    .getByRole("searchbox", { name: "Search representatives" })
+    .fill("Cameron Brooks");
+  await expect(
+    page.getByRole("heading", { name: "Cameron Brooks" }),
+  ).toHaveCount(2);
+
+  await page
+    .getByRole("link", {
+      name: /View Cameron Brooks, First Aid & Safety, Demo Location 202/,
+    })
+    .click();
+  await expect(page).toHaveURL(/\/directory\/rep-cameron-brooks-first-aid$/);
+  await expect(
+    page.getByRole("heading", { level: 1, name: "Cameron Brooks" }),
+  ).toBeVisible();
+  await expect(
+    page.getByText(/Send Lead preselects this representative only/),
+  ).toBeVisible();
+
+  const accessibilityResults = await new AxeBuilder({ page }).analyze();
+  expect(accessibilityResults.violations).toEqual([]);
+});

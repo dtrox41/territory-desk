@@ -231,6 +231,15 @@ Last updated: 2026-08-22
 - Consequences: Fictional exact ZIP `63101` demonstrates assigned, open, conflicting, and missing-contact states across five departments; Columbia demonstrates multi-ZIP city gating; Boston demonstrates stale-source blocking; Atlanta demonstrates contact availability without a real device action; New York demonstrates an incomplete location label. Filters use allowlisted URL values and never silently broaden. Future protected services must revalidate the in-memory snapshot before a handoff is submitted.
 - Reversible: Partially. Fixture names, department-card density, breakpoint layout, and adapter implementation can change, but exact-ZIP gating, one-stable-recipient gating, exception visibility, non-guessing behavior, privacy-safe navigation, route restoration, and contact-versus-handoff distinction remain required.
 
+## D-032 — Keep representative discovery separate from routing authority
+
+- Date: 2026-08-24
+- Decision: Implement the fictional Representative Directory and canonical profile routes through stable opaque representative identifiers, approved people-search fields, deterministic non-performance match tiers, bounded results, explicit duplicate-name context, authorized detail-only contact utilities, and offline action blocking. Directory Send Lead links preselect only the representative identifier; Lead Creation must still collect service and exact customer ZIP and revalidate the current territory assignment.
+- Reason: Cross-department representatives need fast teammate discovery, but a name or contact record cannot prove who owns a service territory. Combining discovery and routing would increase wrong-recipient handoffs, identity-merging errors, accidental device contact, and privacy exposure on personal smartphones.
+- Alternatives considered: Reuse display names as keys; publish the original contact list; show all Call, Text, Email, View, and Send actions on every card; sort by lead activity or response performance; allow directory selection to bypass ZIP validation; persist contacts for offline discovery; hide conflicting, missing-contact, inactive, or stale states.
+- Consequences: Fictional directory cards show only minimum selection context and contact availability; exact contacts appear only on a loaded fictional profile; two Cameron Brooks records remain distinct; conflicting direct contacts fail closed; inactive profiles remain available only for historical detail; stale, offline, and mismatched data block new handoff entry; managers gain no performance ranking or unrestricted population access. A protected production service must enforce every profile authorization and never ship real contacts in a public bundle.
+- Reversible: Partially. Fictional population, filter options, responsive density, and adapter implementation can change, but stable identity, least-privilege detail access, deterministic non-performance sorting, duplicate preservation, offline action blocking, and territory revalidation remain mandatory.
+
 ## Operating rule
 
 Every future material decision records its date, decision, reason, alternatives, consequences, and reversibility.
