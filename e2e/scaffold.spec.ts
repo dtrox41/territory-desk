@@ -55,3 +55,25 @@ test("navigates to a primary route and renders a safe not-found page", async ({
     page.getByRole("link", { name: "Return to Home" }),
   ).toBeVisible();
 });
+
+test("validates and accepts fictional territory search criteria", async ({
+  page,
+}) => {
+  await page.goto("/territory");
+
+  const searchInput = page.getByRole("combobox", {
+    name: "ZIP code or city",
+  });
+  await searchInput.fill("631");
+  await page.getByRole("button", { name: "Find Territory" }).click();
+  await expect(page.getByRole("alert")).toHaveText(
+    "Enter all five ZIP-code digits before searching.",
+  );
+
+  await searchInput.fill("63101");
+  await page.getByRole("button", { name: "Find Territory" }).click();
+  await expect(page).toHaveURL(/zip=63101/);
+  await expect(
+    page.getByRole("heading", { name: "Search criteria accepted" }),
+  ).toBeVisible();
+});

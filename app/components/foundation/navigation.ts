@@ -39,6 +39,7 @@ export function isNavigationItemActive(pathname: string, to: string) {
 
 export function getPageTitle(pathname: string) {
   if (pathname === "/") return "Home";
+  if (pathname === "/territory") return "Find Territory";
   if (pathname === "/leads/new") return "Send Lead";
   if (pathname.startsWith("/leads/")) return "Lead Detail";
   if (pathname.startsWith("/directory/")) return "Representative Detail";

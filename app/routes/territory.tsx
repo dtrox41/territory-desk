@@ -1,15 +1,14 @@
-import { PlaceholderPage } from "../components/layout/PageFrame";
 import { pageMeta } from "../components/layout/page-meta";
+import { TerritoryLookup } from "../features/territory/TerritoryLookup";
+import { fictionalTerritoryLookupService } from "../services/fictional/territory-lookup";
 
 export function meta() {
-  return pageMeta("Territory", "Fictional Territory Desk territory route.");
+  return pageMeta(
+    "Find Territory",
+    "Search fictional ZIP and city routing data without entering customer information.",
+  );
 }
 
 export default function Territory() {
-  return (
-    <PlaceholderPage
-      description="Find the correct department and representative from an approved ZIP or city search."
-      title="Territory"
-    />
-  );
+  return <TerritoryLookup lookupService={fictionalTerritoryLookupService} />;
 }

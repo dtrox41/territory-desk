@@ -213,6 +213,15 @@ Last updated: 2026-08-22
 - Consequences: Home shows fictional peer-handoff data only; the four highest-ranked actions are explainable; the Leads badge matches the five-item Action Required total and remains distinct from unread notifications; compact smartphones preserve summary meaning while surfacing the Action Required heading; and future protected data can replace the adapter without rewriting page composition. Commands remain in detail workflows where validation, authorization, idempotency, and outcome handling can be implemented safely.
 - Reversible: Partially. Fictional names, counts, copy, card density, and responsive measurements can change through testing, but Home remains action-first, service-backed, non-ranking, privacy-minimized, and free of direct consequential commands.
 
+## D-030 — Make territory search explicit, action-safe, and non-guessing
+
+- Date: 2026-08-24
+- Decision: Implement Territory Lookup as a typed, fictional, read-only search boundary that accepts exact five-digit ZIP, ZIP+4, city, or city-and-state input; normalizes ZIP+4 to five digits with an explicit message; requires all five ZIP digits; requires state disambiguation when a city has multiple matches; and returns a no-match state instead of fuzzy, neighboring, or inferred routing. Suggestions come from a deterministic fictional adapter, and normalized non-sensitive criteria alone may enter the URL. Assignment cards remain deferred to Step 5.3.3 Territory Results.
+- Reason: Sending a lead to the wrong department or representative is materially worse than asking for clarification. Representatives also need a fast smartphone lookup that remains understandable on company laptops and does not expose a customer name, address, or protected record in browser history.
+- Alternatives considered: Guess a ZIP from partial digits; fuzzy-match misspelled cities; choose the first Springfield automatically; copy the original application's records; place customer names or addresses in search; return full assignment results before the result model is implemented; connect directly to Dynamics during the public prototype.
+- Consequences: Search validation, suggestion behavior, URL serialization, lookup state, and future assignment rendering have separate owners. The current Preview proves recognition and disambiguation using fictional fixtures only; it does not prove a real territory assignment, representative identity, data freshness, or Dynamics synchronization. Future protected data can replace the adapter behind the service interface without changing the input contract.
+- Reversible: Partially. Fixture coverage, labels, filter options, and data adapters can change, but exact normalization, ambiguity handling, privacy-safe URL state, truthful no-match behavior, and the prohibition against guessed assignments remain required.
+
 ## Operating rule
 
 Every future material decision records its date, decision, reason, alternatives, consequences, and reversibility.

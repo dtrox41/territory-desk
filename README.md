@@ -10,7 +10,7 @@ Its core workflow is:
 
 ## Project status
 
-Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/accessibility-system definition are complete. Steps 5.1 and 5.2 are accepted. Step 5.3.1 implements the fictional-data Home dashboard locally and is awaiting user approval. Step 5.3.2 Territory Lookup has not started. No real integrations or production data have been added.
+Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/accessibility-system definition are complete. Steps 5.1, 5.2, and 5.3.1 are accepted. Step 5.3.2 implements the fictional Territory Lookup screen locally and is awaiting user approval. No real integrations or production data have been added.
 
 ## Safety boundaries
 
@@ -62,6 +62,7 @@ Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/
 - `docs/scaffold-implementation.md` — implemented Step 5.1 toolchain, structure, safety boundaries, verification, and known test-environment limitation
 - `docs/application-shell-implementation.md` — implemented Step 5.2 responsive shell, route registry, access boundary, focus behavior, and verification
 - `docs/home-dashboard-implementation.md` — implemented Step 5.3.1 fictional Home dashboard, service boundary, ranking, responsive behavior, and verification
+- `docs/territory-lookup-implementation.md` — implemented Step 5.3.2 fictional ZIP/city search, normalization, disambiguation, responsive behavior, and verification
 
 ## Local development
 
