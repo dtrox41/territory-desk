@@ -1,10 +1,11 @@
 import { useLocation } from "react-router";
 
-import { PlaceholderPage } from "../components/layout/PageFrame";
 import { pageMeta } from "../components/layout/page-meta";
 import type { LeadEntryContext } from "../domain/lead-creation";
+import { LeadDetail as LeadDetailScreen } from "../features/leads/LeadDetail";
 import { LeadCreationSuccess } from "../features/leads/LeadCreationSuccess";
 import type { LeadSubmissionResult } from "../services/lead-creation-service";
+import { fictionalLeadDetailService } from "../services/fictional/lead-detail";
 
 export function meta() {
   return pageMeta("Lead Detail", "Fictional Territory Desk lead-detail route.");
@@ -29,10 +30,5 @@ export default function LeadDetail() {
     );
   }
 
-  return (
-    <PlaceholderPage
-      description="Review one authorized peer handoff without exposing any real record information."
-      title="Lead Detail"
-    />
-  );
+  return <LeadDetailScreen leadService={fictionalLeadDetailService} />;
 }

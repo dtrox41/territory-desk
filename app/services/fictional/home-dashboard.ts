@@ -1,5 +1,7 @@
 import type { HomeDashboardData } from "../../domain/home-dashboard";
+import { includesRecordInView } from "../../domain/leads-list";
 import type { HomeDashboardService } from "../home-dashboard-service";
+import { fictionalCurrentUserId, fictionalLeadListRecords } from "./leads-list";
 
 const homeDashboardFixture: HomeDashboardData = {
   actionRequired: {
@@ -57,6 +59,20 @@ const homeDashboardFixture: HomeDashboardData = {
         status: "New",
         tone: "information",
         visibleReason: "New lead",
+      },
+      {
+        company: "Harbor Tooling",
+        department: "Facility Services",
+        exactTime: "Sunday, August 23, 2026 at 11:00 AM Central Time",
+        handoffId: "demo-lead-1010",
+        primaryAction: "Respond",
+        rankReason:
+          "Ranked because this viewed handoff still needs a meaningful response.",
+        relativeTime: "Yesterday",
+        sender: "Jordan Lee",
+        status: "Awaiting response",
+        tone: "warning",
+        visibleReason: "Response needed",
       },
     ],
     total: 5,
@@ -184,6 +200,20 @@ const homeDashboardFixture: HomeDashboardData = {
 
 export const fictionalHomeDashboardService: HomeDashboardService = {
   getDashboard() {
-    return Promise.resolve(homeDashboardFixture);
+    const activeIds = new Set(
+      fictionalLeadListRecords
+        .filter((item) =>
+          includesRecordInView(item, fictionalCurrentUserId, "action-required"),
+        )
+        .map((item) => item.id),
+    );
+    const items = homeDashboardFixture.actionRequired.items
+      .filter((item) => activeIds.has(item.handoffId))
+      .slice(0, 4);
+    return Promise.resolve({
+      ...homeDashboardFixture,
+      actionRequired: { items, total: activeIds.size },
+      statusMessage: `${activeIds.size} lead actions need your attention`,
+    });
   },
 };

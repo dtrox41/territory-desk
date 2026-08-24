@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react";
+import { act, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router";
 
@@ -48,6 +48,24 @@ describe("AppShell", () => {
     expect(
       screen.getAllByRole("link", {
         name: "Notifications, 3 unread notifications",
+      }),
+    ).toHaveLength(2);
+  });
+
+  it("keeps the action badge aligned with committed lead updates", () => {
+    renderShell("/leads/demo-lead-1001");
+
+    act(() => {
+      window.dispatchEvent(
+        new CustomEvent("territory-desk:leads-updated", {
+          detail: { actionCount: 4 },
+        }),
+      );
+    });
+
+    expect(
+      screen.getAllByRole("link", {
+        name: "Leads, 4 leads require action",
       }),
     ).toHaveLength(2);
   });

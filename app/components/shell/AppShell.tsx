@@ -20,16 +20,20 @@ type AppShellProps = {
 
 type ShellNavigationLinkProps = {
   item: NavigationItem;
+  leadsActionCount: number;
   onNavigate?: () => void;
   placement: "drawer" | "mobile" | "rail";
 };
 
 const unreadNotificationCount = 3;
-const leadsRequiringActionCount = 5;
+const initialLeadsRequiringActionCount = 5;
 
-function getNavigationAccessibleName(item: NavigationItem) {
+function getNavigationAccessibleName(
+  item: NavigationItem,
+  leadsActionCount: number,
+) {
   if (item.to === "/leads") {
-    return `${item.label}, ${leadsRequiringActionCount} leads require action`;
+    return `${item.label}, ${leadsActionCount} leads require action`;
   }
 
   return item.label;
@@ -37,6 +41,7 @@ function getNavigationAccessibleName(item: NavigationItem) {
 
 function ShellNavigationLink({
   item,
+  leadsActionCount,
   onNavigate,
   placement,
 }: ShellNavigationLinkProps) {
@@ -66,7 +71,7 @@ function ShellNavigationLink({
   return (
     <Link
       aria-current={isActive ? "page" : undefined}
-      aria-label={getNavigationAccessibleName(item)}
+      aria-label={getNavigationAccessibleName(item, leadsActionCount)}
       className={className}
       onClick={onNavigate}
       to={item.to}
@@ -85,7 +90,7 @@ function ShellNavigationLink({
               : styles.navActionBadge
           }
         >
-          {leadsRequiringActionCount}
+          {leadsActionCount}
         </span>
       ) : null}
     </Link>
@@ -122,6 +127,9 @@ export function AppShell({ children, managerView = false }: AppShellProps) {
   const previousPathnameRef = useRef(pathname);
   const [isSecondaryNavigationOpen, setIsSecondaryNavigationOpen] =
     useState(false);
+  const [leadsActionCount, setLeadsActionCount] = useState(
+    initialLeadsRequiringActionCount,
+  );
   const visibleSecondaryNavigation = secondaryNavigation.filter(
     (item) => item.to !== "/insights" || managerView,
   );
@@ -132,6 +140,22 @@ export function AppShell({ children, managerView = false }: AppShellProps) {
       previousPathnameRef.current = pathname;
     }
   }, [pathname]);
+
+  useEffect(() => {
+    const receiveLeadUpdate = (event: Event) => {
+      const count = (event as CustomEvent<{ actionCount?: number }>).detail
+        ?.actionCount;
+      if (typeof count === "number" && Number.isInteger(count) && count >= 0) {
+        setLeadsActionCount(count);
+      }
+    };
+    window.addEventListener("territory-desk:leads-updated", receiveLeadUpdate);
+    return () =>
+      window.removeEventListener(
+        "territory-desk:leads-updated",
+        receiveLeadUpdate,
+      );
+  }, []);
 
   const openSecondaryNavigation = () => {
     const dialog = dialogRef.current;
@@ -164,7 +188,11 @@ export function AppShell({ children, managerView = false }: AppShellProps) {
           <ul className={styles.railNavigationList}>
             {primaryNavigation.map((item) => (
               <li key={item.to}>
-                <ShellNavigationLink item={item} placement="rail" />
+                <ShellNavigationLink
+                  item={item}
+                  leadsActionCount={leadsActionCount}
+                  placement="rail"
+                />
               </li>
             ))}
           </ul>
@@ -176,7 +204,11 @@ export function AppShell({ children, managerView = false }: AppShellProps) {
               .filter((item) => item.to !== "/profile")
               .map((item) => (
                 <li key={item.to}>
-                  <ShellNavigationLink item={item} placement="rail" />
+                  <ShellNavigationLink
+                    item={item}
+                    leadsActionCount={leadsActionCount}
+                    placement="rail"
+                  />
                 </li>
               ))}
           </ul>
@@ -184,6 +216,7 @@ export function AppShell({ children, managerView = false }: AppShellProps) {
         <div className={styles.railBottom}>
           <ShellNavigationLink
             item={{ icon: "profile", label: "My Profile", to: "/profile" }}
+            leadsActionCount={leadsActionCount}
             placement="rail"
           />
         </div>
@@ -240,7 +273,11 @@ export function AppShell({ children, managerView = false }: AppShellProps) {
           <ul className={styles.navigationList}>
             {primaryNavigation.map((item) => (
               <li className={styles.navigationListItem} key={item.to}>
-                <ShellNavigationLink item={item} placement="mobile" />
+                <ShellNavigationLink
+                  item={item}
+                  leadsActionCount={leadsActionCount}
+                  placement="mobile"
+                />
               </li>
             ))}
           </ul>
@@ -281,6 +318,7 @@ export function AppShell({ children, managerView = false }: AppShellProps) {
                 <li key={item.to}>
                   <ShellNavigationLink
                     item={item}
+                    leadsActionCount={leadsActionCount}
                     onNavigate={closeSecondaryNavigation}
                     placement="drawer"
                   />

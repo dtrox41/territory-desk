@@ -10,7 +10,7 @@ Its core workflow is:
 
 ## Project status
 
-Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/accessibility-system definition are complete. Steps 5.1 through 5.3.5 are accepted. Step 5.3.6 implements the fictional personal Leads List locally and is awaiting user approval. No real integrations or production data have been added.
+Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/accessibility-system definition are complete. Steps 5.1 through 5.3.6 are accepted. Step 5.3.7 implements the fictional Lead Detail collaboration workspace locally and is awaiting user approval. No real integrations or production data have been added.
 
 ## Safety boundaries
 
@@ -68,6 +68,7 @@ Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/
 - `docs/representative-directory-implementation.md` — implemented Step 5.3.4 fictional people search, duplicate-safe profiles, contact separation, and handoff boundaries
 - `docs/lead-creation-implementation.md` — implemented Step 5.3.5 four-step fictional handoff, territory revalidation, duplicate/idempotency controls, and save-before-notification behavior
 - `docs/leads-list-implementation.md` — implemented Step 5.3.6 personal work views, approved action ranking, privacy-safe search and filters, bounded pagination, and responsive behavior
+- `docs/lead-detail-implementation.md` — implemented Step 5.3.7 role-aware lead actions, status and ownership, meaningful responses, structured follow-ups, and append-only activity
 
 ## Local development
 
