@@ -204,6 +204,15 @@ Last updated: 2026-08-22
 - Consequences: Every current product route has a typed fictional placeholder inside a shared shell; unknown paths recover outside the shell; static paths precede dynamic identifiers; representatives do not see manager navigation; direct `/insights` entry does not expose manager content; initial load preserves Skip Link behavior; forward navigation focuses the destination heading; and Step 5.3 can build product screens without reimplementing the frame. Real authorization remains a server-enforced production requirement.
 - Reversible: Partially. Labels, icons, breakpoints, and rail measurements can be refined through testing, but one shared responsive shell, representative-first access presentation, centralized route metadata, real-link navigation, truthful system states, and server-enforced authorization remain mandatory.
 
+## D-029 — Make Home an action-first fictional peer-handoff dashboard
+
+- Date: 2026-08-24
+- Decision: Replace the Home shell placeholder with a fictional representative dashboard that prioritizes Send Lead, Find Territory, collaboration summary, deterministic Action Required ranking, Waiting on Others, Recent Feedback and Outcomes, and personal Cross-Department Insights. Route data enters through a typed `HomeDashboardService` and deterministic fictional adapter. Exclude calls, visits, revenue, conversion, raw-volume ranking, and direct dashboard mutations.
+- Reason: The product succeeds only if representatives can quickly understand what cross-department lead action is required, see whether peers are responding, and close collaboration loops. A generic activity dashboard or copied CRM home screen would consume scarce smartphone space without solving the communication failure this app targets.
+- Alternatives considered: Recreate the supplied call-and-visit mockup; show separate large cards for every lead category; rank by lead value or volume; place Action Required before the approved collaboration summary without first testing density; import fixture arrays directly into the route; allow one-tap Accept, Decline, or Complete from Home.
+- Consequences: Home shows fictional peer-handoff data only; the four highest-ranked actions are explainable; the Leads badge matches the five-item Action Required total and remains distinct from unread notifications; compact smartphones preserve summary meaning while surfacing the Action Required heading; and future protected data can replace the adapter without rewriting page composition. Commands remain in detail workflows where validation, authorization, idempotency, and outcome handling can be implemented safely.
+- Reversible: Partially. Fictional names, counts, copy, card density, and responsive measurements can change through testing, but Home remains action-first, service-backed, non-ranking, privacy-minimized, and free of direct consequential commands.
+
 ## Operating rule
 
 Every future material decision records its date, decision, reason, alternatives, consequences, and reversibility.

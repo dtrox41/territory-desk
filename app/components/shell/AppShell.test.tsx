@@ -37,7 +37,7 @@ describe("AppShell", () => {
       expect(within(navigation).getAllByRole("link")).toHaveLength(5);
       expect(
         within(navigation).getByRole("link", {
-          name: "Leads, 2 leads require action",
+          name: "Leads, 5 leads require action",
         }),
       ).toHaveAttribute("aria-current", "page");
       expect(

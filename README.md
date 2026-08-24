@@ -10,7 +10,7 @@ Its core workflow is:
 
 ## Project status
 
-Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/accessibility-system definition are complete. Step 5.1 application scaffolding is accepted. Step 5.2 responsive application-shell implementation is complete locally and awaiting user approval. Step 5.3 product-screen implementation has not started. No real integrations or production data have been added.
+Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/accessibility-system definition are complete. Steps 5.1 and 5.2 are accepted. Step 5.3.1 implements the fictional-data Home dashboard locally and is awaiting user approval. Step 5.3.2 Territory Lookup has not started. No real integrations or production data have been added.
 
 ## Safety boundaries
 
@@ -61,6 +61,7 @@ Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/
 - `docs/accessibility-conformance-plan.md` — approved Step 4.5 WCAG scope, interaction rules, test matrix, evidence, severity, and release gates
 - `docs/scaffold-implementation.md` — implemented Step 5.1 toolchain, structure, safety boundaries, verification, and known test-environment limitation
 - `docs/application-shell-implementation.md` — implemented Step 5.2 responsive shell, route registry, access boundary, focus behavior, and verification
+- `docs/home-dashboard-implementation.md` — implemented Step 5.3.1 fictional Home dashboard, service boundary, ranking, responsive behavior, and verification
 
 ## Local development
 

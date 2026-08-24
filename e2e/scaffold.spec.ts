@@ -9,9 +9,13 @@ test("renders the fictional shell without detectable accessibility violations", 
   await expect(
     page.getByRole("heading", {
       level: 1,
-      name: "Home",
+      name: "Good morning, Taylor",
     }),
   ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { level: 2, name: "Action Required" }),
+  ).toBeVisible();
+  await expect(page.getByText("Response target missed")).toBeVisible();
   await expect(
     page.getByText(
       "Fictional Prototype — Do not enter real employee or customer information",

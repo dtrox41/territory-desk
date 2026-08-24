@@ -1,6 +1,6 @@
 # Step 5.2 — Responsive Application Shell Implementation
 
-Status: Implementation complete locally; awaiting user approval
+Status: Accepted and complete locally
 
 Date: 2026-08-23
 
@@ -127,4 +127,4 @@ The standalone Playwright browser processes remain blocked by the current macOS 
 
 ## Next decision
 
-Approve Step 5.2 before implementation proceeds to Step 5.3, where the Home dashboard is the first product screen built with fictional data.
+Step 5.2 was accepted. Step 5.3.1 now implements the fictional Home dashboard in `docs/home-dashboard-implementation.md`.

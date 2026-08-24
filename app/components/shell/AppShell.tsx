@@ -24,7 +24,7 @@ type ShellNavigationLinkProps = {
 };
 
 const unreadNotificationCount = 3;
-const leadsRequiringActionCount = 2;
+const leadsRequiringActionCount = 5;
 
 function getNavigationAccessibleName(item: NavigationItem) {
   if (item.to === "/leads") {
