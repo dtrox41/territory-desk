@@ -163,3 +163,28 @@ test("revalidates territory and completes the four-step fictional lead handoff",
   const accessibilityResults = await new AxeBuilder({ page }).analyze();
   expect(accessibilityResults.violations).toEqual([]);
 });
+
+test("ranks personal lead work and keeps search details out of the URL", async ({
+  page,
+}) => {
+  await page.goto("/leads");
+
+  await expect(
+    page.getByRole("heading", { level: 1, name: "Leads" }),
+  ).toBeVisible();
+  await expect(page.getByText("5 leads")).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Northstar Packaging" }),
+  ).toBeVisible();
+  await expect(page.getByRole("link", { name: "Respond Now" })).toBeVisible();
+
+  await page.getByLabel("View").selectOption("waiting");
+  await expect(page).toHaveURL(/view=waiting/);
+  await expect(page.getByText("2 leads")).toBeVisible();
+  await page.getByLabel("Search this view").fill("Meadow Lane");
+  await expect(page.getByText(/1 matching 2 total/)).toBeVisible();
+  await expect(page).not.toHaveURL(/Meadow|search=/);
+
+  const accessibilityResults = await new AxeBuilder({ page }).analyze();
+  expect(accessibilityResults.violations).toEqual([]);
+});
