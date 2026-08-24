@@ -32,10 +32,8 @@ describe("RepresentativeDetail", () => {
     ).toBeVisible();
     expect(screen.getByText("jordan.lee@example.com")).toBeVisible();
     const sendLead = screen.getByRole("link", { name: "Send Lead" });
-    expect(sendLead).toHaveAttribute(
-      "href",
-      "/leads/new?representative=rep-jordan-lee&source=directory",
-    );
+    expect(sendLead).toHaveAttribute("href", "/leads/new");
+    expect(sendLead.getAttribute("href")).not.toContain("representative=");
 
     await user.click(screen.getByRole("button", { name: "Call" }));
     expect(screen.getByRole("status")).toHaveTextContent(

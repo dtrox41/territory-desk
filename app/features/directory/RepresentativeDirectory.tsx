@@ -218,9 +218,13 @@ function RepresentativeCard({
           <Link
             aria-label={`Send Lead to ${representative.displayName}, ${accessibleContext}`}
             className={styles.secondaryAction}
-            to={`/leads/new?representative=${encodeURIComponent(
-              representative.id,
-            )}&source=directory`}
+            state={{
+              leadEntryContext: {
+                representativeId: representative.id,
+                source: "directory",
+              },
+            }}
+            to="/leads/new"
           >
             Send Lead
           </Link>

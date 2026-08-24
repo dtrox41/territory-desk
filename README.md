@@ -10,7 +10,7 @@ Its core workflow is:
 
 ## Project status
 
-Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/accessibility-system definition are complete. Steps 5.1 through 5.3.3a are accepted. Step 5.3.4 implements the fictional Representative Directory and canonical profile locally and is awaiting user approval. No real integrations or production data have been added.
+Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/accessibility-system definition are complete. Steps 5.1 through 5.3.4 are accepted. Step 5.3.5 implements fictional Lead Creation and mandatory territory revalidation locally and is awaiting user approval. No real integrations or production data have been added.
 
 ## Safety boundaries
 
@@ -66,6 +66,7 @@ Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/
 - `docs/territory-results-implementation.md` — implemented Step 5.3.3 fictional assignment groups, routing exceptions, safe actions, route restoration, and verification
 - `docs/pwa-foundation-implementation.md` — implemented Step 5.3.3a Apple and Android installation, offline fallback, and laptop-preservation controls
 - `docs/representative-directory-implementation.md` — implemented Step 5.3.4 fictional people search, duplicate-safe profiles, contact separation, and handoff boundaries
+- `docs/lead-creation-implementation.md` — implemented Step 5.3.5 four-step fictional handoff, territory revalidation, duplicate/idempotency controls, and save-before-notification behavior
 
 ## Local development
 

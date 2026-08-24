@@ -38,14 +38,9 @@ describe("RepresentativeDirectory", () => {
     expect(screen.queryByText("Jamie Cole")).not.toBeInTheDocument();
 
     const sendLead = screen.getAllByRole("link", { name: /Send Lead to/ })[0];
-    expect(sendLead).toHaveAttribute(
-      "href",
-      expect.stringContaining("representative="),
-    );
-    expect(sendLead).not.toHaveAttribute(
-      "href",
-      expect.stringContaining("zip="),
-    );
+    expect(sendLead).toHaveAttribute("href", "/leads/new");
+    expect(sendLead?.getAttribute("href")).not.toContain("representative=");
+    expect(sendLead?.getAttribute("href")).not.toContain("zip=");
   });
 
   it("keeps duplicate names separate with accessible department and location context", async () => {

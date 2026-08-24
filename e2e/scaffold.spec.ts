@@ -121,3 +121,45 @@ test("distinguishes duplicate directory identities and opens canonical detail", 
   const accessibilityResults = await new AxeBuilder({ page }).analyze();
   expect(accessibilityResults.violations).toEqual([]);
 });
+
+test("revalidates territory and completes the four-step fictional lead handoff", async ({
+  page,
+}) => {
+  await page.goto("/territory?zip=63101");
+  await page
+    .getByRole("link", { name: "Send Lead" })
+    .filter({ visible: true })
+    .first()
+    .click();
+  await expect(page).toHaveURL(/\/leads\/new$/);
+  await expect(page.getByLabel("Customer ZIP code")).toHaveValue("63101");
+  await page.getByRole("button", { name: "Check Current Assignment" }).click();
+  await expect(page.getByRole("heading", { name: "Jordan Lee" })).toBeVisible();
+  await page.getByRole("button", { name: "Continue to Customer" }).click();
+
+  await page
+    .getByLabel("Company or organization name")
+    .fill("Fictional Packaging Group");
+  await page.getByLabel("Phone available").check();
+  await page.getByLabel("Customer phone").fill("555-010-1040");
+  await page.getByRole("button", { name: "Continue to Opportunity" }).click();
+
+  await page
+    .getByLabel("What does the customer need?")
+    .fill("Customer requested a fictional facility-services site walkthrough.");
+  await page.getByLabel("Within 7 days").check();
+  await page.getByRole("button", { name: "Continue to Review & Send" }).click();
+  await expect(
+    page.getByText(/respond by the end of the next business day/),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Send Lead" }).click();
+
+  await expect(page).toHaveURL(/\/leads\/lead-demo-\d+$/);
+  await expect(
+    page.getByRole("heading", { name: "Lead sent to Jordan Lee" }),
+  ).toBeVisible();
+  await expect(page.getByText("Pending Acceptance")).toBeVisible();
+
+  const accessibilityResults = await new AxeBuilder({ page }).analyze();
+  expect(accessibilityResults.violations).toEqual([]);
+});

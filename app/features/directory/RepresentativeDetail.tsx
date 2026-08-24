@@ -278,9 +278,13 @@ export function RepresentativeDetail({
             {canStartLead ? (
               <Link
                 className={styles.sendLead}
-                to={`/leads/new?representative=${encodeURIComponent(
-                  representative.id,
-                )}&source=directory`}
+                state={{
+                  leadEntryContext: {
+                    representativeId: representative.id,
+                    source: "directory",
+                  },
+                }}
+                to="/leads/new"
               >
                 Send Lead
               </Link>
