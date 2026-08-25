@@ -22,6 +22,7 @@ export default [
     route("help/requests/:requestId", "routes/help-request.tsx"),
     route("help/:topicSlug", "routes/help-topic.tsx"),
   ]),
+  route("signed-out", "routes/signed-out.tsx"),
   route("not-found", "routes/not-found.tsx"),
   route("*", "routes/catch-all.tsx"),
 ] satisfies RouteConfig;

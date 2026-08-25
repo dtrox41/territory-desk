@@ -1,0 +1,569 @@
+.offlineBanner,
+.warningBanner,
+.errorCard,
+.stateCard,
+.profileHero,
+.panel {
+  border: var(--border-1) solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+}
+
+.offlineBanner,
+.warningBanner {
+  background: var(--color-warning-background);
+  border-color: var(--color-warning-boundary);
+  color: var(--color-warning-foreground);
+  display: grid;
+  gap: var(--space-1);
+  margin-block-end: var(--space-4);
+  padding: var(--space-4);
+}
+
+.profileHero {
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    var(--color-blue-900),
+    var(--color-blue-700)
+  );
+  border-color: var(--color-blue-800);
+  box-shadow: var(--shadow-card);
+  color: var(--color-text-inverse);
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  margin-block-end: var(--space-5);
+  padding: var(--space-5);
+}
+
+.avatar {
+  align-items: center;
+  background: var(--color-surface);
+  border-radius: var(--radius-round);
+  color: var(--color-action-primary);
+  display: inline-flex;
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  inline-size: 3.5rem;
+  justify-content: center;
+  min-block-size: 3.5rem;
+}
+
+.profileHero p,
+.profileHero h2 {
+  margin: 0;
+}
+
+.profileHero p {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-label);
+  opacity: 0.88;
+  text-transform: uppercase;
+}
+
+.profileHero h2 {
+  font-size: var(--text-2xl);
+  line-height: var(--line-2xl);
+  margin-block: var(--space-1);
+}
+
+.profileHero > [class*="status_"] {
+  background: var(--color-surface);
+  border: var(--border-1) solid currentcolor;
+  border-radius: var(--radius-round);
+  color: var(--color-success-foreground);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  padding: var(--space-1) var(--space-3);
+}
+
+.profileHero > .status_needs-review,
+.profileHero > .status_access-changed {
+  color: var(--color-warning-foreground);
+}
+
+.profileHero > .status_inactive {
+  color: var(--color-danger-foreground);
+}
+
+.layout,
+.primaryColumn,
+.secondaryColumn {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.panel {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.sectionHeader {
+  border-block-end: var(--border-1) solid var(--color-divider);
+  padding: var(--space-5);
+}
+
+.sectionHeader p {
+  color: var(--color-action-primary);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-label);
+  margin: 0 0 var(--space-1);
+  text-transform: uppercase;
+}
+
+.sectionHeader h2 {
+  color: var(--color-text-strong);
+  font-size: var(--text-xl);
+  margin: 0;
+}
+
+.guidance,
+.timezoneNotice {
+  color: var(--color-text-muted);
+  margin: var(--space-4) var(--space-5);
+}
+
+.timezoneNotice {
+  background: var(--color-information-background);
+  border-inline-start: var(--border-3) solid var(--color-information-boundary);
+  color: var(--color-information-foreground);
+  padding: var(--space-3);
+}
+
+.fieldGrid {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0 var(--space-5);
+}
+
+.readOnlyField {
+  background: var(--color-canvas);
+  border: var(--border-1) solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3);
+}
+
+.readOnlyField dt,
+.summaryList dt,
+.sessionList dt,
+.preferenceValue dt {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+}
+
+.readOnlyField dd,
+.summaryList dd,
+.sessionList dd,
+.preferenceValue dd {
+  color: var(--color-text-strong);
+  font-weight: var(--font-semibold);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.readOnlyField span {
+  color: var(--color-text-subtle);
+  font-size: var(--text-xs);
+}
+
+.actions,
+.stackActions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-5);
+}
+
+.stackActions {
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.primaryButton,
+.secondaryButton,
+.textLink,
+.textButton {
+  align-items: center;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-weight: var(--font-semibold);
+  justify-content: center;
+  min-block-size: var(--target-min);
+  padding: var(--space-3) var(--space-4);
+  text-decoration: none;
+}
+
+.primaryButton {
+  background: var(--color-action-primary);
+  border: var(--border-1) solid var(--color-action-primary);
+  color: var(--color-text-inverse);
+}
+
+.secondaryButton {
+  background: var(--color-surface);
+  border: var(--border-1) solid var(--color-action-primary);
+  color: var(--color-action-primary);
+}
+
+.textLink,
+.textButton {
+  background: transparent;
+  border: 0;
+  color: var(--color-action-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.primaryButton:disabled,
+.secondaryButton:disabled,
+.textButton:disabled {
+  background: var(--color-disabled-surface);
+  border-color: var(--color-border-default);
+  color: var(--color-disabled-text);
+  cursor: not-allowed;
+}
+
+.roleList,
+.channelList {
+  display: grid;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: var(--space-5);
+}
+
+.roleList > li,
+.channelList > li {
+  background: var(--color-canvas);
+  border: var(--border-1) solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+
+.roleList > li {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.roleIcon {
+  align-items: center;
+  background: var(--color-blue-100);
+  border-radius: var(--radius-round);
+  color: var(--color-action-primary);
+  display: inline-flex;
+  flex: 0 0 auto;
+  inline-size: var(--icon-container);
+  justify-content: center;
+  min-block-size: var(--icon-container);
+}
+
+.roleList h3,
+.channelList h3 {
+  color: var(--color-text-strong);
+  font-size: var(--text-md);
+  margin: 0;
+}
+
+.roleList p,
+.channelList p {
+  color: var(--color-text-muted);
+  margin: var(--space-2) 0 0;
+}
+
+.scopeBox,
+.conflictBox,
+.errorInline {
+  background: var(--color-blue-050);
+  border: var(--border-1) solid var(--color-information-boundary);
+  border-radius: var(--radius-md);
+  display: grid;
+  gap: var(--space-1);
+  margin: 0 var(--space-5);
+  padding: var(--space-4);
+}
+
+.scopeBox small {
+  color: var(--color-text-muted);
+}
+
+.summaryList,
+.sessionList {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: var(--space-5);
+}
+
+.summaryList > div,
+.sessionList > div {
+  border-block-end: var(--border-1) solid var(--color-divider);
+  display: grid;
+  gap: var(--space-1);
+  padding-block-end: var(--space-3);
+}
+
+.summaryList > div:last-child,
+.sessionList > div:last-child {
+  border-block-end: 0;
+  padding-block-end: 0;
+}
+
+.channelList > li > div:first-child {
+  align-items: start;
+  display: flex;
+  gap: var(--space-3);
+  justify-content: space-between;
+}
+
+[class*="channel_"] {
+  border: var(--border-1) solid;
+  border-radius: var(--radius-round);
+  flex: 0 0 auto;
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  padding: var(--space-1) var(--space-2);
+}
+
+.channel_available {
+  background: var(--color-success-background);
+  border-color: var(--color-success-boundary);
+  color: var(--color-success-foreground);
+}
+
+.channel_simulation-only,
+.channel_delayed,
+.channel_needs-verification {
+  background: var(--color-warning-background);
+  border-color: var(--color-warning-boundary);
+  color: var(--color-warning-foreground);
+}
+
+.channel_unavailable {
+  background: var(--color-danger-background);
+  border-color: var(--color-danger-boundary);
+  color: var(--color-danger-foreground);
+}
+
+.channel_not-configured,
+.channel_status-unavailable {
+  background: var(--color-status-neutral-background);
+  border-color: var(--color-status-neutral-boundary);
+  color: var(--color-status-neutral-foreground);
+}
+
+.maskedContact {
+  font-family: var(--font-family-mono);
+  font-weight: var(--font-semibold);
+}
+
+.panel form {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-5);
+}
+
+.panel form label {
+  color: var(--color-text-strong);
+  font-weight: var(--font-semibold);
+}
+
+.panel form select {
+  background: var(--color-surface);
+  border: var(--border-1) solid var(--color-border-control);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font: inherit;
+  min-block-size: var(--control-md);
+  padding: var(--space-3);
+}
+
+.panel form > p {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.panel form .actions,
+.conflictBox .actions {
+  padding: 0;
+}
+
+.preferenceValue {
+  background: var(--color-canvas);
+  border: var(--border-1) solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  display: grid;
+  gap: var(--space-1);
+  margin: var(--space-5) var(--space-5) 0;
+  padding: var(--space-4);
+}
+
+.successMessage,
+.formError {
+  border: var(--border-1) solid;
+  margin: 0 var(--space-5);
+  padding: var(--space-3);
+}
+
+.successMessage {
+  background: var(--color-success-background);
+  border-color: var(--color-success-boundary);
+  color: var(--color-success-foreground);
+}
+
+.formError,
+.errorInline {
+  background: var(--color-danger-background);
+  border-color: var(--color-danger-boundary);
+  color: var(--color-danger-foreground);
+}
+
+.conflictBox {
+  background: var(--color-warning-background);
+  border-color: var(--color-warning-boundary);
+  color: var(--color-warning-foreground);
+  margin: 0;
+}
+
+.stateCard,
+.errorCard {
+  background: var(--color-surface);
+  max-inline-size: var(--width-form-max);
+  padding: var(--space-5);
+}
+
+.errorCard {
+  background: var(--color-danger-background);
+  border-color: var(--color-danger-boundary);
+  color: var(--color-danger-foreground);
+}
+
+.stateCard h2,
+.errorCard h2 {
+  margin-block-start: 0;
+}
+
+.dialog {
+  background: var(--color-surface);
+  border: 0;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-overlay);
+  inline-size: min(calc(100% - var(--space-6)), var(--width-dialog-max));
+  padding: 0;
+}
+
+.dialog::backdrop {
+  background: var(--color-scrim);
+}
+
+.dialogHeader {
+  align-items: start;
+  border-block-end: var(--border-1) solid var(--color-divider);
+  display: flex;
+  gap: var(--space-4);
+  justify-content: space-between;
+  padding: var(--space-5);
+}
+
+.dialogHeader p,
+.dialogHeader h2 {
+  margin: 0;
+}
+
+.dialogHeader p {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+}
+
+.dialogHeader > button {
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: var(--text-2xl);
+  min-block-size: var(--target-min);
+  min-inline-size: var(--target-min);
+}
+
+.dialogBody {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-5);
+}
+
+.dialogBody p {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.dialogActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: end;
+}
+
+@media (min-width: 48rem) {
+  .fieldGrid,
+  .summaryList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 70rem) {
+  .layout {
+    align-items: start;
+    grid-template-columns: minmax(0, 1.55fr) minmax(20rem, 0.8fr);
+  }
+
+  .secondaryColumn {
+    position: sticky;
+    top: calc(var(--space-16) + var(--space-4));
+  }
+}
+
+@media (max-width: 35rem) {
+  .profileHero {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .profileHero > [class*="status_"] {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .actions,
+  .dialogActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .actions > *,
+  .dialogActions > * {
+    inline-size: 100%;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .primaryButton:hover:not(:disabled) {
+    background: var(--color-action-primary-hover);
+  }
+
+  .secondaryButton:hover:not(:disabled),
+  .textLink:hover,
+  .textButton:hover:not(:disabled) {
+    background: var(--color-action-secondary-hover);
+  }
+}
