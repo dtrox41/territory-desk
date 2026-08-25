@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation } from "react-router";
 
 import { BrandIdentity } from "../foundation/BrandIdentity";
 import { Icon } from "../foundation/Icon";
+import { ReleaseStamp } from "../foundation/ReleaseStamp";
 import {
   getPageTitle,
   isNavigationItemActive,
@@ -100,7 +101,10 @@ function ShellNavigationLink({
 function EnvironmentBanner() {
   return (
     <div className={styles.environmentBanner} role="note">
-      Fictional Prototype — Do not enter real employee or customer information
+      <span>
+        Fictional Prototype — Do not enter real employee or customer information
+      </span>
+      <ReleaseStamp />
     </div>
   );
 }

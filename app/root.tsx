@@ -14,6 +14,8 @@ import type { Route } from "./+types/root";
 import "./app.css";
 
 const publicBasePath = import.meta.env.BASE_URL;
+const publicBuildId = import.meta.env.VITE_PUBLIC_BUILD_ID?.trim();
+const publicReleasedAt = import.meta.env.VITE_PUBLIC_RELEASED_AT?.trim();
 
 export const links: Route.LinksFunction = () => [
   {
@@ -40,6 +42,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="#0B4B91" name="theme-color" />
         <meta content="Territory Desk" name="application-name" />
+        {publicBuildId ? (
+          <meta content={publicBuildId} name="territory-desk-build-id" />
+        ) : null}
+        {publicReleasedAt ? (
+          <meta content={publicReleasedAt} name="territory-desk-released-at" />
+        ) : null}
         <meta content="yes" name="apple-mobile-web-app-capable" />
         <meta
           content="black-translucent"

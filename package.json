@@ -23,6 +23,7 @@
     "test:e2e": "playwright test",
     "test:e2e:list": "playwright test --list",
     "check:environment": "node scripts/check-environment.mjs",
+    "check:preview-artifact": "node scripts/check-preview-artifact.mjs build/client",
     "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build"
   },
   "dependencies": {

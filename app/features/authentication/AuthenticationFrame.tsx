@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 
 import { BrandIdentity } from "../../components/foundation/BrandIdentity";
+import { ReleaseStamp } from "../../components/foundation/ReleaseStamp";
 import styles from "./AuthenticationSystem.module.css";
 
 export function AuthenticationFrame({
@@ -17,8 +18,11 @@ export function AuthenticationFrame({
   return (
     <main className={styles.page} id="main-content">
       <div className={styles.environmentBanner} role="note">
-        Fictional prototype — not connected to Cintas systems or production
-        data.
+        <span>
+          Fictional prototype — not connected to Cintas systems or production
+          data.
+        </span>
+        <ReleaseStamp />
       </div>
       <section className={styles.card}>
         <BrandIdentity showDescriptor variant="compact" />

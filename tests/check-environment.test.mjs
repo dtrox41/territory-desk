@@ -26,6 +26,7 @@ const preview = {
   VITE_PUBLIC_APP_ENV: "preview",
   VITE_PUBLIC_BASE_PATH: "/territory-desk/",
   VITE_PUBLIC_BUILD_ID: "preview-test-build",
+  VITE_PUBLIC_RELEASED_AT: "2026-08-24T18:15:27Z",
 };
 
 const production = {
@@ -42,6 +43,7 @@ const production = {
   VITE_PUBLIC_APP_ENV: "production",
   VITE_PUBLIC_BASE_PATH: "/",
   VITE_PUBLIC_BUILD_ID: "production-test-build",
+  VITE_PUBLIC_RELEASED_AT: "2026-08-24T18:15:27Z",
   VITE_FICTIONAL_PROTOTYPE: "false",
   SESSION_SECRET: "fictional-test-session-secret",
   DATABASE_URL: "postgresql://fictional-test-only",
@@ -169,6 +171,18 @@ test("rejects a Preview build without its fictional-prototype flag", () => {
 test("rejects a Preview build without a build identifier", () => {
   const { VITE_PUBLIC_BUILD_ID: _removed, ...configuration } = preview;
   expectFailure(configuration, "VITE_PUBLIC_BUILD_ID");
+});
+
+test("rejects a Preview build without a release timestamp", () => {
+  const { VITE_PUBLIC_RELEASED_AT: _removed, ...configuration } = preview;
+  expectFailure(configuration, "VITE_PUBLIC_RELEASED_AT");
+});
+
+test("rejects a Preview build with an invalid release timestamp", () => {
+  expectFailure(
+    { ...preview, VITE_PUBLIC_RELEASED_AT: "not-a-date" },
+    "VITE_PUBLIC_RELEASED_AT",
+  );
 });
 
 test("rejects direct Graph email in initial Production", () => {

@@ -54,6 +54,7 @@ const publicClientVariables = new Set([
   "VITE_PUBLIC_APP_ENV",
   "VITE_PUBLIC_BASE_PATH",
   "VITE_PUBLIC_BUILD_ID",
+  "VITE_PUBLIC_RELEASED_AT",
   "VITE_FICTIONAL_PROTOTYPE",
 ]);
 
@@ -145,6 +146,14 @@ if (
   !process.env.VITE_PUBLIC_BUILD_ID?.trim()
 ) {
   mismatchedVariables.push("VITE_PUBLIC_BUILD_ID");
+}
+
+if (appEnvironment !== "development") {
+  const releasedAt = process.env.VITE_PUBLIC_RELEASED_AT?.trim();
+
+  if (!releasedAt || Number.isNaN(Date.parse(releasedAt))) {
+    mismatchedVariables.push("VITE_PUBLIC_RELEASED_AT");
+  }
 }
 
 if (mismatchedVariables.length > 0) {
