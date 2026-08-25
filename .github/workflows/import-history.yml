@@ -1,0 +1,40 @@
+name: Import verified local history
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: import-verified-history
+  cancel-in-progress: false
+
+jobs:
+  import:
+    if: github.repository == 'dtrox41/territory-desk'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      EXPECTED_HEAD: 651bb0dafda2522013515372e72cc705da3b2e2a
+    steps:
+      - name: Check out bootstrap branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Verify bundled history
+        shell: bash
+        run: |
+          git bundle verify territory-desk-history.bundle
+          actual_head="$(git bundle list-heads territory-desk-history.bundle refs/heads/main | awk '{print $1}')"
+          test "$actual_head" = "$EXPECTED_HEAD"
+
+      - name: Merge the complete independent history
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch territory-desk-history.bundle refs/heads/main:refs/heads/verified-local-main
+          git merge --no-ff --allow-unrelated-histories -m "build: merge verified Territory Desk history" refs/heads/verified-local-main
+          git push origin HEAD:main
