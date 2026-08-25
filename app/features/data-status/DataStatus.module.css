@@ -1,0 +1,560 @@
+.summary,
+.section,
+.offlineBanner,
+.errorCard,
+.loadingCard,
+.stateCard,
+.definitions {
+  border: var(--border-1) solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+}
+
+.offlineBanner {
+  background: var(--color-warning-background);
+  border-color: var(--color-warning-boundary);
+  color: var(--color-warning-foreground);
+  display: grid;
+  gap: var(--space-1);
+  margin-block-end: var(--space-4);
+  padding: var(--space-4);
+}
+
+.summary {
+  align-items: start;
+  background: var(--color-surface);
+  border-inline-start-width: 0.4rem;
+  box-shadow: var(--shadow-card);
+  display: grid;
+  gap: var(--space-5);
+  margin-block-end: var(--space-5);
+  padding: var(--space-5);
+}
+
+.summary_attention,
+.summary_stale {
+  border-inline-start-color: var(--color-warning-boundary);
+}
+
+.summary_available {
+  border-inline-start-color: var(--color-success-boundary);
+}
+
+.summary_unavailable,
+.summary_version-mismatch {
+  border-inline-start-color: var(--color-danger-boundary);
+}
+
+.summary p,
+.sectionHeader p,
+.dialogHeader p,
+.issueHeading p {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-label);
+  margin: 0 0 var(--space-1);
+  text-transform: uppercase;
+}
+
+.summary h2,
+.sectionHeader h2,
+.dialogHeader h2,
+.issueHeading h3 {
+  color: var(--color-text-strong);
+  margin: 0;
+}
+
+.summary > div {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.summary span,
+.summary small {
+  color: var(--color-text-muted);
+}
+
+.summaryButton,
+.primaryButton,
+.secondaryButton {
+  align-items: center;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-weight: var(--font-semibold);
+  justify-content: center;
+  min-block-size: var(--target-min);
+  padding: var(--space-3) var(--space-4);
+  text-decoration: none;
+}
+
+.summaryButton,
+.primaryButton {
+  background: var(--color-action-primary);
+  border: var(--border-1) solid var(--color-action-primary);
+  color: var(--color-text-inverse);
+}
+
+.secondaryButton {
+  background: var(--color-surface);
+  border: var(--border-1) solid var(--color-action-primary);
+  color: var(--color-action-primary);
+}
+
+.summaryButton:disabled,
+.primaryButton:disabled,
+.secondaryButton:disabled {
+  background: var(--color-disabled-surface);
+  border-color: var(--color-border-default);
+  color: var(--color-disabled-text);
+  cursor: not-allowed;
+}
+
+.section {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  margin-block-end: var(--space-5);
+  overflow: hidden;
+}
+
+.sectionHeader {
+  border-block-end: var(--border-1) solid var(--color-divider);
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-5);
+}
+
+.sectionHeader > span {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.actionGrid,
+.issueList,
+.reportList {
+  display: grid;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: var(--space-4);
+}
+
+.actionGrid > li,
+.issueCard,
+.reportList > li {
+  background: var(--color-canvas);
+  border: var(--border-1) solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+
+.actionGrid > li > div,
+.issueHeading,
+.reportList > li > div:first-child {
+  align-items: start;
+  display: flex;
+  gap: var(--space-3);
+  justify-content: space-between;
+}
+
+.actionGrid h3,
+.reportList h3 {
+  color: var(--color-text-strong);
+  font-size: var(--text-md);
+  margin: 0;
+}
+
+.actionGrid p,
+.reportList p {
+  color: var(--color-text-muted);
+  margin: var(--space-2) 0 0;
+}
+
+[class*="status_"] {
+  border: var(--border-1) solid;
+  border-radius: var(--radius-round);
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  line-height: var(--line-xs);
+  padding: var(--space-1) var(--space-2);
+}
+
+.status_available {
+  background: var(--color-success-background);
+  border-color: var(--color-success-boundary);
+  color: var(--color-success-foreground);
+}
+
+.status_attention,
+.status_available-with-exceptions,
+.status_stale,
+.status_simulation,
+.status_simulation-only {
+  background: var(--color-warning-background);
+  border-color: var(--color-warning-boundary);
+  color: var(--color-warning-foreground);
+}
+
+.status_unavailable,
+.status_temporarily-unavailable,
+.status_version-mismatch {
+  background: var(--color-danger-background);
+  border-color: var(--color-danger-boundary);
+  color: var(--color-danger-foreground);
+}
+
+.status_not-connected,
+.status_read-only {
+  background: var(--color-status-neutral-background);
+  border-color: var(--color-status-neutral-boundary);
+  color: var(--color-status-neutral-foreground);
+}
+
+.sourceGrid {
+  display: grid;
+}
+
+.sourceCard,
+.highlightedSource {
+  border-block-end: var(--border-1) solid var(--color-divider);
+}
+
+.highlightedSource {
+  background: var(--color-blue-050);
+  box-shadow: inset 0.25rem 0 0 var(--color-action-primary);
+}
+
+.sourceCard:last-child,
+.highlightedSource:last-child {
+  border-block-end: 0;
+}
+
+.sourceToggle {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: var(--color-text);
+  cursor: pointer;
+  display: grid;
+  font: inherit;
+  gap: var(--space-3);
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  inline-size: 100%;
+  min-block-size: var(--row-compact-min);
+  padding: var(--space-4);
+  text-align: start;
+}
+
+.sourceIcon {
+  align-items: center;
+  background: var(--color-blue-100);
+  border-radius: var(--radius-round);
+  color: var(--color-action-primary);
+  display: inline-flex;
+  justify-content: center;
+  min-block-size: var(--icon-container);
+  min-inline-size: var(--icon-container);
+}
+
+.sourceToggle > span:nth-child(2) {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.sourceToggle strong {
+  color: var(--color-text-strong);
+}
+
+.sourceToggle small,
+.chevron {
+  color: var(--color-text-muted);
+}
+
+.chevron {
+  font-size: var(--text-xl);
+  min-inline-size: var(--target-min);
+  text-align: center;
+}
+
+.sourceDetails {
+  border-block-start: var(--border-1) solid var(--color-divider);
+  padding: var(--space-4);
+}
+
+.sourceDetails > p {
+  margin-block: 0 var(--space-2);
+}
+
+.sourceDetails > ul {
+  color: var(--color-text-muted);
+  display: grid;
+  gap: var(--space-2);
+  margin: var(--space-3) 0;
+  padding-inline-start: var(--space-5);
+}
+
+.metaList {
+  display: grid;
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+
+.metaList > div {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.metaList dt {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+}
+
+.metaList dd {
+  color: var(--color-text);
+  margin: 0;
+}
+
+.cardActions,
+.dialogActions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.textButton {
+  background: transparent;
+  border: 0;
+  color: var(--color-action-primary);
+  cursor: pointer;
+  font: inherit;
+  font-weight: var(--font-semibold);
+  min-block-size: var(--target-min);
+  padding: var(--space-2);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.helpLink {
+  align-items: center;
+  display: inline-flex;
+  justify-self: start;
+  min-block-size: var(--target-min);
+  padding: var(--space-2);
+}
+
+.issueHeading h3 {
+  font-size: var(--text-lg);
+}
+
+.workaround,
+.resolution {
+  background: var(--color-blue-050);
+  border-inline-start: var(--border-3) solid var(--color-information-boundary);
+  color: var(--color-text);
+  padding: var(--space-3);
+}
+
+.reportList > li > div:first-child small {
+  color: var(--color-text-muted);
+}
+
+.confirmation {
+  background: var(--color-success-background);
+  border: var(--border-1) solid var(--color-success-boundary);
+  color: var(--color-success-foreground);
+  display: grid;
+  gap: var(--space-1);
+  margin: var(--space-4) var(--space-4) 0;
+  padding: var(--space-4);
+}
+
+.emptyState,
+.errorCard,
+.loadingCard,
+.stateCard {
+  background: var(--color-surface);
+  padding: var(--space-5);
+}
+
+.errorCard {
+  background: var(--color-danger-background);
+  border-color: var(--color-danger-boundary);
+  color: var(--color-danger-foreground);
+}
+
+.errorCard h2,
+.loadingCard h2,
+.stateCard h2,
+.emptyState h3 {
+  margin-block-start: 0;
+}
+
+.definitions {
+  align-items: start;
+  background: var(--color-surface);
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-5);
+}
+
+.definitionGrid {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+}
+
+.definitionGrid dt {
+  font-weight: var(--font-semibold);
+}
+
+.definitionGrid dd {
+  color: var(--color-text-muted);
+  margin: var(--space-1) 0 0;
+}
+
+.dialog {
+  background: var(--color-surface);
+  border: 0;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-overlay);
+  inline-size: min(calc(100% - var(--space-6)), var(--width-dialog-max));
+  max-block-size: calc(100dvh - var(--space-6));
+  padding: 0;
+}
+
+.dialog::backdrop {
+  background: var(--color-scrim);
+}
+
+.dialogHeader {
+  align-items: start;
+  border-block-end: var(--border-1) solid var(--color-divider);
+  display: flex;
+  gap: var(--space-4);
+  justify-content: space-between;
+  padding: var(--space-5);
+}
+
+.dialogHeader > button {
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: var(--text-2xl);
+  min-block-size: var(--target-min);
+  min-inline-size: var(--target-min);
+}
+
+.dialogBody {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-5);
+}
+
+.dialogBody label {
+  color: var(--color-text-strong);
+  display: grid;
+  font-weight: var(--font-semibold);
+  gap: var(--space-2);
+}
+
+.dialogBody select,
+.dialogBody textarea {
+  background: var(--color-surface);
+  border: var(--border-1) solid var(--color-border-control);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font: inherit;
+  min-block-size: var(--control-md);
+  padding: var(--space-3);
+}
+
+.dialogBody textarea {
+  resize: vertical;
+}
+
+.dialogBody p {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.context {
+  background: var(--color-blue-050);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+}
+
+.dialogBody .formError {
+  color: var(--color-danger-foreground);
+  font-weight: var(--font-semibold);
+}
+
+@media (min-width: 48rem) {
+  .summary {
+    align-items: center;
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: var(--space-6);
+  }
+
+  .sectionHeader {
+    align-items: end;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .actionGrid,
+  .issueList,
+  .reportList,
+  .definitionGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: var(--space-5);
+  }
+
+  .metaList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 31rem) {
+  .sourceToggle {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .sourceToggle > [class*="status_"] {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .chevron {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+
+  .cardActions,
+  .dialogActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .cardActions > *,
+  .dialogActions > * {
+    inline-size: 100%;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sourceToggle:hover,
+  .textButton:hover {
+    background: var(--color-action-secondary-hover);
+  }
+
+  .primaryButton:hover,
+  .summaryButton:hover:not(:disabled) {
+    background: var(--color-action-primary-hover);
+  }
+}

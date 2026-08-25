@@ -1,15 +1,14 @@
-import { PlaceholderPage } from "../components/layout/PageFrame";
 import { pageMeta } from "../components/layout/page-meta";
+import { DataStatus } from "../features/data-status/DataStatus";
+import { fictionalDataStatusService } from "../services/fictional/data-status";
 
 export function meta() {
-  return pageMeta("Data Status", "Fictional Territory Desk data-status route.");
+  return pageMeta(
+    "Data Status",
+    "Fictional Territory Desk action-safety and data-quality status.",
+  );
 }
 
-export default function DataStatus() {
-  return (
-    <PlaceholderPage
-      description="Understand fictional source freshness, known issues, and which actions are currently safe."
-      title="Data Status"
-    />
-  );
+export default function DataStatusRoute() {
+  return <DataStatus service={fictionalDataStatusService} />;
 }
