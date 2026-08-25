@@ -1,4 +1,4 @@
-name: Import verified local history
+name: Apply verified release corrections
 
 on:
   workflow_dispatch:
@@ -7,34 +7,49 @@ permissions:
   contents: write
 
 concurrency:
-  group: import-verified-history
+  group: apply-verified-release-corrections
   cancel-in-progress: false
 
 jobs:
-  import:
+  apply:
     if: github.repository == 'dtrox41/territory-desk'
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
-      EXPECTED_HEAD: 651bb0dafda2522013515372e72cc705da3b2e2a
+      EXPECTED_PARENT: 1b035cccfe02d5505cd4374eeb1f46376be1ad68
+      PATCH_SHA256: 01ebee44b85726c88b5e4f04eb2a1d37cc902607bfee98a30353c7117784f6bf
+      PATCH_BASE64: "ZGlmZiAtLWdpdCBhL2FwcC9jb21wb25lbnRzL3NoZWxsL0FwcFNoZWxsLnRzeCBiL2FwcC9jb21wb25lbnRzL3NoZWxsL0FwcFNoZWxsLnRzeAppbmRleCBjM2IzMmIyLi4wNmZhZjA1IDEwMDY0NAotLS0gYS9hcHAvY29tcG9uZW50cy9zaGVsbC9BcHBTaGVsbC50c3gKKysrIGIvYXBwL2NvbXBvbmVudHMvc2hlbGwvQXBwU2hlbGwudHN4CkBAIC0xMDAsMTIgKzEwMCwxNSBAQCBmdW5jdGlvbiBTaGVsbE5hdmlnYXRpb25MaW5rKHsKIAogZnVuY3Rpb24gRW52aXJvbm1lbnRCYW5uZXIoKSB7CiAgIHJldHVybiAoCi0gICAgPGRpdiBjbGFzc05hbWU9e3N0eWxlcy5lbnZpcm9ubWVudEJhbm5lcn0gcm9sZT0ibm90ZSI+CisgICAgPGFzaWRlCisgICAgICBhcmlhLWxhYmVsPSJGaWN0aW9uYWwgcHJvdG90eXBlIHN0YXR1cyIKKyAgICAgIGNsYXNzTmFtZT17c3R5bGVzLmVudmlyb25tZW50QmFubmVyfQorICAgID4KICAgICAgIDxzcGFuPgogICAgICAgICBGaWN0aW9uYWwgUHJvdG90eXBlIOKAlCBEbyBub3QgZW50ZXIgcmVhbCBlbXBsb3llZSBvciBjdXN0b21lciBpbmZvcm1hdGlvbgogICAgICAgPC9zcGFuPgogICAgICAgPFJlbGVhc2VTdGFtcCAvPgotICAgIDwvZGl2PgorICAgIDwvYXNpZGU+CiAgICk7CiB9CiAKZGlmZiAtLWdpdCBhL2FwcC9jb21wb25lbnRzL3NoZWxsL0FwcFNoZWxsLnRlc3QudHN4IGIvYXBwL2NvbXBvbmVudHMvc2hlbGwvQXBwU2hlbGwudGVzdC50c3gKaW5kZXggOTRmNTU2OC4uZWYxYmE4MSAxMDA2NDQKLS0tIGEvYXBwL2NvbXBvbmVudHMvc2hlbGwvQXBwU2hlbGwudGVzdC50c3gKKysrIGIvYXBwL2NvbXBvbmVudHMvc2hlbGwvQXBwU2hlbGwudGVzdC50c3gKQEAgLTIzLDYgKzIzLDExIEBAIGRlc2NyaWJlKCJBcHBTaGVsbCIsICgpID0+IHsKICAgICAgICAgIkZpY3Rpb25hbCBQcm90b3R5cGUg4oCUIERvIG5vdCBlbnRlciByZWFsIGVtcGxveWVlIG9yIGN1c3RvbWVyIGluZm9ybWF0aW9uIiwKICAgICAgICksCiAgICAgKS50b0JlVmlzaWJsZSgpOworICAgIGV4cGVjdCgKKyAgICAgIHNjcmVlbi5nZXRCeVJvbGUoImNvbXBsZW1lbnRhcnkiLCB7CisgICAgICAgIG5hbWU6ICJGaWN0aW9uYWwgcHJvdG90eXBlIHN0YXR1cyIsCisgICAgICB9KSwKKyAgICApLnRvQmVWaXNpYmxlKCk7CiAgICAgZXhwZWN0KAogICAgICAgc2NyZW4uZ2V0QnlSb2xlKCJsaW5rIiwgeyBuYW1lOiAiU2tpcCB0byBtYWluIGNvbnRlbnQiIH0pLAogICAgICApLnRvSGF2ZUF0dHJpYnV0ZSgiaHJlZiIsICIjbWFpbi1jb250ZW50Iik7CmRpZmYgLS1naXQgYS9hcHAvZmVhdHVyZXMvdGVycml0b3J5L1RlcnJpdG9yeVJlc3VsdHMudHN4IGIvYXBwL2ZlYXR1cmVzL3RlcnJpdG9yeS9UZXJyaXRvcnlSZXN1bHRzLnRzeAppbmRleCBmZDcyNTllLi41YTY3ZGJmIDEwMDY0NAotLS0gYS9hcHAvZmVhdHVyZXMvdGVycml0b3J5L1RlcnJpdG9yeVJlc3VsdHMudHN4CisrKyBiL2FwcC9mZWF0dXJlcy90ZXJyaXRvcnkvVGVycml0b3J5UmVzdWx0cy50c3gKQEAgLTE4MSw2ICsxODEsNyBAQCBmdW5jdGlvbiBBc3NpZ25lZENhcmQoewogICAgICAgPGRpdiBjbGFzc05hbWU9e3N0eWxlcy5wcmltYXJ5QWN0aW9uc30+CiAgICAgICAgIHtjYW5TZW5kTGVhZCA/ICgKICAgICAgICAgICA8TGluaworICAgICAgICAgICAgYXJpYS1sYWJlbD17YFNlbmQgTGVhZCB0byAke3JlcHJlc2VudGF0aXZlLmRpc3BsYXlOYW1lfSBmb3IgJHthc3NpZ25tZW50LnNvdXJjZURpdmlzaW9ufWB9CiAgICAgICAgICAgICBjbGFzc05hbWU9e3N0eWxlcy5zZW5kTGVhZH0KICAgICAgICAgICAgIHN0YXRlPXt7IHJvdXRpbmdTbmFwc2hvdCB9fQogICAgICAgICAgICAgdG89Ii9sZWFkcy9uZXciCmRpZmYgLS1naXQgYS9hcHAvZmVhdHVyZXMvdGVycml0b3J5L1RlcnJpdG9yeUxvb2t1cC50ZXN0LnRzeCBiL2FwcC9mZWF0dXJlcy90ZXJyaXRvcnkvVGVycml0b3J5TG9va3VwLnRlc3QudHN4CmluZGV4IDhiZWRiZjcuLjY1ODAwNTIgMTAwNjQ0Ci0tLSBhL2FwcC9mZWF0dXJlcy90ZXJyaXRvcnkvVGVycml0b3J5TG9va3VwLnRlc3QudHN4CisrKyBiL2FwcC9mZWF0dXJlcy90ZXJyaXRvcnkvVGVycml0b3J5TG9va3VwLnRlc3QudHN4CkBAIC05Miw3ICs5Miw5IEBAIGRlc2NyaWJlKCJUZXJyaXRvcnlMb29rdXAiLCAoKSA9PiB7CiAgICAgZXhwZWN0KAogICAgICAgc2NyZWVuLmdldEJ5Um9sZSgiaGVhZGluZyIsIHsgbmFtZTogIk9wZW4gVGVycml0b3J5IiB9KSwKICAgICApLnRvQmVWaXNpYmxlKCk7Ci0gICAgZXhwZWN0KHNjcmVlbi5nZXRBbGxCeVJvbGUoImxpbmsiLCB7IG5hbWU6ICJTZW5kIExlYWQiIH0pKS50b0hhdmVMZW5ndGgoMyk7CisgICAgZXhwZWN0KAorICAgICAgc2NyZWVuLmdldEFsbEJ5Um9sZSgibGluayIsIHsgbmFtZTogL15TZW5kIExlYWQgdG8gLyB9KSwKKyAgICApLnRvSGF2ZUxlbmd0aCgzKTsKICAgfSk7CiAKICAgaXQoInJlcXVpcmVzIGFuIGV4YWN0IGNpdHkgWklQIGJlZm9yZSBleHBvc2luZyBTZW5kIExlYWQiLCBhc3luYyAoKSA9PiB7CkBAIC0xMDgsMTMgKzExMCwxMyBAQCBkZXNjcmliZSgiVGVycml0b3J5TG9va3VwIiwgKCkgPT4gewogICAgICAgfSksCiAgICAgKS50b0JlVmlzaWJsZSgpOwogICAgIGV4cGVjdCgKLSAgICAgIHNjcmVlbi5xdWVyeUJ5Um9sZSgibGluayIsIHsgbmFtZTogIlNlbmQgTGVhZCIgfSksCisgICAgICBzY3JlZW4ucXVlcnlCeVJvbGUoImxpbmsiLCB7IG5hbWU6IC9eU2VuZCBMZWFkIHRvIC8gfSksCiAgICAgKS5ub3QudG9CZUluVGhlRG9jdW1lbnQoKTsKIAogICAgIGF3YWl0IHVzZXIuY2xpY2soc2NyZWVuLmdldEJ5Um9sZSgiYnV0dG9uIiwgeyBuYW1lOiAiVXNlIDY1MjAxIiB9KSk7CiAKICAgICBleHBlY3QoCi0gICAgICBhd2FpdCBzY3JlZW4uZmluZEFsbEJ5Um9sZSgibGluayIsIHsgbmFtZTogIlNlbmQgTGVhZCIgfSksCisgICAgICBhd2FpdCBzY3JlZW4uZmluZEFsbEJ5Um9sZSgibGluayIsIHsgbmFtZTogL15TZW5kIExlYWQgdG8gLyB9KSwKICAgICApLnRvSGF2ZUxlbmd0aCgzKTsKICAgfSk7CiAKZGlmZiAtLWdpdCBhL2UyZS9zY2FmZm9sZC5zcGVjLnRzIGIvZTJlL3NjYWZmb2xkLnNwZWMudHMKaW5kZXggN2NhMzZiZC4uZDQ0NTA4ZSAxMDA2NDQKLS0tIGEvZTJlL3NjYWZmb2xkLnNwZWMudHMKKysrIGIvZTJlL3NjYWZmb2xkLnNwZWMudHMKQEAgLTEwNiw4ICsxMDYsOCBAQCB0ZXN0KCJuYXZpZ2F0ZXMgdG8gYSBwcmltYXJ5IHJvdXRlIGFuZCByZW5kZXJzIGEgc2FmZSBub3QtZm91bmQgcGFnZSIsIGFzeW5jICh7CiAgIGF3YWl0IGVudGVyUmVwcmVzZW50YXRpdmVEZW1vKHBhZ2UpOwogCiAgIGF3YWl0IHBhZ2UKKyAgICAuZ2V0QnlSb2xlKCJuYXZpZ2F0aW9uIiwgeyBuYW1lOiAiUXVpY2sgYWN0aW9ucyIgfSkKICAgICAuZ2V0QnlSb2xlKCJsaW5rIiwgeyBuYW1lOiAiU2VuZCBMZWFkIiB9KQotICAgIC5maWx0ZXIoeyB2aXNpYmxlOiB0cnVlIH0pCiAgICAgLmNsaWNrKCk7CiAgIGF3YWl0IGV4cGVjdChwYWdlKS50b0hhdmVVUkwoL1wvbGVhZHNcL25ldyQvKTsKICAgYXdhaXQgZXhwZWN0KApAQCAtMTY2LDcgKzE2Niw3IEBAIHRlc3QoImRpc3Rpbmd1aXNoZXMgZHVwbGljYXRlIGRpcmVjdG9yeSBpZGVudGl0aWVzIGFuZCBvcGVucyBjYW5vbmljYWwgZGV0YWlsIiwKICAgYXdhaXQgZXhwZWN0KHBhZ2UuZ2V0QnlUZXh0KC9TaG93aW5nIDYgb2YgMTMgcmVwcmVzZW50YXRpdmVzLykpLnRvQmVWaXNpYmxlKCk7CiAKICAgYXdhaXQgcGFnZQotICAgIC5nZXRCeVJvbGUoInNlYXJjaGJveCIsIHsgbmFtZTogIlNlYXJjaCByZXByZXNlbnRhdGl2ZXMiIH0pCisgICAgLmdldEJ5TGFiZWwoIlNlYXJjaCByZXByZXNlbnRhdGl2ZXMiLCB7IGV4YWN0OiB0cnVlIH0pCiAgICAgLmZpbGwoIkNhbWVyb24gQnJvb2tzIik7CiAgIGF3YWl0IGV4cGVjdCgKICAgICBwYWdlLmdldEJ5Um9sZSgiaGVhZGluZyIsIHsgbmFtZTogIkNhbWVyb24gQnJvb2tzIiB9KSwKQEAgLTIwMCw5ICsyMDAsOSBAQCB0ZXN0KCJyZXZhbGlkYXRlcyB0ZXJyaXRvcnkgYW5kIGNvbXBsZXRlcyB0aGUgZm91ci1zdGVwIGZpY3Rpb25hbCBsZWFkIGhhbmRvZmYiLAogICBhd2FpdCBwYWdlLmdldEJ5Um9sZSgiYnV0dG9uIiwgeyBuYW1lOiAiRmluZCBUZXJyaXRvcnkiIH0pLmNsaWNrKCk7CiAgIGF3YWl0IGV4cGVjdChwYWdlKS50b0hhdmVVUkwoL3ppcD02MzEwMS8pOwogICBhd2FpdCBwYWdlCi0gICAgLmdldEJ5Um9sZSgibGluayIsIHsgbmFtZTogIlNlbmQgTGVhZCIgfSkKLSAgICAuZmlsdGVyKHsgdmlzaWJsZTogdHJ1ZSB9KQotICAgIC5maXJzdCgpCisgICAgLmdldEJ5Um9sZSgibGluayIsIHsKKyAgICAgIG5hbWU6ICJTZW5kIExlYWQgdG8gSm9yZGFuIExlZSBmb3IgRmFjaWxpdHkgU2VydmljZXMiLAorICAgIH0pCiAgICAgLmNsaWNrKCk7CiAgIGF3YWl0IGV4cGVjdChwYWdlKS50b0hhdmVVUkwoL1wvbGVhZHNcL25ldyQvKTsKICAgYXdhaXQgZXhwZWN0KHBhZ2UuZ2V0QnlMYWJlbCgiQ3VzdG9tZXIgWklQIGNvZGUiKSkudG9IYXZlVmFsdWUoIjYzMTAxIik7CkBAIC0yNTEsNyArMjUxLDcgQEAgdGVzdCgicmFua3MgcGVyc29uYWwgbGVhZCB3b3JrIGFuZCBrZWVwcyBzZWFyY2ggZGV0YWlscyBvdXQgb2YgdGhlIFVSTCIsIGFzeW5jICgKICAgKS50b0JlVmlzaWJsZSgpOwogICBhd2FpdCBleHBlY3QocGFnZS5nZXRCeVJvbGUoImxpbmsiLCB7IG5hbWU6ICJSZXNwb25kIE5vdyIgfSkpLnRvQmVWaXNpYmxlKCk7CiAKLSAgYXdhaXQgcGFnZS5nZXRCeUxhYmVsKCJWaWV3Iikuc2VsZWN0T3B0aW9uKCJ3YWl0aW5nIik7CisgIGF3YWl0IHBhZ2UuZ2V0QnlMYWJlbCgiVmlldyIsIHsgZXhhY3Q6IHRydWUgfSkuc2VsZWN0T3B0aW9uKCJ3YWl0aW5nIik7CiAgIGF3YWl0IGV4cGVjdChwYWdlKS50b0hhdmVVUkwoL3ZpZXc9d2FpdGluZy8pOwogIGF3YWl0IGV4cGVjdChwYWdlLmdldEJ5VGV4dCgiMiBsZWFkcyIpKS50b0JlVmlzaWJsZSgpOwogIGF3YWl0IHBhZ2UuZ2V0QnlMYWJlbCgiU2VhcmNoIHRoaXMgdmlldyIpLmZpbGwoIk1lYWRvdyBMYW5lIik7Cg=="
     steps:
-      - name: Check out bootstrap branch
+      - name: Check out the exact correction source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          fetch-depth: 0
+          fetch-depth: 2
 
-      - name: Verify bundled history
+      - name: Verify the correction boundary
         shell: bash
         run: |
-          git bundle verify territory-desk-history.bundle
-          actual_head="$(git bundle list-heads territory-desk-history.bundle refs/heads/main | awk '{print $1}')"
-          test "$actual_head" = "$EXPECTED_HEAD"
+          test "$(git rev-parse HEAD^)" = "$EXPECTED_PARENT"
+          test "$(git diff --name-only HEAD^ HEAD)" = ".github/workflows/import-history.yml"
+          test -z "$(git status --short)"
 
-      - name: Merge the complete independent history
+      - name: Verify and apply the tested patch
+        shell: bash
+        run: |
+          patch_file="$RUNNER_TEMP/territory-desk-release-corrections.patch"
+          printf '%s' "$PATCH_BASE64" | base64 --decode > "$patch_file"
+          printf '%s  %s\n' "$PATCH_SHA256" "$patch_file" | sha256sum --check
+          git apply --check "$patch_file"
+          git apply "$patch_file"
+          git diff --check
+
+      - name: Commit only the approved files
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git fetch territory-desk-history.bundle refs/heads/main:refs/heads/verified-local-main
-          git merge --no-ff --allow-unrelated-histories -m "build: merge verified Territory Desk history" refs/heads/verified-local-main
+          git add app/components/shell/AppShell.test.tsx app/components/shell/AppShell.tsx app/features/territory/TerritoryLookup.test.tsx app/features/territory/TerritoryResults.tsx e2e/scaffold.spec.ts
+          actual_paths="$(git diff --cached --name-only | paste -sd '|' -)"
+          expected_paths="app/components/shell/AppShell.test.tsx|app/components/shell/AppShell.tsx|app/features/territory/TerritoryLookup.test.tsx|app/features/territory/TerritoryResults.tsx|e2e/scaffold.spec.ts"
+          test "$actual_paths" = "$expected_paths"
+          git commit -m "test: harden cross-device release gate"
           git push origin HEAD:main
