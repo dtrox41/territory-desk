@@ -1,15 +1,11 @@
-import { PlaceholderPage } from "../components/layout/PageFrame";
 import { pageMeta } from "../components/layout/page-meta";
+import { HelpTopic as HelpTopicScreen } from "../features/help/HelpTopic";
+import { fictionalHelpService } from "../services/fictional/help";
 
 export function meta() {
   return pageMeta("Help Topic", "Fictional Territory Desk help-topic route.");
 }
 
 export default function HelpTopic() {
-  return (
-    <PlaceholderPage
-      description="Read one approved, versioned task-guidance topic."
-      title="Help Topic"
-    />
-  );
+  return <HelpTopicScreen service={fictionalHelpService} />;
 }

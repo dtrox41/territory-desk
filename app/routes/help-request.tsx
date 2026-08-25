@@ -1,5 +1,6 @@
-import { PlaceholderPage } from "../components/layout/PageFrame";
 import { pageMeta } from "../components/layout/page-meta";
+import { HelpRequestDetail } from "../features/help/HelpRequestDetail";
+import { fictionalHelpService } from "../services/fictional/help";
 
 export function meta() {
   return pageMeta(
@@ -9,10 +10,5 @@ export function meta() {
 }
 
 export default function HelpRequest() {
-  return (
-    <PlaceholderPage
-      description="Review one reporter-authorized fictional support or feedback request."
-      title="Help Request"
-    />
-  );
+  return <HelpRequestDetail service={fictionalHelpService} />;
 }
