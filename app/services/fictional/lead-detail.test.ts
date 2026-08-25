@@ -148,7 +148,7 @@ describe("fictional lead-detail service", () => {
 
     const created = await service.manageFollowUp({
       action: "create",
-      dueAt: "2026-08-25T16:00:00.000Z",
+      dueAt: new Date(Date.now() + 60 * 60 * 1000).toISOString(),
       handoffId: "demo-lead-1002",
       idempotencyKey: "follow-up-create-1",
       reviewedVersion: 2,
