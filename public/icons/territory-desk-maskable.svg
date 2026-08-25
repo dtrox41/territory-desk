@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Territory Desk maskable icon</title>
+  <desc id="description">The letters T and D within the maskable icon safe area.</desc>
+  <rect width="512" height="512" fill="#0B4B91"/>
+  <circle cx="256" cy="256" r="150" fill="#0B4B91" stroke="#82B8EA" stroke-width="20"/>
+  <circle cx="130" cy="184" r="24" fill="#FFFFFF"/>
+  <circle cx="382" cy="328" r="24" fill="#FFFFFF"/>
+  <text x="256" y="304" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="152" font-weight="700" letter-spacing="-12" text-anchor="middle">TD</text>
+</svg>

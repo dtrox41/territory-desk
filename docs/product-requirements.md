@@ -1,0 +1,167 @@
+# Product Requirements
+
+## Objective
+
+Territory Desk enables New Business Sales Representatives in different departments to find one another, exchange qualified cross-department leads, provide a timely response, coordinate the next action, and close the communication loop.
+
+## Primary workflow
+
+1. Search by ZIP code, city, service line, department, or representative.
+2. Verify the correct receiving representative.
+3. Create a structured cross-department handoff.
+4. Save the handoff as `Pending Acceptance`.
+5. Generate an in-app notification and simulated SMS event.
+6. Record authenticated viewing separately from notification delivery.
+7. Require `Accept`, `Need Information`, or `Decline`.
+8. Transfer ownership after acceptance.
+9. Create lead-derived follow-ups and record progress.
+10. Return activities, feedback, appointments, and outcomes to the sender.
+
+## First-release capabilities
+
+1. Responsive mobile-first dashboard and laptop layout.
+2. Territory lookup by ZIP code and city.
+3. Territory results grouped by department or service line.
+4. Representative directory.
+5. Structured lead creation.
+6. Lead status, ownership, and immutable activity history.
+7. Lead-derived follow-ups.
+8. Action Required inbox.
+9. Notifications with unread counts.
+10. Provider-neutral SMS simulation.
+11. Waiting-on-others and recent-feedback views.
+12. Actionable manager collaboration insights.
+
+## Home dashboard priority
+
+The home dashboard prioritizes a unified Action Required queue, then Waiting on Others, Recent Feedback and Outcomes, and permission-appropriate collaboration insights. New handoffs and lead-derived follow-ups are filterable categories inside Action Required rather than duplicated as separate large mobile cards.
+
+## Explicit exclusions for the initial release
+
+1. General daily call planner.
+2. General customer-visit planner.
+3. Route optimization or GPS tracking.
+4. Real-time chat.
+5. AI-written sales messages.
+6. Full CRM replacement.
+7. Raw-volume leaderboards.
+8. Full offline CRM synchronization.
+9. Paid carrier SMS.
+10. Real business data before authorization.
+
+## Ownership rules
+
+1. Pending handoffs retain a sending representative and requested recipient.
+2. Acceptance transfers current ownership to the recipient.
+3. `Need Information` returns a required question to the sender without closing the handoff.
+4. Decline requires a reason and returns responsibility to the sender.
+5. Managers may perform authorized reassignment.
+6. Every transition records actor and timestamp.
+
+## Response target
+
+The recipient should provide the first meaningful response by the end of the next business day in the recipient’s approved local timezone. Missing the target marks the handoff `Needs Attention`; it does not automatically penalize, decline, or reassign it.
+
+`Viewed` is not a meaningful response. `Accept`, `Need Information`, and `Decline` satisfy the first-response target.
+
+## Collaboration measurement
+
+The initial workflow KPIs are first-response target completion and closed-loop update completion. Qualified progression remains a gated outcome KPI until Dynamics mapping and attribution are validated.
+
+Insights must be actionable, link to accessible supporting records, display their eligible denominator and freshness, and avoid individual or raw-volume leaderboards. Missing or ambiguous evidence produces an explicit unavailable state rather than a guessed result.
+
+## Territory lookup
+
+Lookup supports five-digit ZIP, ZIP+4, city, and city-state searches. City-only searches must resolve to an exact ZIP before lead submission whenever the matching ZIPs have different assignments. Ambiguous, open, missing, or conflicting assignments cannot be routed automatically.
+
+The primary successful action is Send Lead, which prefills verified routing context into the structured handoff form. Direct call, email, and text actions remain contact utilities and do not count as tracked handoffs.
+
+## Representative directory
+
+The Directory supports teammate discovery by name, department, exact division, location, and state or approved region. Representatives are keyed by stable identifiers rather than display names, and contacts are permission controlled.
+
+Starting Send Lead from Directory preselects a person but does not bypass routing. The requested service and customer ZIP must validate against the current territory assignment before submission; mismatches and exceptions remain explicit.
+
+## Lead creation
+
+Each submitted handoff has one requested department and one accountable recipient. The authenticated sender, validated territory context, customer need, and response target are recorded before privacy-safe in-app and simulated-SMS notification attempts begin.
+
+Lead creation uses Route, Customer, Opportunity, and Review & Send steps. It supports incomplete contact availability without fabricated data, warns about possible duplicates, and uses idempotent server submission so retries cannot create duplicate handoffs.
+
+## Lead status and ownership
+
+Handoff status, current owner, required-action owner, attention state, response target, view state, notification state, and outcome source are separate. Before acceptance the sender owns the record while the requested recipient owes the response; acceptance atomically transfers ownership to the recipient.
+
+Only approved state transitions are allowed. Need Information, Decline, withdrawal, manager reassignment, progress, appointments, outcomes, corrections, and future Dynamics reconciliation preserve immutable history and use explicit permissions and reasons.
+
+## Follow-ups and reminders
+
+Each accepted handoff has at most one active primary follow-up in the initial release. Follow-ups use a single owner, explicit action type, timezone-aware due timestamp, structured result, immutable reschedule history, and derived due-today or overdue state.
+
+Territory Desk remains the follow-up source of truth. The first release may export an optional privacy-safe `.ics` snapshot, but it does not use Microsoft Graph, require Azure/Entra integration, or claim live Outlook synchronization.
+
+## Activity history
+
+Each handoff has an append-only shared collaboration timeline. System, notification, follow-up, user-progress, appointment, and outcome events remain distinct; structured workflow commands create consequential events automatically.
+
+User-reported activity records occurred and recorded times separately. Corrections add linked superseding events, private notes and attachments are excluded, and no free-text activity silently completes a follow-up or changes status.
+
+## Leads list
+
+`/leads` is the authenticated user's My Work list with Action Required, Waiting on Others, Received, Sent, In Progress, and Completed views. Managers retain this personal scope; team-wide records remain in Manager Insights.
+
+Action Required uses the canonical deterministic ranking. Other views use documented lifecycle-specific sorts, all counts remain permission filtered, and customer or participant search text stays out of URLs, analytics, and persistent browser storage.
+
+## Lead detail
+
+Lead Detail presents the current user's exact required action first, followed by separate status and ownership dimensions, Overview and Activity panels, customer need, routing, primary follow-up, feedback, related handoffs, and source status.
+
+Primary action changes by role and state. Consequential responses, corrections, manager actions, appointments, and outcomes use explicit review flows; opening, viewing, external contact, free text, or notification delivery never changes business state implicitly.
+
+## Notification Center
+
+The Notification Center is permission-safe event history for lead alerts, feedback and outcomes, reminders, and actionable system notices. Leads remains the authoritative current-action list.
+
+The bell counts only authorized unread in-app notifications. Read state, linked-record view, SMS delivery, response, ownership, and Action Required state remain separate; opening the center never marks all notifications read.
+
+## Manager Insights screen
+
+`/insights` is a role-controlled Team Insights workspace that remains separate from each manager's personal My Work. It opens with authorized scope and data freshness, then presents Needs Attention exceptions, the two approved workflow KPIs, diagnostic drivers, routing and measurement guardrails, and permission-safe supporting records.
+
+The screen is action-oriented and responsive for smartphone and laptop. It never ranks individual representatives, treats raw lead volume as success, guesses missing values, or exposes Dynamics-dependent outcomes before source mapping and reconciliation are approved.
+
+## Data Status
+
+`/data-status` explains whether territory, directory, workflow, notification, and future Dynamics information is safe enough for each dependent action. Source freshness, validation, verification, version compatibility, known exceptions, and channel availability remain separate rather than collapsing into one misleading health indicator.
+
+Representatives can report incorrect information and follow their own reporter-visible issue status, while managers receive only approved aggregate context inside their authorized scope. Reports never edit source data directly, and administrative source correction remains outside the first release.
+
+## My Profile
+
+`/profile` lets the authenticated user verify source-controlled identity, department, role, location, territory context, manager scope, work timezone, and notification destination. Those values cannot be edited inside Territory Desk; incorrect information follows the auditable data-reporting process.
+
+The first release exposes only implemented user preferences, led by the default in-app reminder for newly created follow-ups. Required workflow notifications cannot be disabled, SMS remains simulated until production approval, and unsupported identity-provider, email, push, Outlook, customer-texting, and cosmetic settings remain absent.
+
+## Help and Feedback
+
+`/help` provides approved task instructions and routes learning, data correction, access help, application problems, and product suggestions to distinct processes. Data corrections use Data Status; identity and scope problems use access help; general submissions require a configured support or product owner and approved destination.
+
+Prototype submissions are fictional and simulated. Production never presents a working-looking form that discards requests, and Help does not accept emergencies, customer records, credentials, screenshots, unrestricted attachments, or confidential security reports.
+
+## Authentication and system pages
+
+Production authentication and authorization are server enforced and remain distinct. The provider-neutral sign-in flow, protected session, role and record checks, session expiration, access-required, access-denied, account-unavailable, signed-out, offline, maintenance, update-required, not-found, and unexpected-error states never expose credentials or protected record existence.
+
+GitHub Pages may host only the fictional public prototype. It cannot secure embedded employee or customer data through a browser-only password gate. Production identity, hosting, backend session, timeout values, and company support contacts remain architecture or company decisions.
+
+## Route and cross-screen action contract
+
+Every primary, detail, secondary, and system route is registered with its allowed filters, authorization, active navigation, Back behavior, focus restoration, direct-link fallback, and privacy boundary. View All, affected-record, drill-down, correction, access-help, and request-detail controls map to deterministic destinations; no URL or fragment executes a business command.
+
+## Data and integration boundary
+
+1. Prototype records are fictional.
+2. Dynamics 365 remains authoritative for records that already live there.
+3. Real integration uses a service adapter after the Dynamics environment and permissions are confirmed.
+4. The app may own collaboration metadata that Dynamics does not own, subject to approval.
+5. Sensitive details do not appear in SMS previews.

@@ -1,0 +1,100 @@
+.installGuide {
+  align-items: center;
+  background: var(--color-information-background);
+  border-block-end: var(--border-1) solid var(--color-information-boundary);
+  color: var(--color-information-foreground);
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  padding: var(--space-3) var(--space-4);
+}
+
+.installIcon {
+  align-items: center;
+  background: var(--color-surface);
+  border-radius: var(--radius-round);
+  display: inline-flex;
+  inline-size: var(--control-sm);
+  justify-content: center;
+  min-block-size: var(--control-sm);
+}
+
+.installCopy {
+  min-inline-size: 0;
+}
+
+.installTitle,
+.installDescription {
+  margin: 0;
+}
+
+.installTitle {
+  color: var(--color-text-strong);
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  line-height: var(--line-sm);
+}
+
+.installDescription {
+  font-size: var(--text-xs);
+  line-height: var(--line-xs);
+  margin-block-start: var(--space-1);
+}
+
+.installButton,
+.dismissButton {
+  align-items: center;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: var(--font-semibold);
+  justify-content: center;
+  min-block-size: var(--control-sm);
+}
+
+.installButton {
+  background: var(--color-action-primary);
+  border: var(--border-2) solid var(--color-action-primary);
+  color: var(--color-text-inverse);
+  padding-inline: var(--space-4);
+}
+
+.installButton:hover {
+  background: var(--color-action-primary-hover);
+  border-color: var(--color-action-primary-hover);
+}
+
+.dismissButton {
+  background: transparent;
+  border: var(--border-1) solid transparent;
+  color: var(--color-information-foreground);
+  inline-size: var(--control-sm);
+  padding: 0;
+}
+
+.dismissButton:hover {
+  background: var(--color-surface);
+  border-color: var(--color-information-boundary);
+}
+
+@media (max-width: 25rem) {
+  .installGuide {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .installButton {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .dismissButton {
+    grid-column: 3;
+    grid-row: 1;
+  }
+}
+
+@media (min-width: 48rem) {
+  .installGuide {
+    display: none;
+  }
+}

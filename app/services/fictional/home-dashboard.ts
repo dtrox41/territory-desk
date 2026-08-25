@@ -1,0 +1,219 @@
+import type { HomeDashboardData } from "../../domain/home-dashboard";
+import { includesRecordInView } from "../../domain/leads-list";
+import type { HomeDashboardService } from "../home-dashboard-service";
+import { fictionalCurrentUserId, fictionalLeadListRecords } from "./leads-list";
+
+const homeDashboardFixture: HomeDashboardData = {
+  actionRequired: {
+    items: [
+      {
+        company: "Northstar Packaging",
+        department: "Facility Services",
+        exactTime: "Friday, August 21, 2026 at 2:15 PM Central Time",
+        handoffId: "demo-lead-1001",
+        primaryAction: "Respond Now",
+        rankReason:
+          "Ranked first because the one-business-day response target was missed.",
+        relativeTime: "3 days ago",
+        sender: "Jamie Chen",
+        status: "Awaiting response",
+        tone: "danger",
+        visibleReason: "Response target missed",
+      },
+      {
+        company: "Blue River Pediatrics",
+        department: "First Aid",
+        exactTime: "Friday, August 21, 2026 at 4:00 PM Central Time",
+        handoffId: "demo-lead-1002",
+        primaryAction: "Complete Follow-Up",
+        rankReason: "Ranked because a lead-derived follow-up is overdue.",
+        relativeTime: "Due 3 days ago",
+        sender: "Morgan Davis",
+        status: "Accepted",
+        tone: "warning",
+        visibleReason: "Follow-up overdue",
+      },
+      {
+        company: "Summit Auto Group",
+        department: "Uniform",
+        exactTime: "Monday, August 24, 2026 at 8:10 AM Central Time",
+        handoffId: "demo-lead-1003",
+        primaryAction: "Review Information",
+        rankReason:
+          "Ranked because the sender supplied the information you requested.",
+        relativeTime: "1 hour ago",
+        sender: "Casey Rivera",
+        status: "Information received",
+        tone: "information",
+        visibleReason: "Information received",
+      },
+      {
+        company: "Lakeside Foods",
+        department: "Facility Services",
+        exactTime: "Monday, August 24, 2026 at 8:40 AM Central Time",
+        handoffId: "demo-lead-1004",
+        primaryAction: "Review Lead",
+        rankReason: "Ranked because this new peer handoff has not been viewed.",
+        relativeTime: "30 minutes ago",
+        sender: "Alex Grant",
+        status: "New",
+        tone: "information",
+        visibleReason: "New lead",
+      },
+      {
+        company: "Harbor Tooling",
+        department: "Facility Services",
+        exactTime: "Sunday, August 23, 2026 at 11:00 AM Central Time",
+        handoffId: "demo-lead-1010",
+        primaryAction: "Respond",
+        rankReason:
+          "Ranked because this viewed handoff still needs a meaningful response.",
+        relativeTime: "Yesterday",
+        sender: "Jordan Lee",
+        status: "Awaiting response",
+        tone: "warning",
+        visibleReason: "Response needed",
+      },
+    ],
+    total: 5,
+  },
+  dateLabel: "Monday, August 24",
+  feedback: {
+    items: [
+      {
+        actor: "Jordan Lee",
+        company: "Greenway Logistics",
+        department: "Facility Services",
+        event: "Appointment set for the accepted handoff",
+        exactTime: "Monday, August 24, 2026 at 8:35 AM Central Time",
+        handoffId: "demo-lead-1007",
+        relativeTime: "35 minutes ago",
+        tone: "success",
+      },
+      {
+        actor: "Taylor Morgan",
+        company: "Oak Street Market",
+        department: "First Aid",
+        event: "Requested one additional qualification detail",
+        exactTime: "Monday, August 24, 2026 at 7:10 AM Central Time",
+        handoffId: "demo-lead-1008",
+        relativeTime: "2 hours ago",
+        tone: "information",
+      },
+      {
+        actor: "Avery Brooks",
+        company: "Beacon Dental Group",
+        department: "Uniform",
+        event: "Declined with the reason Existing opportunity",
+        exactTime: "Sunday, August 23, 2026 at 11:20 AM Central Time",
+        handoffId: "demo-lead-1009",
+        relativeTime: "Yesterday",
+        tone: "neutral",
+      },
+    ],
+    total: 3,
+  },
+  greeting: "Good morning, Taylor",
+  insights: [
+    {
+      detail: "One eligible response missed the target in this demo period.",
+      href: "/leads?view=action-required&attention=response-target",
+      label: "Response Target",
+      tone: "warning",
+      value: "4 of 5 on time",
+    },
+    {
+      detail: "Two accepted handoffs need an update or structured next action.",
+      href: "/leads?view=action-required&attention=open-loops",
+      label: "Open Loops",
+      tone: "danger",
+      value: "2 need action",
+    },
+    {
+      detail: "Appointments or final outcomes recorded during the demo period.",
+      href: "/leads?view=completed&attention=recent-progress",
+      label: "Recent Progress",
+      tone: "success",
+      value: "3 updates",
+    },
+  ],
+  lastUpdatedLabel: "Demo snapshot updated at 9:10 AM CT",
+  statusMessage: "5 lead actions need your attention",
+  summary: [
+    {
+      count: 2,
+      description: "Received and not yet viewed",
+      href: "/leads?view=received&attention=new",
+      label: "New",
+      tone: "information",
+    },
+    {
+      count: 2,
+      description: "Overdue response or next action",
+      href: "/leads?view=action-required&attention=needs-attention",
+      label: "Needs Attention",
+      tone: "danger",
+    },
+    {
+      count: 2,
+      description: "Sent and awaiting a teammate",
+      href: "/leads?view=waiting",
+      label: "Waiting",
+      tone: "warning",
+    },
+    {
+      count: 3,
+      description: "Recent appointments or final updates",
+      href: "/leads?view=completed&attention=recent-outcomes",
+      label: "Outcomes",
+      tone: "success",
+    },
+  ],
+  waiting: {
+    items: [
+      {
+        company: "Cedar Point Fabrication",
+        department: "Uniform",
+        exactTime: "Sunday, August 23, 2026 at 3:05 PM Central Time",
+        handoffId: "demo-lead-1005",
+        lastActivity: "Recipient viewed the handoff",
+        recipient: "Riley Brooks",
+        relativeTime: "18 hours ago",
+        status: "Viewed",
+        tone: "warning",
+      },
+      {
+        company: "Meadow Lane Pharmacy",
+        department: "First Aid",
+        exactTime: "Friday, August 21, 2026 at 1:30 PM Central Time",
+        handoffId: "demo-lead-1006",
+        lastActivity: "Recipient accepted and is planning the next action",
+        recipient: "Quinn Patel",
+        relativeTime: "3 days ago",
+        status: "Accepted",
+        tone: "success",
+      },
+    ],
+    total: 2,
+  },
+};
+
+export const fictionalHomeDashboardService: HomeDashboardService = {
+  getDashboard() {
+    const activeIds = new Set(
+      fictionalLeadListRecords
+        .filter((item) =>
+          includesRecordInView(item, fictionalCurrentUserId, "action-required"),
+        )
+        .map((item) => item.id),
+    );
+    const items = homeDashboardFixture.actionRequired.items
+      .filter((item) => activeIds.has(item.handoffId))
+      .slice(0, 4);
+    return Promise.resolve({
+      ...homeDashboardFixture,
+      actionRequired: { items, total: activeIds.size },
+      statusMessage: `${activeIds.size} lead actions need your attention`,
+    });
+  },
+};
