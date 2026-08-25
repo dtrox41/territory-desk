@@ -17,5 +17,6 @@ export interface AuthenticationService {
   ): Promise<{ accepted: true }>;
   completeAuthenticationReturn(): Promise<AuthenticationReturnResult>;
   getDemoPersonas(): Promise<DemoPersona[]>;
+  getSession(): Promise<DemoSession | null>;
   signOut(): Promise<{ cleared: true }>;
 }

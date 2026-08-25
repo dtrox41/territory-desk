@@ -82,6 +82,10 @@ export function createFictionalAuthenticationService(
       await Promise.resolve();
       return structuredClone(personas);
     },
+    async getSession() {
+      await Promise.resolve();
+      return currentSession ? structuredClone(currentSession) : null;
+    },
     async signOut() {
       await Promise.resolve();
       currentSession = undefined;

@@ -10,7 +10,7 @@ Its core workflow is:
 
 ## Project status
 
-Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/accessibility-system definition are complete. Steps 5.1 through 5.3.8 are accepted. Step 5.3.9 implements fictional Manager Insights locally and is awaiting user approval. No real integrations or production data have been added.
+Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/accessibility-system definition are complete. Steps 5.1 through 5.3.13 are accepted. Step 5.4 connects the fictional session, role-aware shell, manager-route boundary, sign-out behavior, direct-link return, and release verification locally and is awaiting user approval. No real integrations or production data have been added.
 
 ## Safety boundaries
 
@@ -71,6 +71,11 @@ Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/
 - `docs/lead-detail-implementation.md` — implemented Step 5.3.7 role-aware lead actions, status and ownership, meaningful responses, structured follow-ups, and append-only activity
 - `docs/notification-center-implementation.md` — implemented Step 5.3.8 permission-safe notification history, independent read state, confirmed read commands, and safe linked-lead navigation
 - `docs/manager-insights-implementation.md` — implemented Step 5.3.9 protected team exceptions, reconciling workflow metrics, small-sample safeguards, and responsive manager drill-downs
+- `docs/data-status-implementation.md` — implemented Step 5.3.10 fictional source trust, correction reporting, and action-safety states
+- `docs/profile-implementation.md` — implemented Step 5.3.11 fictional identity, access, routing, preferences, and sign-out controls
+- `docs/help-feedback-implementation.md` — implemented Step 5.3.12 fictional guidance, support routing, reporter-safe requests, and feedback controls
+- `docs/authentication-system-pages-implementation.md` — implemented Step 5.3.13 credential-free fictional sign-in and safe access, session, outage, and recovery states
+- `docs/integration-release-verification.md` — implemented Step 5.4 fictional session enforcement, role-aware integration, direct-link behavior, and release-gate evidence
 
 ## Local development
 

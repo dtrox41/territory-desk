@@ -8,6 +8,7 @@ import {
 } from "react-router";
 
 import { SystemPage } from "./components/layout/SystemPage";
+import { FictionalSessionProvider } from "./features/authentication/FictionalSessionProvider";
 import { SystemStatePage } from "./features/authentication/SystemStatePage";
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -73,7 +74,11 @@ export function HydrateFallback() {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <FictionalSessionProvider>
+      <Outlet />
+    </FictionalSessionProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

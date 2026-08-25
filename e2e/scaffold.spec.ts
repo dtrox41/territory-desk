@@ -1,10 +1,26 @@
 import AxeBuilder from "@axe-core/playwright";
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
+
+async function enterRepresentativeDemo(page: Page, destination = "/") {
+  await page.goto(destination);
+  await expect(page).toHaveURL(/\/sign-in\?returnTo=/);
+  await page.getByRole("button", { name: "Enter Fictional Demo" }).click();
+  await page
+    .getByRole("button", {
+      name: "Use New Business Representative Demo",
+    })
+    .click();
+  const destinationPath = new URL(destination, "https://territory-desk.invalid")
+    .pathname;
+  await expect(page).toHaveURL(
+    new RegExp(`${destinationPath.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`),
+  );
+}
 
 test("renders the fictional shell without detectable accessibility violations", async ({
   page,
 }) => {
-  await page.goto("/");
+  await enterRepresentativeDemo(page);
 
   await expect(
     page.getByRole("heading", {
@@ -33,10 +49,61 @@ test("renders the fictional shell without detectable accessibility violations", 
   expect(accessibilityResults.violations).toEqual([]);
 });
 
+test("enforces the fictional session and manager-only route", async ({
+  page,
+}) => {
+  await enterRepresentativeDemo(page);
+  await page.evaluate(() => {
+    window.history.pushState({}, "", "/insights");
+    window.dispatchEvent(new PopStateEvent("popstate"));
+  });
+  await expect(page).toHaveURL(/\/access-denied$/);
+  await expect(
+    page.getByRole("heading", {
+      name: "You do not have access to this page or record",
+    }),
+  ).toBeVisible();
+  await expect(page.getByText("Team Insights")).toHaveCount(0);
+
+  await page.goto("/signed-out");
+  await expect(
+    page.getByRole("heading", { name: "You are signed out" }),
+  ).toBeVisible();
+  await page.goto("/insights");
+  await expect(page).toHaveURL(/\/sign-in\?returnTo=%2Finsights$/);
+  await page.getByRole("button", { name: "Enter Fictional Demo" }).click();
+  await page
+    .getByRole("button", { name: "Use Authorized Manager Demo" })
+    .click();
+  await expect(page).toHaveURL(/\/insights$/);
+  await expect(
+    page.getByRole("heading", { level: 1, name: "Team Insights" }),
+  ).toBeVisible();
+});
+
+test("returns a refreshed protected route through safe sign-in", async ({
+  page,
+}) => {
+  await enterRepresentativeDemo(page, "/leads");
+  await expect(
+    page.getByRole("heading", { level: 1, name: "Leads" }),
+  ).toBeVisible();
+
+  await page.reload();
+  await expect(page).toHaveURL(/\/sign-in\?returnTo=%2Fleads$/);
+  await page.getByRole("button", { name: "Enter Fictional Demo" }).click();
+  await page
+    .getByRole("button", {
+      name: "Use New Business Representative Demo",
+    })
+    .click();
+  await expect(page).toHaveURL(/\/leads$/);
+});
+
 test("navigates to a primary route and renders a safe not-found page", async ({
   page,
 }) => {
-  await page.goto("/");
+  await enterRepresentativeDemo(page);
 
   await page
     .getByRole("link", { name: "Send Lead" })
@@ -59,7 +126,7 @@ test("navigates to a primary route and renders a safe not-found page", async ({
 test("validates and accepts fictional territory search criteria", async ({
   page,
 }) => {
-  await page.goto("/territory");
+  await enterRepresentativeDemo(page, "/territory");
 
   const searchInput = page.getByRole("combobox", {
     name: "ZIP code or city",
@@ -88,7 +155,7 @@ test("validates and accepts fictional territory search criteria", async ({
 test("distinguishes duplicate directory identities and opens canonical detail", async ({
   page,
 }) => {
-  await page.goto("/directory");
+  await enterRepresentativeDemo(page, "/directory");
 
   await expect(
     page.getByRole("heading", {
@@ -125,7 +192,13 @@ test("distinguishes duplicate directory identities and opens canonical detail", 
 test("revalidates territory and completes the four-step fictional lead handoff", async ({
   page,
 }) => {
-  await page.goto("/territory?zip=63101");
+  await enterRepresentativeDemo(page, "/territory");
+  const searchInput = page.getByRole("combobox", {
+    name: "ZIP code or city",
+  });
+  await searchInput.fill("63101");
+  await page.getByRole("button", { name: "Find Territory" }).click();
+  await expect(page).toHaveURL(/zip=63101/);
   await page
     .getByRole("link", { name: "Send Lead" })
     .filter({ visible: true })
@@ -167,7 +240,7 @@ test("revalidates territory and completes the four-step fictional lead handoff",
 test("ranks personal lead work and keeps search details out of the URL", async ({
   page,
 }) => {
-  await page.goto("/leads");
+  await enterRepresentativeDemo(page, "/leads");
 
   await expect(
     page.getByRole("heading", { level: 1, name: "Leads" }),
