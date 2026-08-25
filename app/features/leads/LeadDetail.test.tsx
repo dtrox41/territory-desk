@@ -27,6 +27,40 @@ function renderDetail(
 }
 
 describe("LeadDetail", () => {
+  it("restores the prior Team Insights context for a manager drill-down", async () => {
+    const user = userEvent.setup();
+    render(
+      <MemoryRouter
+        initialEntries={[
+          "/insights?period=30&records=missed-first-response#exceptions",
+          {
+            pathname: "/leads/demo-lead-1001",
+            state: {
+              insightsOrigin:
+                "/insights?period=30&records=missed-first-response#exceptions",
+            },
+          },
+        ]}
+        initialIndex={1}
+      >
+        <Routes>
+          <Route
+            element={
+              <LeadDetail leadService={createFictionalLeadDetailService()} />
+            }
+            path="/leads/:leadId"
+          />
+          <Route element={<p>Team Insights destination</p>} path="/insights" />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    await user.click(
+      await screen.findByRole("button", { name: "← Back to Team Insights" }),
+    );
+    expect(await screen.findByText("Team Insights destination")).toBeVisible();
+  });
+
   it("shows the action, ownership, routing, and accountability without conflating view and response", async () => {
     renderDetail();
     expect(

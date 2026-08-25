@@ -861,6 +861,12 @@ export function LeadDetail({ leadService, onAuthorizedLoad }: LeadDetailProps) {
     message: string;
   } | null>(null);
   const panel: Panel = location.hash === "#activity" ? "activity" : "overview";
+  const navigationState = location.state as { insightsOrigin?: string } | null;
+  const insightsOrigin =
+    typeof navigationState?.insightsOrigin === "string" &&
+    navigationState.insightsOrigin.startsWith("/insights")
+      ? navigationState.insightsOrigin
+      : undefined;
   const validId = /^demo-lead-[a-z0-9-]{1,40}$/.test(leadId);
 
   async function loadActivity(filter = activityFilter) {
@@ -989,11 +995,13 @@ export function LeadDetail({ leadService, onAuthorizedLoad }: LeadDetailProps) {
       <button
         className={styles.backButton}
         onClick={() => {
-          void (location.key === "default" ? navigate("/leads") : navigate(-1));
+          void (location.key === "default"
+            ? navigate(insightsOrigin ?? "/leads")
+            : navigate(-1));
         }}
         type="button"
       >
-        ← Back to My Leads
+        ← Back to {insightsOrigin ? "Team Insights" : "My Leads"}
       </button>
       <p aria-live="polite" className={styles.srAnnouncement}>
         {announcement ? `${announcement.heading}. ${announcement.message}` : ""}

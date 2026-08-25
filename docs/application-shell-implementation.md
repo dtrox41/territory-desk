@@ -61,9 +61,9 @@ Static routes are declared before dynamic routes so values such as `new` and `re
 
 ## Manager-access boundary
 
-The default shell is representative-first. Manager Insights is omitted from representative navigation. Directly entering `/insights` does not grant access; the route displays `Manager access required` instead of manager data.
+The reusable shell remains representative-first: Manager Insights is omitted when the representative variation is active. The current local fictional preview activates the authorized manager variation so Step 5.3.9 can be inspected without real authentication.
 
-`AppShell` has a tested manager-view variation so an authorized manager shell can later expose Manager Insights. That presentation switch is not treated as authorization. Real role resolution and server enforcement remain blocked until the protected authentication and API architecture is implemented.
+`AppShell` exposes Manager Insights only in its tested manager variation. That presentation switch is not authorization: the Manager Insights service separately returns authorized, representative-denied, manager-with-no-scope, lookup-failure, and removed-scope states. Real role resolution and server enforcement remain blocked until the protected authentication and API architecture is implemented.
 
 ## Accessibility behavior
 

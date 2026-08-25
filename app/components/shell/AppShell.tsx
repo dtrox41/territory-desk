@@ -369,8 +369,9 @@ export function AppShell({ children, managerView = false }: AppShellProps) {
         </div>
         <div className={styles.drawerBody}>
           <p className={styles.drawerContext}>
-            Representative demo view. Manager Insights appears only for an
-            authorized manager profile.
+            {managerView
+              ? "Authorized manager demo view. My Work remains personal; Team Insights uses a separate fictional team scope."
+              : "Representative demo view. Manager Insights appears only for an authorized manager profile."}
           </p>
           <nav aria-label="Secondary navigation">
             <ul className={styles.drawerNavigationList}>

@@ -1,6 +1,6 @@
 # Step 5.3.8 — Fictional Notification Center
 
-Status: Implementation complete locally; awaiting user approval
+Status: Accepted by the user on 2026-08-24
 
 Date: 2026-08-24
 
@@ -150,5 +150,5 @@ lead remained `Pending Acceptance`.
 
 ## Next decision
 
-Approve Step 5.3.8 before implementation proceeds to Step 5.3.9 Manager
-Insights.
+Step 5.3.8 is accepted. Step 5.3.9 implements the fictional Manager Insights
+workspace in `docs/manager-insights-implementation.md`.
