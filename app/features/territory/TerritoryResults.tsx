@@ -181,6 +181,7 @@ function AssignedCard({
       <div className={styles.primaryActions}>
         {canSendLead ? (
           <Link
+            aria-label={`Send Lead to ${representative.displayName} for ${assignment.sourceDivision}`}
             className={styles.sendLead}
             state={{ routingSnapshot }}
             to="/leads/new"

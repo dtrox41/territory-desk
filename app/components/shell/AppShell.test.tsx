@@ -24,6 +24,11 @@ describe("AppShell", () => {
       ),
     ).toBeVisible();
     expect(
+      screen.getByRole("complementary", {
+        name: "Fictional prototype status",
+      }),
+    ).toBeVisible();
+    expect(
       screen.getByRole("link", { name: "Skip to main content" }),
     ).toHaveAttribute("href", "#main-content");
     expect(screen.getByRole("main")).toHaveAttribute("id", "main-content");

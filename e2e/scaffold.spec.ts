@@ -106,8 +106,8 @@ test("navigates to a primary route and renders a safe not-found page", async ({
   await enterRepresentativeDemo(page);
 
   await page
+    .getByRole("navigation", { name: "Quick actions" })
     .getByRole("link", { name: "Send Lead" })
-    .filter({ visible: true })
     .click();
   await expect(page).toHaveURL(/\/leads\/new$/);
   await expect(
@@ -166,7 +166,7 @@ test("distinguishes duplicate directory identities and opens canonical detail", 
   await expect(page.getByText(/Showing 6 of 13 representatives/)).toBeVisible();
 
   await page
-    .getByRole("searchbox", { name: "Search representatives" })
+    .getByLabel("Search representatives", { exact: true })
     .fill("Cameron Brooks");
   await expect(
     page.getByRole("heading", { name: "Cameron Brooks" }),
@@ -200,9 +200,9 @@ test("revalidates territory and completes the four-step fictional lead handoff",
   await page.getByRole("button", { name: "Find Territory" }).click();
   await expect(page).toHaveURL(/zip=63101/);
   await page
-    .getByRole("link", { name: "Send Lead" })
-    .filter({ visible: true })
-    .first()
+    .getByRole("link", {
+      name: "Send Lead to Jordan Lee for Facility Services",
+    })
     .click();
   await expect(page).toHaveURL(/\/leads\/new$/);
   await expect(page.getByLabel("Customer ZIP code")).toHaveValue("63101");
@@ -251,7 +251,7 @@ test("ranks personal lead work and keeps search details out of the URL", async (
   ).toBeVisible();
   await expect(page.getByRole("link", { name: "Respond Now" })).toBeVisible();
 
-  await page.getByLabel("View").selectOption("waiting");
+  await page.getByLabel("View", { exact: true }).selectOption("waiting");
   await expect(page).toHaveURL(/view=waiting/);
   await expect(page.getByText("2 leads")).toBeVisible();
   await page.getByLabel("Search this view").fill("Meadow Lane");

@@ -100,12 +100,15 @@ function ShellNavigationLink({
 
 function EnvironmentBanner() {
   return (
-    <div className={styles.environmentBanner} role="note">
+    <aside
+      aria-label="Fictional prototype status"
+      className={styles.environmentBanner}
+    >
       <span>
         Fictional Prototype — Do not enter real employee or customer information
       </span>
       <ReleaseStamp />
-    </div>
+    </aside>
   );
 }
 

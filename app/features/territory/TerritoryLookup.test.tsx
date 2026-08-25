@@ -92,7 +92,9 @@ describe("TerritoryLookup", () => {
     expect(
       screen.getByRole("heading", { name: "Open Territory" }),
     ).toBeVisible();
-    expect(screen.getAllByRole("link", { name: "Send Lead" })).toHaveLength(3);
+    expect(
+      screen.getAllByRole("link", { name: /^Send Lead to / }),
+    ).toHaveLength(3);
   });
 
   it("requires an exact city ZIP before exposing Send Lead", async () => {
@@ -108,13 +110,13 @@ describe("TerritoryLookup", () => {
       }),
     ).toBeVisible();
     expect(
-      screen.queryByRole("link", { name: "Send Lead" }),
+      screen.queryByRole("link", { name: /^Send Lead to / }),
     ).not.toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: "Use 65201" }));
 
     expect(
-      await screen.findAllByRole("link", { name: "Send Lead" }),
+      await screen.findAllByRole("link", { name: /^Send Lead to / }),
     ).toHaveLength(3);
   });
 
