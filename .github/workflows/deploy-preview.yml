@@ -1,0 +1,111 @@
+name: Verify and deploy fictional Preview
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: territory-desk-pages
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: Verify public artifact
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      pages: write
+    steps:
+      - name: Check out exact source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24.19.0
+
+      - name: Install pinned pnpm
+        run: npm install --global pnpm@11.19.0
+
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check formatting
+        run: pnpm format:check
+
+      - name: Lint source
+        run: pnpm lint
+
+      - name: Check types
+        run: pnpm typecheck
+
+      - name: Run environment, component, and unit tests
+        run: pnpm test
+
+      - name: Install supported browser engines
+        run: pnpm exec playwright install --with-deps chromium webkit
+
+      - name: Run laptop, Android-size, and iPhone-size browser tests
+        run: pnpm test:e2e
+
+      - name: Create traceable Preview metadata
+        run: |
+          echo "VITE_PUBLIC_BUILD_ID=$GITHUB_SHA" >> "$GITHUB_ENV"
+          echo "VITE_PUBLIC_RELEASED_AT=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> "$GITHUB_ENV"
+
+      - name: Validate the exact fictional Preview boundary
+        env: &preview-environment
+          APP_ENV: preview
+          RELEASE_GATE: safe-start
+          DATA_MODE: fictional
+          AUTH_MODE: demo
+          SMS_MODE: simulation
+          EMAIL_MODE: disabled
+          CALENDAR_MODE: ics
+          DYNAMICS_INTEGRATION_MODE: disabled
+          DEMO_PERSONAS_ENABLED: "true"
+          PERSISTENCE_MODE: memory
+          VITE_PUBLIC_APP_ENV: preview
+          VITE_PUBLIC_BASE_PATH: /territory-desk/
+          VITE_FICTIONAL_PROTOTYPE: "true"
+        run: pnpm check:environment
+
+      - name: Build the GitHub Pages Preview
+        env: *preview-environment
+        run: pnpm build
+
+      - name: Scan the generated public artifact
+        env: *preview-environment
+        run: pnpm check:preview-artifact
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+
+      - name: Upload only the generated public artifact
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: build/client
+          retention-days: 1
+
+  deploy:
+    name: Deploy verified Preview
+    needs: verify
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+      pages: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
