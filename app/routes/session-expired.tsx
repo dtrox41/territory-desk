@@ -3,11 +3,11 @@ import { SystemStatePage } from "../features/authentication/SystemStatePage";
 
 export function meta() {
   return pageMeta(
-    "Signed out",
-    "The fictional Territory Desk session has ended.",
+    "Session expired",
+    "The fictional Territory Desk session expired.",
   );
 }
 
-export default function SignedOut() {
-  return <SystemStatePage state="signed-out" />;
+export default function SessionExpired() {
+  return <SystemStatePage state="session-expired" />;
 }

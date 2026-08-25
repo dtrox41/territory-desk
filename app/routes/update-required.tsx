@@ -3,11 +3,11 @@ import { SystemStatePage } from "../features/authentication/SystemStatePage";
 
 export function meta() {
   return pageMeta(
-    "Signed out",
-    "The fictional Territory Desk session has ended.",
+    "Update required",
+    "Territory Desk must refresh before protected work continues.",
   );
 }
 
-export default function SignedOut() {
-  return <SystemStatePage state="signed-out" />;
+export default function UpdateRequired() {
+  return <SystemStatePage state="update-required" />;
 }

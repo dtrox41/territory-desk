@@ -20,7 +20,7 @@ test("PWA manifest defines a standalone, base-path-safe application", async () =
 test("PWA public foundation includes install and offline assets", async () => {
   const requiredAssets = [
     "../public/sw.js",
-    "../public/offline.html",
+    "../public/offline-fallback.html",
     "../public/icons/territory-desk-180.png",
     "../public/icons/territory-desk-192.png",
     "../public/icons/territory-desk-512.png",

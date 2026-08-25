@@ -8,6 +8,7 @@ import {
 } from "react-router";
 
 import { SystemPage } from "./components/layout/SystemPage";
+import { SystemStatePage } from "./features/authentication/SystemStatePage";
 import type { Route } from "./+types/root";
 import "./app.css";
 
@@ -79,16 +80,6 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   const notFound = isRouteErrorResponse(error) && error.status === 404;
 
   return (
-    <SystemPage
-      actionLabel="Return to Home"
-      actionTo="/"
-      description={
-        notFound
-          ? "The requested fictional prototype page does not exist."
-          : "The application could not load this page. No business action was completed."
-      }
-      eyebrow="Territory Desk"
-      title={notFound ? "Page not found" : "Territory Desk is unavailable"}
-    />
+    <SystemStatePage state={notFound ? "not-found" : "unexpected-error"} />
   );
 }

@@ -3,11 +3,11 @@ import { SystemStatePage } from "../features/authentication/SystemStatePage";
 
 export function meta() {
   return pageMeta(
-    "Signed out",
-    "The fictional Territory Desk session has ended.",
+    "Unexpected error",
+    "Territory Desk could not safely complete this page.",
   );
 }
 
-export default function SignedOut() {
-  return <SystemStatePage state="signed-out" />;
+export default function UnexpectedError() {
+  return <SystemStatePage state="unexpected-error" />;
 }

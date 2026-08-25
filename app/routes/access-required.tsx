@@ -3,11 +3,11 @@ import { SystemStatePage } from "../features/authentication/SystemStatePage";
 
 export function meta() {
   return pageMeta(
-    "Signed out",
-    "The fictional Territory Desk session has ended.",
+    "Access required",
+    "Territory Desk access is not configured.",
   );
 }
 
-export default function SignedOut() {
-  return <SystemStatePage state="signed-out" />;
+export default function AccessRequired() {
+  return <SystemStatePage state="access-required" />;
 }

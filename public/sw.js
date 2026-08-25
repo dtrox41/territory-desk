@@ -1,8 +1,8 @@
 /* global caches, self */
 
-const cacheVersion = "territory-desk-shell-v1";
+const cacheVersion = "territory-desk-shell-v2";
 const scopeUrl = new URL(self.registration.scope);
-const offlineUrl = new URL("offline.html", scopeUrl).href;
+const offlineUrl = new URL("offline-fallback.html", scopeUrl).href;
 const applicationUrl = scopeUrl.href;
 const staticDestinations = new Set(["font", "image", "script", "style"]);
 
