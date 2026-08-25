@@ -14,7 +14,7 @@
     "format": "prettier --write --ignore-unknown .",
     "format:check": "prettier --check --ignore-unknown .",
     "generate:pwa-icons": "node scripts/generate-pwa-icons.mjs",
-    "lint": "eslint .",
+    "lint": "react-router typegen && eslint .",
     "typecheck": "react-router typegen && tsc --noEmit",
     "test": "pnpm test:environment && pnpm test:unit",
     "test:environment": "node --test tests/*.test.mjs",
