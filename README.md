@@ -10,7 +10,7 @@ Its core workflow is:
 
 ## Project status
 
-Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/accessibility-system definition are complete. Steps 5.1 through 5.3.13 are accepted. Step 5.4 connects the fictional session, role-aware shell, manager-route boundary, sign-out behavior, direct-link return, and release verification locally and is awaiting user approval. No real integrations or production data have been added.
+Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/accessibility-system definition are complete. Steps 5.1 through 5.4 are accepted. Step 5.5 prepares the separate public GitHub repository, fictional Preview release gates, traceable build metadata, and artifact safeguards. No real integrations or production data have been added.
 
 ## Safety boundaries
 
@@ -76,6 +76,7 @@ Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/
 - `docs/help-feedback-implementation.md` — implemented Step 5.3.12 fictional guidance, support routing, reporter-safe requests, and feedback controls
 - `docs/authentication-system-pages-implementation.md` — implemented Step 5.3.13 credential-free fictional sign-in and safe access, session, outage, and recovery states
 - `docs/integration-release-verification.md` — implemented Step 5.4 fictional session enforcement, role-aware integration, direct-link behavior, and release-gate evidence
+- `docs/preview-deployment.md` — Step 5.5 repository, GitHub Pages workflow, artifact safeguards, live-verification contract, and rollback plan
 
 ## Local development
 
@@ -92,4 +93,4 @@ The public fictional Preview build uses `VITE_PUBLIC_BASE_PATH=/territory-desk/`
 
 ## Repository status
 
-This repository is local-only until a separate GitHub repository is explicitly created and connected under the approved account.
+The separate public repository is `dtrox41/territory-desk`. The fictional GitHub Pages Preview remains unavailable until the repository source is uploaded and every release gate passes. The original `territory-lookup` repository and website remain untouched.
