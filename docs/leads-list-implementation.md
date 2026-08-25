@@ -1,6 +1,6 @@
 # Step 5.3.6 — Fictional Personal Leads List
 
-Status: Implementation complete locally; awaiting user approval
+Status: Accepted by the user on 2026-08-24
 
 Date: 2026-08-24
 
@@ -130,4 +130,5 @@ list.
 
 ## Next decision
 
-Approve Step 5.3.6 before implementation proceeds to Step 5.3.7 Lead Detail.
+Step 5.3.6 is accepted. Step 5.3.7 implements Lead Detail in
+`docs/lead-detail-implementation.md`.

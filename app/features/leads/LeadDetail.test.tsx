@@ -141,4 +141,46 @@ describe("LeadDetail", () => {
       ).toBeDisabled(),
     );
   });
+
+  it("reports an authorized core load to a notification-origin callback", async () => {
+    const onAuthorizedLoad = vi.fn();
+    render(
+      <MemoryRouter initialEntries={["/leads/demo-lead-1001"]}>
+        <Routes>
+          <Route
+            element={
+              <LeadDetail
+                leadService={createFictionalLeadDetailService()}
+                onAuthorizedLoad={onAuthorizedLoad}
+              />
+            }
+            path="/leads/:leadId"
+          />
+        </Routes>
+      </MemoryRouter>,
+    );
+    await screen.findByRole("heading", { name: "Northstar Packaging" });
+    expect(onAuthorizedLoad).toHaveBeenCalledWith("demo-lead-1001");
+  });
+
+  it("does not report a notification open when linked core access fails", async () => {
+    const onAuthorizedLoad = vi.fn();
+    render(
+      <MemoryRouter initialEntries={["/leads/demo-lead-9999"]}>
+        <Routes>
+          <Route
+            element={
+              <LeadDetail
+                leadService={createFictionalLeadDetailService()}
+                onAuthorizedLoad={onAuthorizedLoad}
+              />
+            }
+            path="/leads/:leadId"
+          />
+        </Routes>
+      </MemoryRouter>,
+    );
+    await screen.findByRole("heading", { name: "Lead unavailable" });
+    expect(onAuthorizedLoad).not.toHaveBeenCalled();
+  });
 });

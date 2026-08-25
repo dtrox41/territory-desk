@@ -10,7 +10,7 @@ Its core workflow is:
 
 ## Project status
 
-Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/accessibility-system definition are complete. Steps 5.1 through 5.3.6 are accepted. Step 5.3.7 implements the fictional Lead Detail collaboration workspace locally and is awaiting user approval. No real integrations or production data have been added.
+Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/accessibility-system definition are complete. Steps 5.1 through 5.3.7 are accepted. Step 5.3.8 implements the fictional Notification Center locally and is awaiting user approval. No real integrations or production data have been added.
 
 ## Safety boundaries
 
@@ -69,6 +69,7 @@ Phase 2 product definition, Phase 3 architecture definition, and Phase 4 visual/
 - `docs/lead-creation-implementation.md` — implemented Step 5.3.5 four-step fictional handoff, territory revalidation, duplicate/idempotency controls, and save-before-notification behavior
 - `docs/leads-list-implementation.md` — implemented Step 5.3.6 personal work views, approved action ranking, privacy-safe search and filters, bounded pagination, and responsive behavior
 - `docs/lead-detail-implementation.md` — implemented Step 5.3.7 role-aware lead actions, status and ownership, meaningful responses, structured follow-ups, and append-only activity
+- `docs/notification-center-implementation.md` — implemented Step 5.3.8 permission-safe notification history, independent read state, confirmed read commands, and safe linked-lead navigation
 
 ## Local development
 

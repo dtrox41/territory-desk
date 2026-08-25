@@ -25,8 +25,8 @@ type ShellNavigationLinkProps = {
   placement: "drawer" | "mobile" | "rail";
 };
 
-const unreadNotificationCount = 3;
 const initialLeadsRequiringActionCount = 5;
+const initialUnreadNotificationCount = 3;
 
 function getNavigationAccessibleName(
   item: NavigationItem,
@@ -105,17 +105,30 @@ function EnvironmentBanner() {
   );
 }
 
-function NotificationLink() {
+function NotificationLink({
+  count,
+  countAvailable,
+}: {
+  count: number;
+  countAvailable: boolean;
+}) {
+  const accessibleName = countAvailable
+    ? count
+      ? `Notifications, ${count} unread notifications`
+      : "Notifications, no unread notifications"
+    : "Notifications, notification count unavailable";
   return (
     <Link
-      aria-label={`Notifications, ${unreadNotificationCount} unread notifications`}
+      aria-label={accessibleName}
       className={styles.notificationLink}
       to="/notifications"
     >
       <Icon name="bell" size="large" />
-      <span aria-hidden="true" className={styles.countBadge}>
-        {unreadNotificationCount}
-      </span>
+      {countAvailable && count > 0 ? (
+        <span aria-hidden="true" className={styles.countBadge}>
+          {count > 99 ? "99+" : count}
+        </span>
+      ) : null}
     </Link>
   );
 }
@@ -130,6 +143,11 @@ export function AppShell({ children, managerView = false }: AppShellProps) {
   const [leadsActionCount, setLeadsActionCount] = useState(
     initialLeadsRequiringActionCount,
   );
+  const [notificationCount, setNotificationCount] = useState(
+    initialUnreadNotificationCount,
+  );
+  const [notificationCountAvailable, setNotificationCountAvailable] =
+    useState(true);
   const visibleSecondaryNavigation = secondaryNavigation.filter(
     (item) => item.to !== "/insights" || managerView,
   );
@@ -155,6 +173,42 @@ export function AppShell({ children, managerView = false }: AppShellProps) {
         "territory-desk:leads-updated",
         receiveLeadUpdate,
       );
+  }, []);
+
+  useEffect(() => {
+    const receiveNotificationUpdate = (event: Event) => {
+      const detail = (
+        event as CustomEvent<{ count?: number; countAvailable?: boolean }>
+      ).detail;
+      if (detail?.countAvailable === false) {
+        setNotificationCountAvailable(false);
+      } else if (
+        detail?.countAvailable === true &&
+        typeof detail.count === "number" &&
+        Number.isInteger(detail.count) &&
+        detail.count >= 0
+      ) {
+        setNotificationCount(detail.count);
+        setNotificationCountAvailable(true);
+      }
+    };
+    window.addEventListener(
+      "territory-desk:notifications-updated",
+      receiveNotificationUpdate,
+    );
+    return () =>
+      window.removeEventListener(
+        "territory-desk:notifications-updated",
+        receiveNotificationUpdate,
+      );
+  }, []);
+
+  useEffect(() => {
+    const markNotificationCountUnavailable = () =>
+      setNotificationCountAvailable(false);
+    window.addEventListener("offline", markNotificationCountUnavailable);
+    return () =>
+      window.removeEventListener("offline", markNotificationCountUnavailable);
   }, []);
 
   const openSecondaryNavigation = () => {
@@ -241,13 +295,19 @@ export function AppShell({ children, managerView = false }: AppShellProps) {
             <div className={styles.mobileBrand}>
               <BrandIdentity />
             </div>
-            <NotificationLink />
+            <NotificationLink
+              count={notificationCount}
+              countAvailable={notificationCountAvailable}
+            />
           </header>
 
           <header className={styles.desktopTopBar}>
             <p className={styles.desktopPageTitle}>{getPageTitle(pathname)}</p>
             <div className={styles.desktopUtilities}>
-              <NotificationLink />
+              <NotificationLink
+                count={notificationCount}
+                countAvailable={notificationCountAvailable}
+              />
               <Link
                 aria-label="Open My Profile"
                 className={styles.profileLink}

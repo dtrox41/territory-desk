@@ -1,6 +1,6 @@
 # Step 5.3.7 — Fictional Lead Detail
 
-Status: Implementation complete locally; awaiting user approval
+Status: Accepted by the user on 2026-08-24
 
 Date: 2026-08-24
 
@@ -121,5 +121,5 @@ screen before confirmation.
 
 ## Next decision
 
-Approve Step 5.3.7 before implementation proceeds to Step 5.3.8 Notification
-Center.
+Step 5.3.7 is accepted. Step 5.3.8 implements the fictional Notification Center
+in `docs/notification-center-implementation.md`.

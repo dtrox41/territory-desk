@@ -70,6 +70,55 @@ describe("AppShell", () => {
     ).toHaveLength(2);
   });
 
+  it("updates and fails the bell count without changing the Leads badge", () => {
+    renderShell("/notifications");
+
+    act(() => {
+      window.dispatchEvent(
+        new CustomEvent("territory-desk:notifications-updated", {
+          detail: { count: 2, countAvailable: true },
+        }),
+      );
+    });
+    expect(
+      screen.getAllByRole("link", {
+        name: "Notifications, 2 unread notifications",
+      }),
+    ).toHaveLength(2);
+    expect(
+      screen.getAllByRole("link", {
+        name: "Leads, 5 leads require action",
+      }),
+    ).toHaveLength(2);
+
+    act(() => {
+      window.dispatchEvent(
+        new CustomEvent("territory-desk:notifications-updated", {
+          detail: { countAvailable: false },
+        }),
+      );
+    });
+    expect(
+      screen.getAllByRole("link", {
+        name: "Notifications, notification count unavailable",
+      }),
+    ).toHaveLength(2);
+
+    act(() => {
+      window.dispatchEvent(
+        new CustomEvent("territory-desk:notifications-updated", {
+          detail: { count: 120, countAvailable: true },
+        }),
+      );
+    });
+    expect(screen.getAllByText("99+")).toHaveLength(2);
+    expect(
+      screen.getAllByRole("link", {
+        name: "Notifications, 120 unread notifications",
+      }),
+    ).toHaveLength(2);
+  });
+
   it("opens and closes representative secondary navigation", async () => {
     const user = userEvent.setup();
     renderShell();

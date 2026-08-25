@@ -1,5 +1,6 @@
-import { PlaceholderPage } from "../components/layout/PageFrame";
 import { pageMeta } from "../components/layout/page-meta";
+import { NotificationCenter } from "../features/notifications/NotificationCenter";
+import { fictionalNotificationService } from "../services/fictional/notifications";
 
 export function meta() {
   return pageMeta(
@@ -10,9 +11,6 @@ export function meta() {
 
 export default function Notifications() {
   return (
-    <PlaceholderPage
-      description="Review unread lead alerts, feedback and outcomes, reminders, and system notices."
-      title="Notifications"
-    />
+    <NotificationCenter notificationService={fictionalNotificationService} />
   );
 }

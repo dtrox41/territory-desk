@@ -24,7 +24,10 @@ import {
 import type { LeadDetailService } from "../../services/lead-detail-service";
 import styles from "./LeadDetail.module.css";
 
-type LeadDetailProps = { leadService: LeadDetailService };
+type LeadDetailProps = {
+  leadService: LeadDetailService;
+  onAuthorizedLoad?: (leadId: string) => void;
+};
 type LoadState = "loading" | "ready" | "unavailable" | "error";
 type Panel = "overview" | "activity";
 
@@ -836,7 +839,7 @@ function Unavailable() {
   );
 }
 
-export function LeadDetail({ leadService }: LeadDetailProps) {
+export function LeadDetail({ leadService, onAuthorizedLoad }: LeadDetailProps) {
   const { leadId = "" } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -889,6 +892,7 @@ export function LeadDetail({ leadService }: LeadDetailProps) {
         }
         setCore(result.core);
         setLoadState("ready");
+        onAuthorizedLoad?.(leadId);
         void leadService.recordAuthorizedView({
           handoffId: leadId,
           reviewedVersion: result.core.version,
@@ -915,7 +919,7 @@ export function LeadDetail({ leadService }: LeadDetailProps) {
     return () => {
       current = false;
     };
-  }, [leadId, leadService, validId]);
+  }, [leadId, leadService, onAuthorizedLoad, validId]);
 
   if (
     loadState === "loading" ||
