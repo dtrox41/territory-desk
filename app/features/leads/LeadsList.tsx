@@ -715,7 +715,7 @@ export function LeadsList({ leadsService }: LeadsListProps) {
         </div>
       ) : null}
 
-      <section aria-labelledby="leads-view-title" className={styles.controls}>
+      <section aria-label="Lead list controls" className={styles.controls}>
         <div className={styles.viewControl}>
           <label htmlFor="leads-view">View</label>
           <select

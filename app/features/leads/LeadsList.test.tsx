@@ -41,7 +41,13 @@ describe("LeadsList", () => {
     expect(
       screen.getByRole("heading", { level: 1, name: "Leads" }),
     ).toBeVisible();
+    expect(
+      screen.getByRole("region", { name: "Lead list controls" }),
+    ).toBeVisible();
     expect(await screen.findByText("5 leads")).toBeVisible();
+    expect(
+      screen.getByRole("region", { name: "Action Required" }),
+    ).toBeVisible();
     const companies = screen
       .getAllByRole("heading", { level: 2 })
       .map((heading) => heading.textContent);

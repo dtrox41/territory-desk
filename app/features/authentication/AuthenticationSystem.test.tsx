@@ -215,6 +215,10 @@ describe("authentication help and system states", () => {
     }).parentElement;
     expect(card).not.toBeNull();
     expect(within(card!).getByText(/No requested URL/)).toBeVisible();
+    expect(screen.getByRole("link", { name: "Return Home" })).toHaveAttribute(
+      "href",
+      "/",
+    );
     expect(document.body).not.toHaveTextContent("SECRET-LEAD-99");
   });
 });

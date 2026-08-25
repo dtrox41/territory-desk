@@ -118,9 +118,7 @@ test("navigates to a primary route and renders a safe not-found page", async ({
   await expect(
     page.getByRole("heading", { level: 1, name: "Page not found" }),
   ).toBeVisible();
-  await expect(
-    page.getByRole("link", { name: "Return to Home" }),
-  ).toBeVisible();
+  await expect(page.getByRole("link", { name: "Return Home" })).toBeVisible();
 });
 
 test("validates and accepts fictional territory search criteria", async ({
